@@ -1,0 +1,156 @@
+{
+  "schema_version": "traveler-screen-route-v1",
+  "framework": "nextjs-app-router",
+  "source_documents": [
+    "docs/03_UI_COVERAGE_ANALYSIS.md",
+    "docs/04_UIUX_PLAN.md",
+    "docs/STITCH_VALIDATION_REPORT.md",
+    "design-reference/D-001/DESIGN.md"
+  ],
+  "screens": [
+    {
+      "screen_id": "SCR-001",
+      "name": "메인",
+      "route": "/",
+      "page_entry": "src/app/page.tsx",
+      "priority": "core",
+      "mobile_variant": true,
+      "page_owner_task_required": true,
+      "preview_required": true,
+      "starter_template_forbidden": true,
+      "prohibited_features": [
+        "purchase_reservation_payment_ui",
+        "real_time_flight_hotel_pricing",
+        "advertising",
+        "star_ratings",
+        "airbnb_trademark_elements"
+      ]
+    },
+    {
+      "screen_id": "SCR-002",
+      "name": "대표 소개",
+      "route": "/about",
+      "page_entry": "src/app/about/page.tsx",
+      "priority": "supporting",
+      "mobile_variant": false,
+      "page_owner_task_required": true,
+      "preview_required": true,
+      "prohibited_features": [
+        "purchase_reservation_payment_ui",
+        "advertising",
+        "star_ratings",
+        "real_time_flight_hotel_pricing",
+        "airbnb_trademark_elements"
+      ]
+    },
+    {
+      "screen_id": "SCR-003",
+      "name": "통합 여행 준비",
+      "route": "/travel-tools",
+      "page_entry": "src/app/travel-tools/page.tsx",
+      "priority": "core",
+      "mobile_variant": true,
+      "page_owner_task_required": true,
+      "preview_required": true,
+      "prohibited_features": [
+        "real_time_flight_hotel_pricing",
+        "purchase_reservation_payment_ui",
+        "advertising",
+        "star_ratings",
+        "tabs_replaced_by_external_links",
+        "airbnb_trademark_elements"
+      ]
+    },
+    {
+      "screen_id": "SCR-004",
+      "name": "동행 조회",
+      "route": "/mates",
+      "page_entry": "src/app/mates/page.tsx",
+      "priority": "core",
+      "mobile_variant": false,
+      "page_owner_task_required": true,
+      "preview_required": true,
+      "prohibited_features": [
+        "purchase_reservation_payment_ui",
+        "advertising",
+        "star_ratings",
+        "real_time_flight_hotel_pricing",
+        "direct_contact_exposure_in_detail_panel",
+        "airbnb_trademark_elements"
+      ]
+    },
+    {
+      "screen_id": "SCR-005",
+      "name": "계정·관리",
+      "route": "/account",
+      "page_entry": "src/app/account/page.tsx",
+      "priority": "core",
+      "mobile_variant": false,
+      "page_owner_task_required": true,
+      "preview_required": true,
+      "prohibited_features": [
+        "login_only_screen_without_member_admin_tabs",
+        "purchase_reservation_payment_ui",
+        "advertising",
+        "star_ratings",
+        "real_time_flight_hotel_pricing",
+        "airbnb_trademark_elements"
+      ]
+    }
+  ],
+  "screen_count": 5,
+  "priority_summary": {
+    "core": ["SCR-001", "SCR-003", "SCR-004", "SCR-005"],
+    "supporting": ["SCR-002"]
+  },
+  "mobile_variants": ["SCR-001", "SCR-003"],
+  "technical_routes": [
+    {
+      "type": "auth_callback",
+      "path": "src/app/auth/callback/route.ts",
+      "note": "Supabase 인증 콜백. Screen 수에 포함하지 않음."
+    },
+    {
+      "type": "api_route",
+      "path": "src/app/api/**/route.ts",
+      "note": "동행 CRUD, 참가 요청, 신고, 관리자 처리 등 서버 API. Screen 수에 포함하지 않음."
+    },
+    {
+      "type": "not_found",
+      "path": "src/app/not-found.tsx",
+      "note": "전역 404 처리. Screen 수에 포함하지 않음."
+    },
+    {
+      "type": "global_error",
+      "path": "src/app/error.tsx",
+      "note": "전역 500/런타임 오류 처리. Screen 수에 포함하지 않음."
+    }
+  ],
+  "required_navigation": [
+    { "from": "SCR-001", "to": "SCR-002", "trigger": "Section 7 '대표 소개 보러가기' CTA" },
+    { "from": "SCR-001", "to": "SCR-003", "trigger": "Drawer 내 '여행 조건부터 정리하기' 보조 CTA" },
+    { "from": "SCR-001", "to": "SCR-004", "trigger": "Section 6 '전체 동행 보기' / 동행 글 작성하기(SCR-003 경유)" },
+    { "from": "SCR-001", "to": "SCR-005", "trigger": "비로그인 상태에서 즐겨찾기·계정 진입 시도" },
+    { "from": "SCR-002", "to": "SCR-001", "trigger": "기억에 남는 여행지 Card 클릭 → 여행지 상세 Drawer 오픈" },
+    { "from": "SCR-002", "to": "SCR-003", "trigger": "Section 7 CTA Banner" },
+    { "from": "SCR-002", "to": "SCR-004", "trigger": "Section 7 CTA Banner" },
+    { "from": "SCR-003", "to": "SCR-005", "trigger": "동행 탭에서 비로그인·성인 미확인 시 '로그인/성인 확인' CTA" },
+    { "from": "SCR-003", "to": "SCR-004", "trigger": "동행 모집글 작성 완료 후 해당 모집글 상세로 이동" },
+    { "from": "SCR-004", "to": "SCR-003", "trigger": "'새 동행 글 작성하기' CTA" },
+    { "from": "SCR-004", "to": "SCR-005", "trigger": "비로그인 상태에서 참가 요청·신고·차단 시도, 또는 요청/차단 관리 진입" },
+    { "from": "SCR-005", "to": "SCR-004", "trigger": "내 글 / 참가 요청 항목 클릭 → 해당 모집글 상세" },
+    { "from": "SCR-005", "to": "SCR-001", "trigger": "즐겨찾기 항목 클릭 → 해당 여행지 상세 Drawer 오픈" }
+  ],
+  "global_prohibitions": [
+    "airbnb_trademark_elements",
+    "purchase_reservation_payment_ui",
+    "proprietary_font_files",
+    "arbitrary_colors_outside_design_tokens"
+  ],
+  "completion_criteria": {
+    "no_duplicate_routes": true,
+    "no_duplicate_page_entries": true,
+    "screen_count_equals_5": true,
+    "core_supporting_split_present": true
+  }
+}

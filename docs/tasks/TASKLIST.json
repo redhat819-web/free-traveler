@@ -1,0 +1,1635 @@
+[
+  {
+    "task_id": "TASK-CMP-SCR-001-01",
+    "type": "component",
+    "title": "SearchHero - 여행지 검색 Hero",
+    "screen_id": "SCR-001",
+    "route": "/",
+    "page_entry": "src/app/page.tsx",
+    "depends_on": [
+      "TASK-DATA-01"
+    ],
+    "requirements": [
+      "REQ-FUNC-003",
+      "REQ-FUNC-010",
+      "REQ-FUNC-067"
+    ],
+    "prohibited_features": [
+      "advertising",
+      "star_ratings",
+      "airbnb_trademark_elements"
+    ],
+    "expected_files": [
+      {
+        "path": "src/components/destinations/SearchHero.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-001-01.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-001-02",
+    "type": "component",
+    "title": "DestinationCardGrid - 국내/해외 인기 여행지 Card Grid",
+    "screen_id": "SCR-001",
+    "route": "/",
+    "page_entry": "src/app/page.tsx",
+    "depends_on": [
+      "TASK-DATA-01"
+    ],
+    "requirements": [
+      "REQ-FUNC-001",
+      "REQ-FUNC-002",
+      "REQ-FUNC-005",
+      "REQ-FUNC-008",
+      "REQ-FUNC-009",
+      "REQ-NF-004"
+    ],
+    "prohibited_features": [
+      "purchase_reservation_payment_ui",
+      "star_ratings",
+      "advertising"
+    ],
+    "expected_files": [
+      {
+        "path": "src/components/destinations/DestinationCardGrid.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-001-02.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-001-03",
+    "type": "component",
+    "title": "ThemeChipList - 여행 동기·테마 Chip 목록",
+    "screen_id": "SCR-001",
+    "route": "/",
+    "page_entry": "src/app/page.tsx",
+    "depends_on": [
+      "TASK-DATA-01"
+    ],
+    "requirements": [
+      "REQ-FUNC-002"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/destinations/ThemeChipList.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-001-03.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-001-04",
+    "type": "component",
+    "title": "DestinationDrawer - 여행지 상세 Drawer",
+    "screen_id": "SCR-001",
+    "route": "/",
+    "page_entry": "src/app/page.tsx",
+    "depends_on": [
+      "TASK-DATA-01"
+    ],
+    "requirements": [
+      "REQ-FUNC-004",
+      "REQ-FUNC-006",
+      "REQ-FUNC-007",
+      "REQ-FUNC-068",
+      "REQ-FUNC-069",
+      "REQ-NF-026"
+    ],
+    "prohibited_features": [
+      "purchase_reservation_payment_ui",
+      "star_ratings"
+    ],
+    "expected_files": [
+      {
+        "path": "src/components/destinations/DestinationDrawer.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-001-04.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-001-05",
+    "type": "component",
+    "title": "SafetyNoticeCardGrid - 국가별 주의사항 Card",
+    "screen_id": "SCR-001",
+    "route": "/",
+    "page_entry": "src/app/page.tsx",
+    "depends_on": [
+      "TASK-DATA-02"
+    ],
+    "requirements": [
+      "REQ-FUNC-046",
+      "REQ-FUNC-047",
+      "REQ-FUNC-051",
+      "REQ-FUNC-052",
+      "REQ-NF-027"
+    ],
+    "prohibited_features": [
+      "advertising"
+    ],
+    "expected_files": [
+      {
+        "path": "src/components/safety/SafetyNoticeCardGrid.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-001-05.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-001-06",
+    "type": "component",
+    "title": "SafetyDrawer - 국가 안전정보 상세 Drawer",
+    "screen_id": "SCR-001",
+    "route": "/",
+    "page_entry": "src/app/page.tsx",
+    "depends_on": [
+      "TASK-DATA-02"
+    ],
+    "requirements": [
+      "REQ-FUNC-048",
+      "REQ-FUNC-049",
+      "REQ-FUNC-050",
+      "REQ-FUNC-053",
+      "REQ-FUNC-054",
+      "REQ-NF-028"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/safety/SafetyDrawer.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-001-06.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-001-07",
+    "type": "component",
+    "title": "RecentMatePreview - 최근 동행 이야기 Preview (Empty State 포함)",
+    "screen_id": "SCR-001",
+    "route": "/",
+    "page_entry": "src/app/page.tsx",
+    "depends_on": [
+      "TASK-DB-03"
+    ],
+    "requirements": [],
+    "prohibited_features": [
+      "purchase_reservation_payment_ui"
+    ],
+    "expected_files": [
+      {
+        "path": "src/components/mates/RecentMatePreview.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-001-07.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-001-08",
+    "type": "component",
+    "title": "AboutSummaryBanner - free_traveler 요약 CTA Banner",
+    "screen_id": "SCR-001",
+    "route": "/",
+    "page_entry": "src/app/page.tsx",
+    "depends_on": [
+      "TASK-DATA-03"
+    ],
+    "requirements": [],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/shared/AboutSummaryBanner.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-001-08.md"
+  },
+  {
+    "task_id": "TASK-PO-SCR-001",
+    "type": "page_owner",
+    "title": "SCR-001 메인(/) 조립 - Page Owner",
+    "screen_id": "SCR-001",
+    "route": "/",
+    "page_entry": "src/app/page.tsx",
+    "depends_on": [
+      "TASK-CMP-SCR-001-01",
+      "TASK-CMP-SCR-001-02",
+      "TASK-CMP-SCR-001-03",
+      "TASK-CMP-SCR-001-04",
+      "TASK-CMP-SCR-001-05",
+      "TASK-CMP-SCR-001-06",
+      "TASK-CMP-SCR-001-07",
+      "TASK-CMP-SCR-001-08"
+    ],
+    "requirements": [
+      "REQ-FUNC-001",
+      "REQ-FUNC-002",
+      "REQ-FUNC-003",
+      "REQ-FUNC-004",
+      "REQ-FUNC-005",
+      "REQ-FUNC-006",
+      "REQ-FUNC-007",
+      "REQ-FUNC-008",
+      "REQ-FUNC-009",
+      "REQ-FUNC-010",
+      "REQ-FUNC-046",
+      "REQ-FUNC-047",
+      "REQ-FUNC-048",
+      "REQ-FUNC-049",
+      "REQ-FUNC-050",
+      "REQ-FUNC-051",
+      "REQ-FUNC-052",
+      "REQ-FUNC-053",
+      "REQ-FUNC-054",
+      "REQ-FUNC-067",
+      "REQ-FUNC-068",
+      "REQ-FUNC-069",
+      "REQ-NF-004",
+      "REQ-NF-026",
+      "REQ-NF-027",
+      "REQ-NF-028"
+    ],
+    "prohibited_features": [
+      "purchase_reservation_payment_ui",
+      "real_time_flight_hotel_pricing",
+      "advertising",
+      "star_ratings",
+      "airbnb_trademark_elements"
+    ],
+    "expected_files": [
+      {
+        "path": "src/app/page.tsx",
+        "action": "replace_starter"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-PO-SCR-001.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-002-01",
+    "type": "component",
+    "title": "AboutHero - 대표 소개 Hero",
+    "screen_id": "SCR-002",
+    "route": "/about",
+    "page_entry": "src/app/about/page.tsx",
+    "depends_on": [
+      "TASK-DATA-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-057",
+      "REQ-FUNC-061"
+    ],
+    "prohibited_features": [
+      "airbnb_trademark_elements"
+    ],
+    "expected_files": [
+      {
+        "path": "src/components/about/AboutHero.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-002-01.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-002-02",
+    "type": "component",
+    "title": "TravelStatCard - 여행 지표 수치 카드",
+    "screen_id": "SCR-002",
+    "route": "/about",
+    "page_entry": "src/app/about/page.tsx",
+    "depends_on": [
+      "TASK-DATA-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-057"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/about/TravelStatCard.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-002-02.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-002-03",
+    "type": "component",
+    "title": "PhilosophySplit - 소개·철학 좌우 분할",
+    "screen_id": "SCR-002",
+    "route": "/about",
+    "page_entry": "src/app/about/page.tsx",
+    "depends_on": [
+      "TASK-DATA-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-058"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/about/PhilosophySplit.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-002-03.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-002-04",
+    "type": "component",
+    "title": "TravelTimeline - 여행 타임라인(6개 이상)",
+    "screen_id": "SCR-002",
+    "route": "/about",
+    "page_entry": "src/app/about/page.tsx",
+    "depends_on": [
+      "TASK-DATA-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-060"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/about/TravelTimeline.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-002-04.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-002-05",
+    "type": "component",
+    "title": "VisitedCountryChipGroup - 방문 국가 Chip(30개국)",
+    "screen_id": "SCR-002",
+    "route": "/about",
+    "page_entry": "src/app/about/page.tsx",
+    "depends_on": [
+      "TASK-DATA-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-059"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/about/VisitedCountryChipGroup.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-002-05.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-002-06",
+    "type": "component",
+    "title": "PhotoGallery - 여행 사진 Gallery(8장 이상)",
+    "screen_id": "SCR-002",
+    "route": "/about",
+    "page_entry": "src/app/about/page.tsx",
+    "depends_on": [
+      "TASK-DATA-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-061"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/about/PhotoGallery.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-002-06.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-002-07",
+    "type": "component",
+    "title": "MemorableDestinationCardGrid - 기억에 남는 여행지 Card(4개)",
+    "screen_id": "SCR-002",
+    "route": "/about",
+    "page_entry": "src/app/about/page.tsx",
+    "depends_on": [
+      "TASK-DATA-01",
+      "TASK-DATA-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-063"
+    ],
+    "prohibited_features": [
+      "star_ratings"
+    ],
+    "expected_files": [
+      {
+        "path": "src/components/about/MemorableDestinationCardGrid.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-002-07.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-002-08",
+    "type": "component",
+    "title": "CtaBanner - Section 7 CTA Banner",
+    "screen_id": "SCR-002",
+    "route": "/about",
+    "page_entry": "src/app/about/page.tsx",
+    "depends_on": [
+      "TASK-DATA-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-062"
+    ],
+    "prohibited_features": [
+      "advertising"
+    ],
+    "expected_files": [
+      {
+        "path": "src/components/about/CtaBanner.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-002-08.md"
+  },
+  {
+    "task_id": "TASK-PO-SCR-002",
+    "type": "page_owner",
+    "title": "SCR-002 대표 소개(/about) 조립 - Page Owner",
+    "screen_id": "SCR-002",
+    "route": "/about",
+    "page_entry": "src/app/about/page.tsx",
+    "depends_on": [
+      "TASK-CMP-SCR-002-01",
+      "TASK-CMP-SCR-002-02",
+      "TASK-CMP-SCR-002-03",
+      "TASK-CMP-SCR-002-04",
+      "TASK-CMP-SCR-002-05",
+      "TASK-CMP-SCR-002-06",
+      "TASK-CMP-SCR-002-07",
+      "TASK-CMP-SCR-002-08"
+    ],
+    "requirements": [
+      "REQ-FUNC-057",
+      "REQ-FUNC-058",
+      "REQ-FUNC-059",
+      "REQ-FUNC-060",
+      "REQ-FUNC-061",
+      "REQ-FUNC-062",
+      "REQ-FUNC-063"
+    ],
+    "prohibited_features": [
+      "purchase_reservation_payment_ui",
+      "advertising",
+      "star_ratings",
+      "real_time_flight_hotel_pricing",
+      "airbnb_trademark_elements"
+    ],
+    "expected_files": [
+      {
+        "path": "src/app/about/page.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-PO-SCR-002.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-003-01",
+    "type": "component",
+    "title": "TravelToolsIntro - Intro Hero(축소형, 이용 순서 3단계)",
+    "screen_id": "SCR-003",
+    "route": "/travel-tools",
+    "page_entry": "src/app/travel-tools/page.tsx",
+    "depends_on": [],
+    "requirements": [],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/travel-tools/TravelToolsIntro.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-003-01.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-003-02",
+    "type": "component",
+    "title": "TravelToolTabs - 항공편/숙소/동행 구하기 내부 탭",
+    "screen_id": "SCR-003",
+    "route": "/travel-tools",
+    "page_entry": "src/app/travel-tools/page.tsx",
+    "depends_on": [],
+    "requirements": [],
+    "prohibited_features": [
+      "tabs_replaced_by_external_links"
+    ],
+    "expected_files": [
+      {
+        "path": "src/components/travel-tools/TravelToolTabs.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-003-02.md",
+    "acceptance_note": "입력값을 서버·DB·외부 URL로 전달하지 않는다(no_server_transmission) - 클라이언트 상태로만 보관"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-003-03",
+    "type": "component",
+    "title": "FlightConditionForm - 항공편 조건 입력 Form",
+    "screen_id": "SCR-003",
+    "route": "/travel-tools",
+    "page_entry": "src/app/travel-tools/page.tsx",
+    "depends_on": [],
+    "requirements": [
+      "REQ-FUNC-011",
+      "REQ-FUNC-012",
+      "REQ-FUNC-013",
+      "REQ-FUNC-014",
+      "REQ-FUNC-015",
+      "REQ-FUNC-017",
+      "REQ-NF-017"
+    ],
+    "prohibited_features": [
+      "real_time_flight_hotel_pricing",
+      "purchase_reservation_payment_ui"
+    ],
+    "expected_files": [
+      {
+        "path": "src/components/travel-tools/FlightConditionForm.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-003-03.md",
+    "acceptance_note": "입력값을 서버·DB·외부 URL로 전달하지 않는다(no_server_transmission) - 클라이언트 상태로만 보관"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-003-04",
+    "type": "component",
+    "title": "HotelConditionForm - 숙소 조건 입력 Form",
+    "screen_id": "SCR-003",
+    "route": "/travel-tools",
+    "page_entry": "src/app/travel-tools/page.tsx",
+    "depends_on": [],
+    "requirements": [
+      "REQ-FUNC-019",
+      "REQ-FUNC-020",
+      "REQ-FUNC-021",
+      "REQ-FUNC-022",
+      "REQ-FUNC-023",
+      "REQ-FUNC-025"
+    ],
+    "prohibited_features": [
+      "real_time_flight_hotel_pricing",
+      "purchase_reservation_payment_ui"
+    ],
+    "expected_files": [
+      {
+        "path": "src/components/travel-tools/HotelConditionForm.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-003-04.md",
+    "acceptance_note": "입력값을 서버·DB·외부 URL로 전달하지 않는다(no_server_transmission) - 클라이언트 상태로만 보관"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-003-05",
+    "type": "component",
+    "title": "SummaryActionCard - 입력 요약 + 외부 이동 Action Card",
+    "screen_id": "SCR-003",
+    "route": "/travel-tools",
+    "page_entry": "src/app/travel-tools/page.tsx",
+    "depends_on": [
+      "TASK-DB-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-016",
+      "REQ-FUNC-018",
+      "REQ-FUNC-024",
+      "REQ-FUNC-026"
+    ],
+    "prohibited_features": [
+      "real_time_flight_hotel_pricing",
+      "purchase_reservation_payment_ui"
+    ],
+    "expected_files": [
+      {
+        "path": "src/components/travel-tools/SummaryActionCard.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-003-05.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-003-06",
+    "type": "component",
+    "title": "NonTransferNotice & SearchTipList - 비전달 고지 + Tip 3개",
+    "screen_id": "SCR-003",
+    "route": "/travel-tools",
+    "page_entry": "src/app/travel-tools/page.tsx",
+    "depends_on": [],
+    "requirements": [
+      "REQ-FUNC-015",
+      "REQ-FUNC-023"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/travel-tools/NonTransferNotice.tsx",
+        "action": "create"
+      },
+      {
+        "path": "src/components/travel-tools/SearchTipList.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-003-06.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-003-07",
+    "type": "component",
+    "title": "MateComposeForm - 동행 모집글 작성 Form",
+    "screen_id": "SCR-003",
+    "route": "/travel-tools",
+    "page_entry": "src/app/travel-tools/page.tsx",
+    "depends_on": [
+      "TASK-DB-03",
+      "TASK-AUTH-01",
+      "TASK-AUTH-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-031",
+      "REQ-FUNC-032",
+      "REQ-NF-005"
+    ],
+    "prohibited_features": [
+      "direct_contact_exposure_in_detail_panel"
+    ],
+    "expected_files": [
+      {
+        "path": "src/components/travel-tools/MateComposeForm.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-003-07.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-003-08",
+    "type": "component",
+    "title": "LoginRequiredNotice - 동행 탭 비로그인/성인 미확인 안내",
+    "screen_id": "SCR-003",
+    "route": "/travel-tools",
+    "page_entry": "src/app/travel-tools/page.tsx",
+    "depends_on": [
+      "TASK-AUTH-01",
+      "TASK-AUTH-03"
+    ],
+    "requirements": [],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/travel-tools/LoginRequiredNotice.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-003-08.md"
+  },
+  {
+    "task_id": "TASK-PO-SCR-003",
+    "type": "page_owner",
+    "title": "SCR-003 통합 여행 준비(/travel-tools) 조립 - Page Owner",
+    "screen_id": "SCR-003",
+    "route": "/travel-tools",
+    "page_entry": "src/app/travel-tools/page.tsx",
+    "depends_on": [
+      "TASK-CMP-SCR-003-01",
+      "TASK-CMP-SCR-003-02",
+      "TASK-CMP-SCR-003-03",
+      "TASK-CMP-SCR-003-04",
+      "TASK-CMP-SCR-003-05",
+      "TASK-CMP-SCR-003-06",
+      "TASK-CMP-SCR-003-07",
+      "TASK-CMP-SCR-003-08"
+    ],
+    "requirements": [
+      "REQ-FUNC-011",
+      "REQ-FUNC-012",
+      "REQ-FUNC-013",
+      "REQ-FUNC-014",
+      "REQ-FUNC-015",
+      "REQ-FUNC-016",
+      "REQ-FUNC-017",
+      "REQ-FUNC-018",
+      "REQ-FUNC-019",
+      "REQ-FUNC-020",
+      "REQ-FUNC-021",
+      "REQ-FUNC-022",
+      "REQ-FUNC-023",
+      "REQ-FUNC-024",
+      "REQ-FUNC-025",
+      "REQ-FUNC-026",
+      "REQ-FUNC-031",
+      "REQ-FUNC-032",
+      "REQ-NF-005",
+      "REQ-NF-017"
+    ],
+    "prohibited_features": [
+      "real_time_flight_hotel_pricing",
+      "purchase_reservation_payment_ui",
+      "advertising",
+      "star_ratings",
+      "tabs_replaced_by_external_links",
+      "airbnb_trademark_elements"
+    ],
+    "expected_files": [
+      {
+        "path": "src/app/travel-tools/page.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-PO-SCR-003.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-004-01",
+    "type": "component",
+    "title": "MatesIntro - Intro Hero(축소형)",
+    "screen_id": "SCR-004",
+    "route": "/mates",
+    "page_entry": "src/app/mates/page.tsx",
+    "depends_on": [],
+    "requirements": [],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/mates/MatesIntro.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-004-01.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-004-02",
+    "type": "component",
+    "title": "MateFilterBar - 검색 Filter + 결과 요약",
+    "screen_id": "SCR-004",
+    "route": "/mates",
+    "page_entry": "src/app/mates/page.tsx",
+    "depends_on": [
+      "TASK-DB-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-030"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/mates/MateFilterBar.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-004-02.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-004-03",
+    "type": "component",
+    "title": "MatePostCardGrid - 동행글 목록 Card Grid",
+    "screen_id": "SCR-004",
+    "route": "/mates",
+    "page_entry": "src/app/mates/page.tsx",
+    "depends_on": [
+      "TASK-DB-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-037"
+    ],
+    "prohibited_features": [
+      "purchase_reservation_payment_ui",
+      "star_ratings"
+    ],
+    "expected_files": [
+      {
+        "path": "src/components/mates/MatePostCardGrid.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-004-03.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-004-04",
+    "type": "component",
+    "title": "MateListDetailView - 목록+상세 좌우 분할(Desktop)/Drawer(Mobile)",
+    "screen_id": "SCR-004",
+    "route": "/mates",
+    "page_entry": "src/app/mates/page.tsx",
+    "depends_on": [
+      "TASK-DB-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-033",
+      "REQ-FUNC-039"
+    ],
+    "prohibited_features": [
+      "direct_contact_exposure_in_detail_panel"
+    ],
+    "expected_files": [
+      {
+        "path": "src/components/mates/MateListDetailView.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-004-04.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-004-05",
+    "type": "component",
+    "title": "JoinRequestForm - 참가 요청 Form",
+    "screen_id": "SCR-004",
+    "route": "/mates",
+    "page_entry": "src/app/mates/page.tsx",
+    "depends_on": [
+      "TASK-DB-01",
+      "TASK-DB-03",
+      "TASK-AUTH-01"
+    ],
+    "requirements": [
+      "REQ-FUNC-034",
+      "REQ-FUNC-035"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/mates/JoinRequestForm.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-004-05.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-004-06",
+    "type": "component",
+    "title": "ReportBlockButtons - 신고·차단 버튼",
+    "screen_id": "SCR-004",
+    "route": "/mates",
+    "page_entry": "src/app/mates/page.tsx",
+    "depends_on": [
+      "TASK-DB-01",
+      "TASK-DB-03",
+      "TASK-AUTH-01"
+    ],
+    "requirements": [
+      "REQ-FUNC-039",
+      "REQ-NF-019"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/mates/ReportBlockButtons.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-004-06.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-004-07",
+    "type": "component",
+    "title": "HowToJoinSteps - 동행 신청 방법 3단계 안내",
+    "screen_id": "SCR-004",
+    "route": "/mates",
+    "page_entry": "src/app/mates/page.tsx",
+    "depends_on": [],
+    "requirements": [],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/mates/HowToJoinSteps.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-004-07.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-004-08",
+    "type": "component",
+    "title": "SafetyCtaBanner - 안전 안내 + CTA Banner",
+    "screen_id": "SCR-004",
+    "route": "/mates",
+    "page_entry": "src/app/mates/page.tsx",
+    "depends_on": [],
+    "requirements": [],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/mates/SafetyCtaBanner.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-004-08.md"
+  },
+  {
+    "task_id": "TASK-PO-SCR-004",
+    "type": "page_owner",
+    "title": "SCR-004 동행 조회(/mates) 조립 - Page Owner",
+    "screen_id": "SCR-004",
+    "route": "/mates",
+    "page_entry": "src/app/mates/page.tsx",
+    "depends_on": [
+      "TASK-CMP-SCR-004-01",
+      "TASK-CMP-SCR-004-02",
+      "TASK-CMP-SCR-004-03",
+      "TASK-CMP-SCR-004-04",
+      "TASK-CMP-SCR-004-05",
+      "TASK-CMP-SCR-004-06",
+      "TASK-CMP-SCR-004-07",
+      "TASK-CMP-SCR-004-08"
+    ],
+    "requirements": [
+      "REQ-FUNC-030",
+      "REQ-FUNC-033",
+      "REQ-FUNC-034",
+      "REQ-FUNC-035",
+      "REQ-FUNC-037",
+      "REQ-FUNC-039",
+      "REQ-NF-019"
+    ],
+    "prohibited_features": [
+      "purchase_reservation_payment_ui",
+      "advertising",
+      "star_ratings",
+      "real_time_flight_hotel_pricing",
+      "direct_contact_exposure_in_detail_panel",
+      "airbnb_trademark_elements"
+    ],
+    "expected_files": [
+      {
+        "path": "src/app/mates/page.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-PO-SCR-004.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-005-01",
+    "type": "component",
+    "title": "AccountTabs - Guest/Member/Admin 배타적 탭 구조 + 세션 가드",
+    "screen_id": "SCR-005",
+    "route": "/account",
+    "page_entry": "src/app/account/page.tsx",
+    "depends_on": [
+      "TASK-AUTH-01"
+    ],
+    "requirements": [
+      "REQ-FUNC-027"
+    ],
+    "prohibited_features": [
+      "login_only_screen_without_member_admin_tabs"
+    ],
+    "expected_files": [
+      {
+        "path": "src/components/account/AccountTabs.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-005-01.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-005-02",
+    "type": "component",
+    "title": "GuestAuthArea - Guest Intro + 로그인/가입/재설정 Card + 보안 안내",
+    "screen_id": "SCR-005",
+    "route": "/account",
+    "page_entry": "src/app/account/page.tsx",
+    "depends_on": [
+      "TASK-AUTH-01",
+      "TASK-AUTH-02"
+    ],
+    "requirements": [
+      "REQ-FUNC-066",
+      "REQ-FUNC-080"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/account/GuestAuthArea.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-005-02.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-005-03",
+    "type": "component",
+    "title": "ProfileSummaryCard - 프로필·성인 확인 요약",
+    "screen_id": "SCR-005",
+    "route": "/account",
+    "page_entry": "src/app/account/page.tsx",
+    "depends_on": [
+      "TASK-DB-01",
+      "TASK-DB-03",
+      "TASK-AUTH-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-028",
+      "REQ-FUNC-029",
+      "REQ-FUNC-045",
+      "REQ-NF-018"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/account/ProfileSummaryCard.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-005-03.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-005-04",
+    "type": "component",
+    "title": "MyPostList - 내 글 목록",
+    "screen_id": "SCR-005",
+    "route": "/account",
+    "page_entry": "src/app/account/page.tsx",
+    "depends_on": [
+      "TASK-DB-01",
+      "TASK-DB-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-038"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/account/MyPostList.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-005-04.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-005-05",
+    "type": "component",
+    "title": "JoinRequestManager - 참가 요청 승인/거절 관리",
+    "screen_id": "SCR-005",
+    "route": "/account",
+    "page_entry": "src/app/account/page.tsx",
+    "depends_on": [
+      "TASK-DB-01",
+      "TASK-DB-02",
+      "TASK-DB-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-036"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/account/JoinRequestManager.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-005-05.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-005-06",
+    "type": "component",
+    "title": "BlockList - 차단 목록 및 해제",
+    "screen_id": "SCR-005",
+    "route": "/account",
+    "page_entry": "src/app/account/page.tsx",
+    "depends_on": [
+      "TASK-DB-01",
+      "TASK-DB-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-040"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/account/BlockList.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-005-06.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-005-07",
+    "type": "component",
+    "title": "AdminReportQueue - 관리자 신고 큐 + 상태 변경",
+    "screen_id": "SCR-005",
+    "route": "/account",
+    "page_entry": "src/app/account/page.tsx",
+    "depends_on": [
+      "TASK-DB-01",
+      "TASK-DB-02",
+      "TASK-DB-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-041",
+      "REQ-FUNC-042"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/account/AdminReportQueue.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-005-07.md"
+  },
+  {
+    "task_id": "TASK-CMP-SCR-005-08",
+    "type": "component",
+    "title": "ExternalUrlAllowlistForm - 항공·숙소 외부 URL 설정",
+    "screen_id": "SCR-005",
+    "route": "/account",
+    "page_entry": "src/app/account/page.tsx",
+    "depends_on": [
+      "TASK-DB-01",
+      "TASK-DB-02",
+      "TASK-DB-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-077"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/components/account/ExternalUrlAllowlistForm.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-CMP-SCR-005-08.md"
+  },
+  {
+    "task_id": "TASK-PO-SCR-005",
+    "type": "page_owner",
+    "title": "SCR-005 계정·관리(/account) 조립 - Page Owner",
+    "screen_id": "SCR-005",
+    "route": "/account",
+    "page_entry": "src/app/account/page.tsx",
+    "depends_on": [
+      "TASK-CMP-SCR-005-01",
+      "TASK-CMP-SCR-005-02",
+      "TASK-CMP-SCR-005-03",
+      "TASK-CMP-SCR-005-04",
+      "TASK-CMP-SCR-005-05",
+      "TASK-CMP-SCR-005-06",
+      "TASK-CMP-SCR-005-07",
+      "TASK-CMP-SCR-005-08"
+    ],
+    "requirements": [
+      "REQ-FUNC-027",
+      "REQ-FUNC-028",
+      "REQ-FUNC-029",
+      "REQ-FUNC-036",
+      "REQ-FUNC-038",
+      "REQ-FUNC-040",
+      "REQ-FUNC-041",
+      "REQ-FUNC-042",
+      "REQ-FUNC-045",
+      "REQ-FUNC-066",
+      "REQ-FUNC-077",
+      "REQ-FUNC-080",
+      "REQ-NF-018"
+    ],
+    "prohibited_features": [
+      "login_only_screen_without_member_admin_tabs",
+      "purchase_reservation_payment_ui",
+      "advertising",
+      "star_ratings",
+      "real_time_flight_hotel_pricing",
+      "airbnb_trademark_elements"
+    ],
+    "expected_files": [
+      {
+        "path": "src/app/account/page.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-PO-SCR-005.md"
+  },
+  {
+    "task_id": "TASK-DATA-01",
+    "type": "static_data",
+    "title": "국내·해외 여행지 정적 데이터",
+    "screen_id": null,
+    "route": null,
+    "page_entry": null,
+    "depends_on": [],
+    "requirements": [
+      "REQ-FUNC-001",
+      "REQ-FUNC-004",
+      "REQ-FUNC-006",
+      "REQ-FUNC-007",
+      "REQ-FUNC-008",
+      "REQ-FUNC-009"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/data/destinations.ts",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-DATA-01.md"
+  },
+  {
+    "task_id": "TASK-DATA-02",
+    "type": "static_data",
+    "title": "국가별 안전정보 정적 데이터",
+    "screen_id": null,
+    "route": null,
+    "page_entry": null,
+    "depends_on": [],
+    "requirements": [
+      "REQ-FUNC-046",
+      "REQ-FUNC-047",
+      "REQ-FUNC-048",
+      "REQ-FUNC-050",
+      "REQ-FUNC-052",
+      "REQ-FUNC-053",
+      "REQ-NF-027"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/data/safety.ts",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-DATA-02.md"
+  },
+  {
+    "task_id": "TASK-DATA-03",
+    "type": "static_data",
+    "title": "free_traveler 대표 소개 정적 데이터",
+    "screen_id": null,
+    "route": null,
+    "page_entry": null,
+    "depends_on": [],
+    "requirements": [
+      "REQ-FUNC-057",
+      "REQ-FUNC-058",
+      "REQ-FUNC-059",
+      "REQ-FUNC-060",
+      "REQ-FUNC-061",
+      "REQ-FUNC-063"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/data/representative.ts",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-DATA-03.md"
+  },
+  {
+    "task_id": "TASK-DATA-04",
+    "type": "static_data",
+    "title": "정적 데이터 필수 필드 검증 스크립트",
+    "screen_id": null,
+    "route": null,
+    "page_entry": null,
+    "depends_on": [
+      "TASK-DATA-01",
+      "TASK-DATA-02",
+      "TASK-DATA-03"
+    ],
+    "requirements": [
+      "REQ-FUNC-074",
+      "REQ-NF-026"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "scripts/validate_static_data.py",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-DATA-04.md"
+  },
+  {
+    "task_id": "TASK-DB-01",
+    "type": "db",
+    "title": "Supabase DB Schema (최대 6테이블: mates, mate_applications, mate_blocks, mate_reports, member_profiles, outbound_url_settings)",
+    "screen_id": null,
+    "route": null,
+    "page_entry": null,
+    "depends_on": [],
+    "requirements": [
+      "REQ-FUNC-034",
+      "REQ-FUNC-035"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "supabase/migrations/0001_schema.sql",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-DB-01.md",
+    "tables": [
+      "mates",
+      "mate_applications",
+      "mate_blocks",
+      "mate_reports",
+      "member_profiles",
+      "outbound_url_settings"
+    ]
+  },
+  {
+    "task_id": "TASK-DB-02",
+    "type": "db",
+    "title": "Supabase RLS 정책",
+    "screen_id": null,
+    "route": null,
+    "page_entry": null,
+    "depends_on": [
+      "TASK-DB-01"
+    ],
+    "requirements": [
+      "REQ-FUNC-036",
+      "REQ-FUNC-044",
+      "REQ-NF-013"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "supabase/migrations/0002_rls.sql",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-DB-02.md"
+  },
+  {
+    "task_id": "TASK-DB-03",
+    "type": "db",
+    "title": "DB Access Layer (서버 액션/쿼리, 입력 미전송 원칙, 보안 기본기)",
+    "screen_id": null,
+    "route": null,
+    "page_entry": null,
+    "depends_on": [
+      "TASK-DB-01",
+      "TASK-DB-02"
+    ],
+    "requirements": [
+      "REQ-FUNC-017",
+      "REQ-FUNC-025",
+      "REQ-FUNC-033",
+      "REQ-FUNC-037",
+      "REQ-FUNC-040",
+      "REQ-FUNC-041",
+      "REQ-FUNC-042",
+      "REQ-FUNC-045",
+      "REQ-NF-012",
+      "REQ-NF-014",
+      "REQ-NF-015",
+      "REQ-NF-016",
+      "REQ-NF-017"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/lib/db/mates.ts",
+        "action": "create"
+      },
+      {
+        "path": "src/lib/db/reports.ts",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-DB-03.md"
+  },
+  {
+    "task_id": "TASK-DB-04",
+    "type": "db",
+    "title": "DB Seed 스크립트",
+    "screen_id": null,
+    "route": null,
+    "page_entry": null,
+    "depends_on": [
+      "TASK-DB-01"
+    ],
+    "requirements": [],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "supabase/seed.sql",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-DB-04.md"
+  },
+  {
+    "task_id": "TASK-AUTH-01",
+    "type": "auth",
+    "title": "이메일 가입·인증·로그인·로그아웃",
+    "screen_id": null,
+    "route": null,
+    "page_entry": null,
+    "depends_on": [
+      "TASK-DB-01",
+      "TASK-DB-02"
+    ],
+    "requirements": [
+      "REQ-FUNC-027",
+      "REQ-FUNC-066",
+      "REQ-NF-014"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/app/auth/callback/route.ts",
+        "action": "create"
+      },
+      {
+        "path": "src/lib/auth/session.ts",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-AUTH-01.md"
+  },
+  {
+    "task_id": "TASK-AUTH-02",
+    "type": "auth",
+    "title": "비밀번호 재설정",
+    "screen_id": null,
+    "route": null,
+    "page_entry": null,
+    "depends_on": [
+      "TASK-AUTH-01"
+    ],
+    "requirements": [
+      "REQ-FUNC-066"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/lib/auth/password-reset.ts",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-AUTH-02.md"
+  },
+  {
+    "task_id": "TASK-AUTH-03",
+    "type": "auth",
+    "title": "성인 확인 세션 처리",
+    "screen_id": null,
+    "route": null,
+    "page_entry": null,
+    "depends_on": [
+      "TASK-AUTH-01",
+      "TASK-DB-01"
+    ],
+    "requirements": [
+      "REQ-FUNC-028"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/lib/auth/adult-verification.ts",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-AUTH-03.md"
+  },
+  {
+    "task_id": "TASK-GLOBAL-01",
+    "type": "global",
+    "title": "layout.tsx 전역 내비게이션/Footer",
+    "screen_id": null,
+    "route": null,
+    "page_entry": "src/app/layout.tsx",
+    "depends_on": [],
+    "requirements": [
+      "REQ-FUNC-043",
+      "REQ-FUNC-064"
+    ],
+    "prohibited_features": [
+      "airbnb_trademark_elements"
+    ],
+    "expected_files": [
+      {
+        "path": "src/app/layout.tsx",
+        "action": "replace_starter"
+      },
+      {
+        "path": "src/components/shared/Header.tsx",
+        "action": "create"
+      },
+      {
+        "path": "src/components/shared/Footer.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-GLOBAL-01.md"
+  },
+  {
+    "task_id": "TASK-GLOBAL-02",
+    "type": "global",
+    "title": "반응형 레이아웃·SEO 메타데이터·접근성 기본기",
+    "screen_id": null,
+    "route": null,
+    "page_entry": "src/app/layout.tsx",
+    "depends_on": [
+      "TASK-GLOBAL-01"
+    ],
+    "requirements": [
+      "REQ-FUNC-065",
+      "REQ-FUNC-070",
+      "REQ-FUNC-079",
+      "REQ-NF-001",
+      "REQ-NF-002",
+      "REQ-NF-003",
+      "REQ-NF-006",
+      "REQ-NF-023",
+      "REQ-NF-030"
+    ],
+    "prohibited_features": [
+      "arbitrary_colors_outside_design_tokens"
+    ],
+    "expected_files": [
+      {
+        "path": "src/app/layout.tsx",
+        "action": "replace_starter"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-GLOBAL-02.md"
+  },
+  {
+    "task_id": "TASK-GLOBAL-03",
+    "type": "global",
+    "title": "오류/404 화면",
+    "screen_id": null,
+    "route": null,
+    "page_entry": null,
+    "depends_on": [
+      "TASK-GLOBAL-01"
+    ],
+    "requirements": [
+      "REQ-FUNC-078"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "src/app/not-found.tsx",
+        "action": "create"
+      },
+      {
+        "path": "src/app/error.tsx",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-GLOBAL-03.md"
+  },
+  {
+    "task_id": "TASK-GLOBAL-04",
+    "type": "global",
+    "title": "CI 품질 게이트(Lint/Test/Build)와 비용 확인",
+    "screen_id": null,
+    "route": null,
+    "page_entry": null,
+    "depends_on": [],
+    "requirements": [
+      "REQ-NF-031",
+      "REQ-NF-034"
+    ],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": ".github/workflows/ci.yml",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-GLOBAL-04.md"
+  },
+  {
+    "task_id": "TASK-TEST-01",
+    "type": "test",
+    "title": "Playwright Chromium Smoke Test",
+    "screen_id": null,
+    "route": null,
+    "page_entry": null,
+    "depends_on": [
+      "TASK-PO-SCR-001",
+      "TASK-PO-SCR-002",
+      "TASK-PO-SCR-003",
+      "TASK-PO-SCR-004",
+      "TASK-PO-SCR-005"
+    ],
+    "requirements": [],
+    "prohibited_features": [],
+    "expected_files": [
+      {
+        "path": "tests/e2e/smoke.spec.ts",
+        "action": "create"
+      },
+      {
+        "path": "playwright.config.ts",
+        "action": "create"
+      }
+    ],
+    "detail_file": "docs/tasks/details/TASK-TEST-01.md"
+  }
+]
