@@ -13,7 +13,10 @@
     "task:contract": "python scripts/audit_tasks.py",
     "screen:contract": "python scripts/check_screen_contract.py",
     "test:e2e": "playwright test",
-    "test:e2e:public": "playwright test tests/e2e/public-smoke.spec.ts"
+    "test:e2e:public": "playwright test tests/e2e/public-smoke.spec.ts",
+    "validate": "python scripts/validate_inputs.py && python scripts/validate_harness.py && npm run task:contract && npm run screen:contract -- --mode=plan",
+    "ci": "npm run lint && npm run typecheck && npm run test:unit && npm run task:contract && npm run screen:contract -- --mode=ci && npm run build",
+    "release:check": "npm run ci && npm run test:e2e"
   },
   "dependencies": {
     "next": "16.3.4",

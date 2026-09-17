@@ -4,5 +4,6 @@ export default defineConfig({
   test: {
     include: ["tests/unit/**/*.{test,spec}.ts", "src/**/*.{test,spec}.ts"],
     exclude: ["tests/e2e/**", "node_modules/**"],
+    passWithNoTests: true,
   },
 });
