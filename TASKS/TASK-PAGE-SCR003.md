@@ -54,11 +54,13 @@
 ## Expected Files
 
 - `src/app/travel-tools/page.tsx` (create)
+- `src/app/layout.tsx` (modify — `ToastProvider` 연결)
 
 > Expected Files 밖의 파일은 생성·수정하지 않는다.
 
 ## Functional AC
 
+- `src/components/shared/Toast.tsx`의 `ToastProvider`로 `layout.tsx`의 `children`을 감싸 전역에서 한 번만 연결한다(5개 Screen 공용, `layout.tsx`는 Server Component로 유지하며 `"use client"`를 추가하지 않는다 — `ToastProvider` 내부에 이미 `"use client"`가 선언되어 있어 Server Component가 그대로 자식으로 렌더링할 수 있다).
 - Intro(이용 순서 3단계, 정적 카피)
 - 탭(항공편/숙소/동행 구하기, `CMP-SCR003-TABS`가 `CMP-SCR003-FLIGHT-FORM`/`CMP-SCR003-HOTEL-FORM`/`CMP-SCR003-MATE-COMPOSE`를 실제 내부 컴포넌트로 조립 — 외부 링크 버튼으로 대체 금지)
 - 여행정보 Form(항공/숙소 공통 구조: 국가·지역·시작일·종료일, 데이터 출처: `DATA-DESTINATIONS`의 국가/지역 목록)

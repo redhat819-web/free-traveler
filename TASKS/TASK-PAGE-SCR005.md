@@ -57,6 +57,7 @@
 
 ## Functional AC
 
+- Admin 신고 처리 결과는 `useToast()`(`src/components/shared/Toast.tsx`, `PAGE-SCR003`이 `layout.tsx`에 연결한 `ToastProvider`를 통해 제공됨)로 안내한다.
 - 현재 역할(Guest/Member/Admin)의 Intro(역할별 안내 카피, 데이터 출처: `CMP-SCR005-AUTH` 세션·역할 상태)
 - 핵심 작업(Guest: 로그인/가입/재설정 Card 3개 — `CMP-SCR005-AUTH`; Member: 프로필·내 글·참가 요청·차단 — `CMP-SCR005-PROFILE`/`CMP-SCR005-MY-ACTIVITY`; Admin: 신고 처리·외부 URL 설정 — `CMP-SCR005-ADMIN`)
 - 도움말 또는 다음 행동(보안 안내, Empty 지점 CTA, 정책 링크 — `CMP-SCR005-POLICY-PAGES`)

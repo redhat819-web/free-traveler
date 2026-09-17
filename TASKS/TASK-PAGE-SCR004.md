@@ -60,6 +60,7 @@
 
 ## Functional AC
 
+- 참가 요청/신고·차단 처리 결과는 `useToast()`(`src/components/shared/Toast.tsx`, `PAGE-SCR003`이 `layout.tsx`에 연결한 `ToastProvider`를 통해 제공됨)로 안내한다.
 - Intro(제목 + 설명 2문장 + "새 동행 글 작성하기" CTA)
 - Filter + 결과 요약(`CMP-SCR004-FILTER`, 데이터 출처: `DB-ACCESS`의 mates 쿼리)
 - 동행 목록(`CMP-SCR004-LIST`, 최대 8개 우선 노출, 데이터 출처: `DB-ACCESS`)
