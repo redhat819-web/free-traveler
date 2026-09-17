@@ -25,7 +25,15 @@
       ],
       "status": "in_progress",
       "checkpoint_required": false,
-      "checkpoint_result": null
+      "checkpoint_result": null,
+      "tasks": [
+        { "task_id": "DATA-DESTINATIONS", "status": "completed", "commit": "41e399d" },
+        { "task_id": "DATA-REPRESENTATIVE", "status": "completed", "commit": "41e399d" },
+        { "task_id": "DATA-SAFETY", "status": "completed", "commit": "41e399d" },
+        { "task_id": "GLOBAL-NAV-FOOTER", "status": "pending", "commit": null },
+        { "task_id": "GLOBAL-RESPONSIVE", "status": "pending", "commit": null },
+        { "task_id": "GLOBAL-TOAST", "status": "pending", "commit": null }
+      ]
     },
     {
       "wave_id": "W03",

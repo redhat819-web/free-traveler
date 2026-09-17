@@ -14,12 +14,16 @@ argument-hint: "WAVE_ID [--status | --dry-run | --resume]"
 
 ## Task 상태 판단 방법
 
-`WAVE_STATE.json`은 **Wave 단위** 상태(`pending` | `in_progress` | `blocked` | `completed`)만 저장한다. Task 단위 상태는 저장하지 않으며, 이 명령이 매번 다음 방법으로 실시간 판단한다(추측하지 않는다):
+`WAVE_STATE.json`의 각 Wave 객체는 **Wave 단위** 상태(`pending` | `in_progress` | `blocked` | `completed`)를 가지며, 선택적으로 **Task 단위** 상태를 담는 `tasks[]` 배열(`{ "task_id", "status", "commit" }`)을 가질 수 있다. 이 명령은 다음 우선순위로 판단한다(추측하지 않는다):
 
-- Task가 **완료**되었는지: `TASKS/TASK-<TASK_ID>.md`의 Expected Files가 실제로 모두 존재하는지(Glob/Read)로 판단한다.
-- Task가 **착수 가능**한지: `/prepare-task <WAVE_ID> <TASK_ID>`를 실제로 실행해 `READY_TO_IMPLEMENT`/`BLOCKED_*` 판정을 받는다.
-- Task가 **pending**(미착수)인지: Expected Files가 아직 하나도 존재하지 않고 `Depends On` 선행 Task가 모두 완료된 경우.
-- Task가 **blocked**인지: `/prepare-task` 판정이 `BLOCKED_*`이거나, Expected Files가 일부만 존재해 이전 실행이 중단된 것으로 보이는 경우.
+1. **1순위 — `tasks[]`가 있는 Wave**: 해당 Wave 객체에 `tasks[]`가 존재하면, 그 Task의 완료/pending/blocked 여부는 **`tasks[].status` 값을 그대로 신뢰**한다. 파일 존재 여부로 다시 추론하지 않는다. `commit`이 `null`이면 "구현은 됐지만 아직 커밋되지 않음"을 의미하며, 이 자체로 상태를 바꾸지 않는다.
+2. **2순위 — `tasks[]`가 없는 Wave만** 기존 방식(파일 존재 기준)을 사용한다:
+   - Task가 **완료**되었는지: `TASKS/TASK-<TASK_ID>.md`의 Expected Files가 실제로 모두 존재하는지(Glob/Read)로 판단한다. 단, Expected Files 중 **"수정(modify)" 대상으로 표기된 파일은 존재 여부만으로 완료를 판단하지 않는다**(그 파일은 대개 이미 존재하는 스타터 파일이라 "존재"가 "이 Task가 요구하는 수정을 반영했다"를 의미하지 않기 때문— 예: `src/app/layout.tsx`, `src/app/globals.css`). "create" 대상 파일만 존재 여부로 완료를 판단할 수 있다. modify 대상만 있는 Task는 `tasks[]`가 없는 한 파일 존재로 완료를 단정하지 말고 `BLOCKED_INPUT`(판단 불가)으로 보고한다.
+   - Task가 **착수 가능**한지: `/prepare-task <WAVE_ID> <TASK_ID>`를 실제로 실행해 `READY_TO_IMPLEMENT`/`BLOCKED_*` 판정을 받는다.
+   - Task가 **pending**(미착수)인지: (create 대상) Expected Files가 아직 하나도 존재하지 않고 `Depends On` 선행 Task가 모두 완료된 경우.
+   - Task가 **blocked**인지: `/prepare-task` 판정이 `BLOCKED_*`이거나, Expected Files가 일부만 존재해 이전 실행이 중단된 것으로 보이는 경우.
+3. **`tasks[]` 갱신 시점**: `/implement-task`로 한 Task를 구현한 직후, `WAVE_STATE.json`의 해당 Wave에 `tasks[]`가 있으면 그 Task 항목의 `status`를 즉시 갱신한다. 커밋 전이면 `commit`은 `null`로 둔다(커밋은 사용자가 명시적으로 요청할 때만 값이 채워진다).
+4. **`--dry-run`과 `--status`는 `WAVE_STATE.json`을 수정하지 않는다** — 조회·시뮬레이션 목적이므로 `tasks[]`를 포함해 어떤 필드도 쓰지 않는다.
 
 ## `--status` — 현재 Wave와 Task 상태만 조회 (읽기 전용)
 
