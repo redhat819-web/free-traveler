@@ -8,7 +8,7 @@
       "task_ids": [
         "CI-PIPELINE"
       ],
-      "status": "blocked",
+      "status": "completed",
       "checkpoint_required": false,
       "checkpoint_result": null
     },
