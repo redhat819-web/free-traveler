@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
+/* design-reference/D-001/DESIGN.md 색상·폰트·간격·radius 토큰(D-001 정본, LOCKED). raw 값은 fw- 접두사로 root에 두고, 아래 theme 블록에서 Tailwind 네임스페이스로 재선언해 var()로 참조한다(이름을 그대로 재사용하면 자기참조가 되어 무효화됨). */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --fw-color-bg-canvas: #ffffff;
+  --fw-color-bg-soft: #f7f7f5;
+  --fw-color-bg-strong: #f0f0ee;
+  --fw-color-text-primary: #222222;
+  --fw-color-text-secondary: #5b5b5b;
+  --fw-color-text-muted: #8a8a8a;
+  --fw-color-border-hairline: #e3e3e0;
+  --fw-color-border-strong: #c7c7c3;
+  --fw-color-accent-coral: #ff6b57;
+  --fw-color-accent-coral-active: #e5523f;
+  --fw-color-accent-coral-soft: #ffe4de;
+  --fw-color-semantic-danger: #c1272d;
+  --fw-color-semantic-warning: #b8590a;
+  --fw-color-semantic-success: #1e7a46;
+  --fw-color-semantic-info: #2457c5;
+  --fw-color-focus-ring: #1f5fd9;
+
+  --fw-radius-sm: 8px;
+  --fw-radius-md: 14px;
+  --fw-radius-pill: 9999px;
+
+  --fw-space-xs: 0.25rem;
+  --fw-space-sm: 0.5rem;
+  --fw-space-md: 1rem;
+  --fw-space-lg: 1.5rem;
+  --fw-space-xl: 2.5rem;
+  --fw-gutter: 1.5rem;
+  --fw-container-max: 1280px;
+
+  --font-body: "Inter", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+
+  --background: var(--fw-color-bg-canvas);
+  --foreground: var(--fw-color-text-primary);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-bg-canvas: var(--fw-color-bg-canvas);
+  --color-bg-soft: var(--fw-color-bg-soft);
+  --color-bg-strong: var(--fw-color-bg-strong);
+  --color-text-primary: var(--fw-color-text-primary);
+  --color-text-secondary: var(--fw-color-text-secondary);
+  --color-text-muted: var(--fw-color-text-muted);
+  --color-border-hairline: var(--fw-color-border-hairline);
+  --color-border-strong: var(--fw-color-border-strong);
+  --color-accent-coral: var(--fw-color-accent-coral);
+  --color-accent-coral-active: var(--fw-color-accent-coral-active);
+  --color-accent-coral-soft: var(--fw-color-accent-coral-soft);
+  --color-semantic-danger: var(--fw-color-semantic-danger);
+  --color-semantic-warning: var(--fw-color-semantic-warning);
+  --color-semantic-success: var(--fw-color-semantic-success);
+  --color-semantic-info: var(--fw-color-semantic-info);
+  --color-focus-ring: var(--fw-color-focus-ring);
+
+  --radius-sm: var(--fw-radius-sm);
+  --radius-md: var(--fw-radius-md);
+  --radius-pill: var(--fw-radius-pill);
+
+  --spacing-xs: var(--fw-space-xs);
+  --spacing-sm: var(--fw-space-sm);
+  --spacing-md: var(--fw-space-md);
+  --spacing-lg: var(--fw-space-lg);
+  --spacing-xl: var(--fw-space-xl);
+  --spacing-gutter: var(--fw-gutter);
+  --spacing-container-max: var(--fw-container-max);
+
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-geist-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
 }
