@@ -235,7 +235,7 @@
 | Seq | Task ID | 제목 | Category | Requirement Ref | Depends On | Expected Files | Functional AC | Visual AC | Security/Privacy AC | Verify | Priority |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | 46 | GLOBAL-NAV-FOOTER | 전역 내비게이션/Footer | GLOBAL | REQ-FUNC-064 | (없음) | `src/app/layout.tsx` (modify) | 5개 Screen 공통 Header(워드마크/내비/계정)·Footer(3열/1열) | Mobile 햄버거 시트 | 포커스 순서 로고→내비→계정 | E2E-PUBLIC-SMOKE | P0 |
-| 47 | GLOBAL-RESPONSIVE | 반응형 레이아웃 기반 | GLOBAL | REQ-FUNC-065; REQ-NF-003 | (없음) | `src/app/globals.css` (modify) | 320px~Desktop 가로 스크롤·겹침 없음 | Card 1열(Mobile)/그리드(Desktop) | — | MANUAL-CHECK-RESPONSIVE | P0 |
+| 47 | GLOBAL-RESPONSIVE | 반응형 레이아웃 기반 | GLOBAL | REQ-FUNC-065; REQ-NF-003 | (없음) | `src/app/globals.css` (modify) | 320px~Desktop 가로 스크롤·겹침 없음; D-001 색상·폰트·간격·radius 토큰을 CSS 변수로 정의해 스타터 기본값 대체 | Card 1열(Mobile)/그리드(Desktop); body 배경·기본 글자색·기본 폰트가 D-001 토큰 사용 | — | MANUAL-CHECK-RESPONSIVE | P0 |
 | 48 | GLOBAL-SEO-META | SEO 메타데이터 | GLOBAL | REQ-FUNC-070; REQ-NF-030 | (없음) | `src/app/**/layout.tsx` 또는 `metadata` export (modify) | title/description/canonical/OG/구조화 데이터 5개 Route 전부 | — | — | MANUAL-CHECK-PERF-SEO | P1 |
 | 49 | GLOBAL-A11Y | 접근성 기본기 | GLOBAL | REQ-FUNC-079; REQ-NF-023 | (없음) | `src/components/**/*.tsx` (전역 적용, modify) | 폼·모달·탭·알림 시맨틱 HTML + ARIA 상태 | 포커스 링 `color.focus.ring` 2px | — | MANUAL-CHECK-A11Y | P1 |
 | 50 | GLOBAL-ERROR-PAGES | 404/500/권한없음/외부연결실패 | GLOBAL | REQ-FUNC-078 | GLOBAL-NAV-FOOTER | `src/app/not-found.tsx`, `src/app/error.tsx` (create) | 각 화면에 홈·이전·재시도 중 1개 이상 복구 행동 | — | — | E2E-PUBLIC-SMOKE | P1 |

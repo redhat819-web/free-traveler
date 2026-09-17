@@ -31,3 +31,6 @@
 
 ## WARN
 - (none)
+
+## 수동 추가 항목 (scripts/audit_tasks.py의 18개 고정 검사 밖, 사용자 승인으로 수기 기록)
+- D-001 디자인 기준 요구사항(`design-reference/D-001/DESIGN.md`의 색상·폰트·간격·radius 토큰)은 `GLOBAL-RESPONSIVE` Task의 Functional AC/Visual AC/Verify로 연결되어 있다(2026-09-17 갱신). `scripts/audit_tasks.py`를 재실행하면 이 섹션은 자동 생성 내용으로 덮어써지므로, 이 연결 관계를 스크립트의 정식 검사 항목으로 편입하려면 별도 승인 후 코드 수정이 필요하다.

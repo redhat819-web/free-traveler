@@ -51,11 +51,13 @@
 ## Functional AC
 
 - 320px~Desktop 가로 스크롤·겹침 없음
+- `design-reference/D-001/DESIGN.md`의 색상·폰트·간격·radius 토큰을 `globals.css`에 CSS 변수로 정의하고, Next.js 스타터 기본값(`--background`, `--foreground` 등)을 대체한다.
 
 ## Visual AC
 
 - Card 1열(Mobile)/그리드(Desktop)
 - Lorem ipsum, '준비 중', '정보 확인 필요' 문구 및 내용 없는 Card를 두지 않는다(D-001/DESIGN.md 공통 규칙).
+- `body`의 배경·기본 글자색·기본 폰트가 D-001 토큰을 사용한다.
 
 ## Security/Privacy AC
 
@@ -68,6 +70,8 @@
 ## Verify
 
 - MANUAL-CHECK-RESPONSIVE
+- 자체 검증: `src` 아래 `.tsx`/`.css`에서 `globals.css` 밖의 임의 hex 색상 사용이 없는지 검색한다.
+- `npm run format:check`, `npm run lint`, `npm run typecheck`, `npm run build` 실행.
 
 ## Definition of Done
 
