@@ -63,7 +63,7 @@ export const destinations: Destination[] = [
       "실제 주민이 거주하는 지역이므로 골목 소음과 사유지 무단 촬영을 자제한다.",
     source: "서울관광재단 공식 안내(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Bukchon-ro_11-gil_street_with_hanok_houses_in_Bukchon_Hanok_Village_Seoul.jpg/1280px-Bukchon-ro_11-gil_street_with_hanok_houses_in_Bukchon_Hanok_Village_Seoul.jpg",
       alt: "기와지붕이 이어진 북촌한옥마을 골목 풍경",
     },
   },
@@ -94,7 +94,7 @@ export const destinations: Destination[] = [
     etiquette: "실제 거주 가구가 많아 담장 안쪽 촬영과 큰 소음을 피한다.",
     source: "부산광역시 서구청 관광 안내(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Colorful_houses_in_Gamcheon_Culture_Village_at_sunset_in_Busan_South_Korea.jpg/1280px-Colorful_houses_in_Gamcheon_Culture_Village_at_sunset_in_Busan_South_Korea.jpg",
       alt: "산비탈에 파스텔톤 집들이 늘어선 감천문화마을 전경",
     },
   },
@@ -125,7 +125,7 @@ export const destinations: Destination[] = [
     etiquette: "분화구 보호를 위해 지정된 탐방로 밖으로 벗어나지 않는다.",
     source: "제주특별자치도 관광협회 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1541638832-427e096e4e5d?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Seongsan_Ilchulbong_02.jpg/1280px-Seongsan_Ilchulbong_02.jpg",
       alt: "바다 위로 솟은 성산일출봉의 화산 분화구 전경",
     },
   },
@@ -157,7 +157,7 @@ export const destinations: Destination[] = [
       "법당 내부 촬영이 금지된 구역이 있으니 안내판을 반드시 확인한다.",
     source: "경주시청 문화관광 안내(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1584971132003-3a1a82762a06?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Korea-Gyeongju-Bulguksa-32.jpg/1280px-Korea-Gyeongju-Bulguksa-32.jpg",
       alt: "다보탑과 대웅전이 보이는 불국사 경내 풍경",
     },
   },
@@ -188,7 +188,7 @@ export const destinations: Destination[] = [
     etiquette: "해변 취사와 야간 소음은 금지 구역이 있으니 표지판을 확인한다.",
     source: "강릉시청 관광 안내(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1541445136807-3a2ac91fce80?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Anmok_beach_2.jpg/1280px-Anmok_beach_2.jpg",
       alt: "카페들이 늘어선 강릉 안목해변 해안가 풍경",
     },
   },
@@ -212,7 +212,7 @@ export const destinations: Destination[] = [
     etiquette: "한복 대여 시 골목 계단이나 사찰 문턱에 걸리지 않도록 주의한다.",
     source: "전주시청 문화관광 안내(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1601979031925-424e53b6caaa?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Jeonju_Hanok_Village_-_July_2018_%2812%29.jpg/1280px-Jeonju_Hanok_Village_-_July_2018_%2812%29.jpg",
       alt: "한복을 입은 방문객들이 걷는 전주한옥마을 골목",
     },
   },
@@ -243,7 +243,7 @@ export const destinations: Destination[] = [
     etiquette: "낭만포차 야간 이용 시 주변 상권 소음 민원에 유의한다.",
     source: "여수시청 관광 안내(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1544967082-d9d25d867d66?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Yeosu_coast_with_Odongdo_in_2017.jpg/1280px-Yeosu_coast_with_Odongdo_in_2017.jpg",
       alt: "야간 조명이 켜진 여수 밤바다와 케이블카 전경",
     },
   },
@@ -275,7 +275,7 @@ export const destinations: Destination[] = [
     etiquette: "설악산 국립공원 지정 등산로 외 출입은 금지되어 있다.",
     source: "국립공원공단·속초시청 관광 안내(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1607604760190-fb2fbe19c440?auto=format&fit=crop&w=1200&q=80",
+      url: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Korean.Seoraksan-Ulsanbawi-01.jpg",
       alt: "단풍이 든 설악산 능선과 울산바위 전경",
     },
   },
@@ -307,7 +307,7 @@ export const destinations: Destination[] = [
       "동피랑은 실제 주민 거주지이므로 담벼락 벽화만 촬영하고 사생활을 존중한다.",
     source: "통영시청 관광 안내(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1590077428593-a55bb07c4665?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Korea-Tongyeong-Dongpirang_Village-01.jpg/1280px-Korea-Tongyeong-Dongpirang_Village-01.jpg",
       alt: "알록달록한 벽화가 그려진 통영 동피랑 마을 골목",
     },
   },
@@ -337,7 +337,7 @@ export const destinations: Destination[] = [
     etiquette: "대나무 숲 보호를 위해 지정 산책로를 벗어나지 않는다.",
     source: "담양군청 관광 안내(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1600093463592-8e36ad95580a?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Korea-Damyang-Hanok_in_the_Bamboo_Forest-01.jpg/1280px-Korea-Damyang-Hanok_in_the_Bamboo_Forest-01.jpg",
       alt: "빽빽한 대나무들이 늘어선 담양 죽녹원 산책로",
     },
   },
@@ -373,7 +373,7 @@ export const destinations: Destination[] = [
       "식당·전철 내 큰 소리 통화는 삼가며, 길거리 흡연은 지정 구역에서만 한다.",
     source: "일본정부관광국(JNTO) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=1200&q=80",
+      url: "https://images.unsplash.com/photo-1759746334715-fae30ec56600?auto=format&fit=crop&w=1200&q=80",
       alt: "야간 조명이 켜진 오사카 도톤보리 강변 거리",
     },
   },
@@ -403,7 +403,7 @@ export const destinations: Destination[] = [
     etiquette: "사찰 경내에서는 조용히 관람하고 지정된 곳 외 촬영을 삼간다.",
     source: "일본정부관광국(JNTO) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80",
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/30/FushimiInariTorii.jpg",
       alt: "붉은 도리이가 줄지어 선 교토 후시미이나리 신사",
     },
   },
@@ -433,7 +433,7 @@ export const destinations: Destination[] = [
       "겨울철 빙판길이 많아 지정 보행로를 이용하고 무리한 촬영을 자제한다.",
     source: "일본정부관광국(JNTO) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Hokkaido_Sapporo_Odori_Park.jpg/1280px-Hokkaido_Sapporo_Odori_Park.jpg",
       alt: "눈이 쌓인 삿포로 오도리공원의 겨울 풍경",
     },
   },
@@ -463,7 +463,7 @@ export const destinations: Destination[] = [
     etiquette: "사찰이나 사원 방문 시 어깨와 무릎을 가리는 복장을 착용한다.",
     source: "베트남국가관광청 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/My_Khe_Beach_Da_Nang.jpg/1280px-My_Khe_Beach_Da_Nang.jpg",
       alt: "미케비치의 긴 백사장과 야자수가 있는 다낭 해안",
     },
   },
@@ -494,7 +494,7 @@ export const destinations: Destination[] = [
       "등불 강 유람선 이용 시 뱃사공에게 팁을 강요받지 않도록 사전 요금을 확인한다.",
     source: "베트남국가관광청 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Lanterns_in_Hoi_An_4.jpg/1280px-Lanterns_in_Hoi_An_4.jpg",
       alt: "노란 등불이 켜진 호이안 구시가지 강변 야경",
     },
   },
@@ -525,7 +525,7 @@ export const destinations: Destination[] = [
       "왕궁·사원 방문 시 반바지·민소매 착용을 금지하니 긴 옷을 준비한다.",
     source: "태국관광청(TAT) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=1200&q=80",
+      url: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Wat_arun_bangkok.jpg",
       alt: "황금빛 첨탑이 있는 방콕 왕궁 사원 전경",
     },
   },
@@ -556,7 +556,7 @@ export const destinations: Destination[] = [
       "코끼리 체험은 승마 대신 목욕·먹이주기 중심의 보호 프로그램을 선택한다.",
     source: "태국관광청(TAT) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1598935898639-81586f7d2129?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Wat_Phra_That_Doi_Suthep_-_Chiang_Mai.jpg/1280px-Wat_Phra_That_Doi_Suthep_-_Chiang_Mai.jpg",
       alt: "산 중턱에 자리한 치앙마이 도이수텝 사원의 황금 불탑",
     },
   },
@@ -587,7 +587,7 @@ export const destinations: Destination[] = [
       "식당 입장 시 종업원 안내를 기다리는 것이 일반적이며 팁은 서비스 만족 시 소액 추가한다.",
     source: "프랑스관광청(Atout France) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Eiffel_tower_paris_france.jpg/1280px-Eiffel_tower_paris_france.jpg",
       alt: "센강 너머로 보이는 파리 에펠탑의 야경",
     },
   },
@@ -619,7 +619,7 @@ export const destinations: Destination[] = [
       "성당 방문 시 어깨와 무릎을 가리는 복장이 필요하며 소매치기에 유의한다.",
     source: "이탈리아관광청(ENIT) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Colosseum_Rome.jpg/1280px-Colosseum_Rome.jpg",
       alt: "고대 원형 경기장인 로마 콜로세움의 외벽 전경",
     },
   },
@@ -650,7 +650,7 @@ export const destinations: Destination[] = [
       "성당·광장에서 비둘기 먹이주기가 금지된 구역이 있으니 안내판을 확인한다.",
     source: "이탈리아관광청(ENIT) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Grand_Canal-Venice.jpg/1280px-Grand_Canal-Venice.jpg",
       alt: "운하를 따라 곤돌라가 지나는 베네치아 수상 도시 풍경",
     },
   },
@@ -681,7 +681,7 @@ export const destinations: Destination[] = [
       "관광 명소는 사전 예약이 필수인 경우가 많아 현장 대기 시간을 감안한다.",
     source: "스페인관광청(Turespaña) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/La_Sagrada_Familia_Barcelona.jpg/1280px-La_Sagrada_Familia_Barcelona.jpg",
       alt: "첨탑이 우뚝 솟은 바르셀로나 사그라다파밀리아 성당",
     },
   },
@@ -711,7 +711,7 @@ export const destinations: Destination[] = [
     etiquette: "일요일에는 대부분 상점이 휴무이므로 일정을 미리 조정한다.",
     source: "독일관광청(GNTB) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Berlin_Brandenburg_Gate.JPG/1280px-Berlin_Brandenburg_Gate.JPG",
       alt: "웅장한 기둥이 있는 베를린 브란덴부르크문 전경",
     },
   },
@@ -741,7 +741,7 @@ export const destinations: Destination[] = [
     etiquette: "지하철 에스컬레이터에서는 우측에 서서 좌측 통행을 비워둔다.",
     source: "영국관광청(VisitBritain) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=80",
+      url: "https://upload.wikimedia.org/wikipedia/commons/d/d4/London_Big_Ben.jpg",
       alt: "빅벤과 국회의사당이 보이는 런던 템스강변 풍경",
     },
   },
@@ -773,7 +773,7 @@ export const destinations: Destination[] = [
       "체르마트 마을은 전기차 외 일반 차량 진입이 금지되어 있으니 사전 확인한다.",
     source: "스위스관광청(Switzerland Tourism) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Matterhorn_Zermatt.JPG/1280px-Matterhorn_Zermatt.JPG",
       alt: "마터호른 봉이 보이는 체르마트 마을의 설경",
     },
   },
@@ -803,7 +803,7 @@ export const destinations: Destination[] = [
     etiquette: "오페라극장 관람 시 정장에 가까운 단정한 복장을 권장한다.",
     source: "오스트리아관광청(Austria Tourism) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1516550893923-42d28e5677af?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Sch%C3%B6nbrunn_Palace%2C_Vienna.JPG/1280px-Sch%C3%B6nbrunn_Palace%2C_Vienna.JPG",
       alt: "웅장한 정원이 펼쳐진 빈 쇤브룬궁전 전경",
     },
   },
@@ -833,7 +833,7 @@ export const destinations: Destination[] = [
     etiquette: "레스토랑 이용 시 15~20% 팁 지불이 일반적이다.",
     source: "미국관광청(Brand USA) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/New_york_times_square-terabass.jpg/1280px-New_york_times_square-terabass.jpg",
       alt: "화려한 전광판이 가득한 뉴욕 타임스퀘어 야경",
     },
   },
@@ -864,7 +864,7 @@ export const destinations: Destination[] = [
       "대중교통이 제한적이므로 렌터카 이용 시 유료 주차 구역을 사전 확인한다.",
     source: "미국관광청(Brand USA) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1503756234508-e32ff97a2b62?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Hollywood_sign_in_Los_Angeles.jpg/1280px-Hollywood_sign_in_Los_Angeles.jpg",
       alt: "언덕 위에 세워진 로스앤젤레스 할리우드사인",
     },
   },
@@ -896,7 +896,7 @@ export const destinations: Destination[] = [
       "야외 활동이 많은 도시이므로 곰 출현 지역 안내판을 반드시 따른다.",
     source: "캐나다관광청(Destination Canada) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1560814304-4f05b62af116?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Vancouver-stanley-park.jpg/1280px-Vancouver-stanley-park.jpg",
       alt: "고층 빌딩과 산이 함께 보이는 밴쿠버 시내 전경",
     },
   },
@@ -927,7 +927,7 @@ export const destinations: Destination[] = [
       "해변 수영 시 지정된 안전요원 구역(레드앤옐로우 플래그) 안에서만 수영한다.",
     source: "호주관광청(Tourism Australia) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Sydney_Opera_House.JPG/1280px-Sydney_Opera_House.JPG",
       alt: "하버브릿지와 오페라하우스가 보이는 시드니항 전경",
     },
   },
@@ -957,7 +957,7 @@ export const destinations: Destination[] = [
     etiquette: "액티비티 예약 시 취소·환불 규정을 사전에 꼼꼼히 확인한다.",
     source: "뉴질랜드관광청(Tourism New Zealand) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1589802829985-817e51171b92?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Lake_Wakatipu_by_Queenstown.jpg/1280px-Lake_Wakatipu_by_Queenstown.jpg",
       alt: "산맥을 배경으로 한 뉴질랜드 퀸스타운 와카티푸호수",
     },
   },
@@ -988,7 +988,7 @@ export const destinations: Destination[] = [
       "모스크 방문 시 여성은 스카프로 머리를 가리고 신발을 벗어야 한다.",
     source: "튀르키예관광청(Go Türkiye) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Blue_Mosque_Istanbul.jpg/1280px-Blue_Mosque_Istanbul.jpg",
       alt: "돔형 지붕이 있는 이스탄불 블루모스크 전경",
     },
   },
@@ -1019,7 +1019,7 @@ export const destinations: Destination[] = [
       "공공장소에서 과도한 노출 복장은 피하고 라마단 기간에는 낮 시간 취식을 자제한다.",
     source: "두바이관광청(Dubai Tourism) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80",
+      url: "https://upload.wikimedia.org/wikipedia/commons/4/48/Burjdubaimay07.jpg",
       alt: "세계 최고층 빌딩인 두바이 부르즈할리파 전경",
     },
   },
@@ -1050,7 +1050,7 @@ export const destinations: Destination[] = [
       "유적지 관람 시 지정 가이드나 표지판을 따르고 문화재 접촉을 자제한다.",
     source: "이집트관광청(Egypt Tourism) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/The_Giza_Pyramids.jpg/1280px-The_Giza_Pyramids.jpg",
       alt: "사막 위에 우뚝 선 기자의 피라미드와 스핑크스",
     },
   },
@@ -1080,7 +1080,7 @@ export const destinations: Destination[] = [
     etiquette: "야간 파두 공연장에서는 공연 중 대화를 자제하는 것이 관례다.",
     source: "포르투갈관광청(Turismo de Portugal) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1585208798174-6cedd86e019a?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Belem_tower.JPG/1280px-Belem_tower.JPG",
       alt: "노란 트램이 지나는 리스본 언덕길 풍경",
     },
   },
@@ -1111,7 +1111,7 @@ export const destinations: Destination[] = [
       "일몰 명소는 혼잡하니 이른 시간에 자리를 확보하고 새치기를 하지 않는다.",
     source: "그리스관광청(Visit Greece) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80",
+      url: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Oia_Santorini_Greece.jpg",
       alt: "하얀 건물과 파란 지붕이 어우러진 산토리니 이아마을",
     },
   },
@@ -1135,7 +1135,7 @@ export const destinations: Destination[] = [
     etiquette: "구시가지 야간에는 소매치기가 종종 발생하니 소지품에 유의한다.",
     source: "체코관광청(CzechTourism) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1541849546-216549ae216d?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Charles_Bridge_Prague.jpg/1280px-Charles_Bridge_Prague.jpg",
       alt: "블타바강 위 카를교와 프라하성이 보이는 야경",
     },
   },
@@ -1166,7 +1166,7 @@ export const destinations: Destination[] = [
       "자전거 전용도로가 많아 보행자는 자전거 통행로를 침범하지 않도록 주의한다.",
     source: "네덜란드관광청(Holland.com) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/A_canal_in_Amsterdam_-_Sarah_Stierch.jpg/1280px-A_canal_in_Amsterdam_-_Sarah_Stierch.jpg",
       alt: "운하를 따라 자전거가 지나는 암스테르담 거리 풍경",
     },
   },
@@ -1197,7 +1197,7 @@ export const destinations: Destination[] = [
       "껌 반입·판매가 법으로 제한되어 있고 대중교통 내 음식물 섭취가 금지된다.",
     source: "싱가포르관광청(STB) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Marina_Bay_Sands%2C_Singapore_1.jpg/1280px-Marina_Bay_Sands%2C_Singapore_1.jpg",
       alt: "야간 조명이 빛나는 싱가포르 가든스바이더베이 슈퍼트리",
     },
   },
@@ -1228,7 +1228,7 @@ export const destinations: Destination[] = [
     etiquette: "모스크나 힌두 사원 방문 시 신발을 벗고 복장 규정을 확인한다.",
     source: "말레이시아관광청(Tourism Malaysia) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Petronas_Towers%2C_Kuala_Lumpur_%283323152170%29.jpg/1280px-Petronas_Towers%2C_Kuala_Lumpur_%283323152170%29.jpg",
       alt: "야경 속에 우뚝 선 쿠알라룸푸르 페트로나스트윈타워",
     },
   },
@@ -1259,7 +1259,7 @@ export const destinations: Destination[] = [
       "고래상어 투어 시 자외선 차단제 사용을 자제하고 지정 가이드 지침을 따른다.",
     source: "필리핀관광청(DOT) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Badian_Cebu.JPG/1280px-Badian_Cebu.JPG",
       alt: "에메랄드빛 바다가 펼쳐진 세부 막탄섬 해변",
     },
   },
@@ -1289,7 +1289,7 @@ export const destinations: Destination[] = [
     etiquette: "사원 방문 시 전통 천(사룽)을 허리에 두르는 복장 규정을 따른다.",
     source: "인도네시아관광청(Wonderful Indonesia) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80",
+      url: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Bali_Rice_Terrace.JPG",
       alt: "초록빛 계단식 논이 펼쳐진 발리 테갈라랑 풍경",
     },
   },
@@ -1314,7 +1314,7 @@ export const destinations: Destination[] = [
       "대중교통 이용 시 실명 등록이 필요한 교통카드가 있으니 사전 확인한다.",
     source: "중국국가여유국 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Shanghai_Skyline.jpg/1280px-Shanghai_Skyline.jpg",
       alt: "와이탄 강변에서 바라본 상하이 푸동지구 야경",
     },
   },
@@ -1344,7 +1344,7 @@ export const destinations: Destination[] = [
     etiquette: "야시장 노점 이용 시 현금을 소액 단위로 준비하는 것이 편리하다.",
     source: "대만관광청(Taiwan Tourism) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1470004914212-05527e49370b?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Taipei_101.JPG/1280px-Taipei_101.JPG",
       alt: "고층 빌딩 타이베이101이 보이는 타이베이 시내 전경",
     },
   },
@@ -1373,7 +1373,7 @@ export const destinations: Destination[] = [
     etiquette: "트램·지하철에서는 새치기 없이 줄서기 문화를 지킨다.",
     source: "홍콩관광청(Hong Kong Tourism Board) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Hong-Kong_skyline.JPG/1280px-Hong-Kong_skyline.JPG",
       alt: "빅토리아항 너머로 보이는 홍콩 도심 야경",
     },
   },
@@ -1404,7 +1404,7 @@ export const destinations: Destination[] = [
       "세노테 등 자연 수영 구역에서는 화학 성분 없는 자외선 차단제만 허용된다.",
     source: "멕시코관광청(Visit Mexico) 공식 자료(2025년 기준)",
     image: {
-      url: "https://images.unsplash.com/photo-1552074284-5e88ef1aef18?auto=format&fit=crop&w=1200&q=80",
+      url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Cancun_Beach.jpg/1280px-Cancun_Beach.jpg",
       alt: "에메랄드빛 바다와 백사장이 펼쳐진 칸쿤 해변",
     },
   },

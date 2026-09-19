@@ -152,7 +152,7 @@ export const representative: RepresentativeProfile = {
       alt: "파리 에펠탑 아래에서 촬영한 야경 사진",
     },
     {
-      url: "https://images.unsplash.com/photo-1541638832-427e096e4e5d?auto=format&fit=crop&w=1200&q=80",
+      url: "https://images.unsplash.com/photo-1502786129293-79981df4e689?auto=format&fit=crop&w=1200&q=80",
       alt: "제주 성산일출봉 정상에서 바라본 일출 장면",
     },
     {
@@ -162,10 +162,6 @@ export const representative: RepresentativeProfile = {
     {
       url: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1200&q=80",
       alt: "다낭 미케비치의 백사장과 야자수",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80",
-      alt: "산토리니 이아마을의 하얀 건물과 파란 지붕",
     },
     {
       url: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1200&q=80",
