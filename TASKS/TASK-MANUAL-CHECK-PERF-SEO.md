@@ -6,8 +6,42 @@
 - **Type:** test
 - **Priority:** P2
 - **Screen / Route / Page Entry:** N/A / N/A / N/A
+- **Status:** DONE — 2026-09-19 (사용자 수동 점검, AC 전 항목 통과)
 
 ---
+
+## 점검 결과 (2026-09-19)
+
+측정 환경: 프로덕션 빌드(`npm run build && npm start`), Lighthouse 13.4.1, Emulated
+Moto G Power, Slow 4G, Mobile 모드.
+
+| AC 항목 | 목표 | 결과 |
+|---|---|---|
+| LCP (REQ-NF-001) | ≤2.5s | 홈 1.4s — **통과** |
+| CLS (REQ-NF-003) | ≤0.1 | 홈 0 — **통과** |
+| INP (REQ-NF-002) | ≤200ms | **측정 불가 — 실사용자 필드 데이터 필요, 배포 후 확인** |
+| SEO 메타 (REQ-NF-030 / REQ-FUNC-070) | 5개 Route 누락 0건 | 전 Route SEO 100점, 메타 누락 0건 — **통과** |
+
+이 Task의 Requirement Ref(001/002/003/006/030, FUNC-070) 기준 AC는 전 항목 통과로
+판정한다(INP는 위 사유로 배포 후 필드 데이터 확인 항목으로 남긴다).
+
+### 참고 지표(이 Task의 공식 Requirement Ref 밖, REQ-NF-007 Lighthouse Performance ≥85)
+
+| Route | Perf | A11y | BP | SEO |
+|---|---:|---:|---:|---:|
+| `/` | 80 | 97 | 100 | 100 |
+| `/about` | 88 | 96 | 100 | 100 |
+| `/mates` | 93 | 96 | 100 | 100 |
+| `/travel-tools` | 72 | 97 | 100 | 100 |
+| `/account` | 79 | 95 | 100 | 100 |
+
+`/`, `/account`, `/travel-tools` 3개가 REQ-NF-007(≥85) 미달. 공식 Requirement Ref에
+없어 이 Task의 차단 사유는 아니지만, 원인(미사용 JS·TBT)이 공통적이라
+`TASKS/TASK-PERF-REDUCE-JS-BUNDLE.md`(NOT_STARTED)로 별도 기록했다.
+
+Lighthouse Accessibility 자동 검출에서 전 페이지 95~97점, 홈 페이지 Contrast(배경/전경
+색 대비 부족) 실패 1건 발견 — 수동 점검으로는 잡히지 않는 항목이라
+`TASKS/TASK-A11Y-COLOR-CONTRAST.md`(NOT_STARTED)로 별도 기록했다.
 
 ## Context
 

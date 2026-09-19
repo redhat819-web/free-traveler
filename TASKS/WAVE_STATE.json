@@ -375,7 +375,8 @@
       "checkpoint_required": false,
       "checkpoint_result": null,
       "tasks": [
-        { "task_id": "E2E-PUBLIC-SMOKE", "status": "completed", "commit": null }
+        { "task_id": "E2E-PUBLIC-SMOKE", "status": "completed", "commit": null },
+        { "task_id": "MANUAL-CHECK-PERF-SEO", "status": "completed", "commit": null }
       ]
     },
     {

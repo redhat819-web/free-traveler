@@ -87,3 +87,33 @@
 - D-001 DESIGN.md 디자인 토큰 밖의 임의 색상 값 사용
 - Expected Files 목록 밖의 파일 생성·수정을 금지한다.
 - 이 Task 단계에서 구현 코드, Git Branch, Commit을 생성하지 않는다(본 문서는 계획 문서다).
+
+## 완료 후 재검토 (2026-09-19)
+
+`MANUAL-CHECK-A11Y`/`MANUAL-CHECK-PERF-SEO` 수동 점검에서 아래 4건이 이 Task
+완료 이후에도 남아 있음이 확인되었다(포커스 트랩·Esc·탭 화살표 이동 3건은
+`TASKS/TASK-FIX-A11Y-DIALOG-TABS.md`로 수정 완료, 색 대비 1건은
+`TASKS/TASK-A11Y-COLOR-CONTRAST.md`로 기록만 함).
+
+**원인**: 이 Task의 **Functional AC가 REQ-NF-023(WCAG 2.2 Level AA)의 실제
+범위보다 좁게 작성되어 있었다.**
+
+- Functional AC: "폼·모달·탭·알림 **시맨틱 HTML + ARIA 상태**" — `role`/`aria-*`
+  속성이 붙어 있는지만 요구하고, 그 속성이 실제로 동작하는지(포커스 트랩, Esc,
+  화살표 키 이동)는 AC에 없었다. 즉 `role="dialog"`+`aria-modal="true"`만
+  있으면 이 AC상으로는 "충족"으로 판정되는 구조였다 — 실제 WCAG 2.2 AA는
+  2.1.2(No Keyboard Trap의 역방향인 "탈출 가능해야 함"), 2.4.3(Focus Order),
+  ARIA Authoring Practices의 Dialog/Tabs 패턴(포커스 트랩·Esc·화살표 이동)까지
+  요구한다.
+- Visual AC: "포커스 링 2px"만 명시되어 있고, **색 대비 기준(WCAG 1.4.3, 텍스트
+  4.5:1/큰 텍스트 3:1)이 아예 AC에 없었다.**
+- 결과적으로 `Definition of Done`의 "Functional/Visual AC 전 항목 충족" 체크가
+  이 좁은 AC 기준으로는 통과했지만, 상위 Requirement(`REQ-NF-023`)는 충족되지
+  않은 상태로 "완료" 처리되었다.
+
+**재발 방지를 위해 확인할 것**: 이후 Wave에서 REQ-NF-023/024/025(접근성) 계열
+Task를 상세화할 때는 Task List의 Functional/Visual AC 열이 Requirement의
+실제 목표(WCAG 레벨 등)를 요약이 아니라 검증 가능한 항목으로 전부 나열하는지
+먼저 확인한다. 이번처럼 "시맨틱 HTML + ARIA 상태"처럼 마크업 존재만 가리키는
+표현은 상호작용/시각 기준(포커스 트랩, 키보드 내비게이션, 색 대비)을 암묵적으로
+빠뜨릴 위험이 있다.
