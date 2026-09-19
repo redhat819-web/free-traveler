@@ -6,6 +6,7 @@
  */
 
 import { useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { createBlock } from "@/lib/db/blocks";
 import { useToast } from "@/components/shared/Toast";
 import { useDialogA11y } from "@/hooks/useDialogA11y";
@@ -48,43 +49,45 @@ export function BlockButton({ targetMemberId, targetLabel, onBlocked }: BlockBut
         차단하기
       </button>
 
-      {open && (
-        <div
-          ref={dialogRef}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="block-confirm-title"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-gutter"
-        >
-          <div className="w-full max-w-[24rem] rounded-md bg-bg-canvas p-lg shadow-lg">
-            <h2 id="block-confirm-title" className="text-lg font-semibold text-text-primary">
-              {targetLabel}님을 차단하시겠어요?
-            </h2>
-            <p className="mt-xs text-sm text-text-secondary">
-              차단하면 이 사용자의 동행 글·프로필·참가 요청이 서로에게 더 이상 보이지 않습니다.
-            </p>
+      {open &&
+        createPortal(
+          <div
+            ref={dialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="block-confirm-title"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-gutter"
+          >
+            <div className="w-full max-w-[24rem] rounded-md bg-bg-canvas p-lg shadow-lg">
+              <h2 id="block-confirm-title" className="text-lg font-semibold text-text-primary">
+                {targetLabel}님을 차단하시겠어요?
+              </h2>
+              <p className="mt-xs text-sm text-text-secondary">
+                차단하면 이 사용자의 동행 글·프로필·참가 요청이 서로에게 더 이상 보이지 않습니다.
+              </p>
 
-            <div className="mt-md flex justify-end gap-sm">
-              <button
-                type="button"
-                onClick={() => setOpen(false)}
-                disabled={submitting}
-                className="min-h-[44px] rounded-pill px-md text-sm font-semibold text-text-secondary hover:bg-bg-strong disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
-              >
-                취소
-              </button>
-              <button
-                type="button"
-                onClick={handleConfirm}
-                disabled={submitting}
-                className="min-h-[44px] rounded-pill bg-semantic-danger px-md text-sm font-semibold text-bg-canvas disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
-              >
-                {submitting ? "차단하는 중..." : "차단"}
-              </button>
+              <div className="mt-md flex justify-end gap-sm">
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  disabled={submitting}
+                  className="min-h-[44px] rounded-pill px-md text-sm font-semibold text-text-secondary hover:bg-bg-strong disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
+                >
+                  취소
+                </button>
+                <button
+                  type="button"
+                  onClick={handleConfirm}
+                  disabled={submitting}
+                  className="min-h-[44px] rounded-pill bg-semantic-danger px-md text-sm font-semibold text-bg-canvas disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
+                >
+                  {submitting ? "차단하는 중..." : "차단"}
+                </button>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body,
+        )}
     </>
   );
 }
