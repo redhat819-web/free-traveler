@@ -2,7 +2,10 @@
 
 - **Task ID:** `FIX-A11Y-DIALOG-TABS`
 - **Category:** FIX (GLOBAL-A11Y 재작업)
-- **Status:** DONE — 2026-09-19 (사용자 재점검 통과, `BlockButton.tsx`는 데이터 부재로 미확인·동일 패턴 갈음)
+- **Status:** DONE(부분) — 2026-09-19. Esc 닫기·포커스 복귀·포털링·탭 4곳 화살표 이동은
+  사용자 재점검 통과(`BlockButton.tsx`는 데이터 부재로 미확인·동일 패턴 갈음).
+  **Drawer 포커스 트랩 순환만 3차 시도에도 미해결로 확인되어
+  `TASKS/TASK-A11Y-FOCUS-TRAP-CYCLE.md`(NOT_STARTED)로 이월했다.**
 - **기록일:** 2026-09-19 (`MANUAL-CHECK-A11Y` 수동 점검 실패 3건에서 발견)
 
 ## 배경
