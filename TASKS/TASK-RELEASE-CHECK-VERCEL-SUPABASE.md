@@ -73,6 +73,18 @@
 
 - Airbnb 상표 요소·구매/예약/결제 UI·실시간 항공권/호텔 가격·광고·별점을 포함하지 않는다.
 
+## 0. GitHub 푸시 (Vercel 착수 전 선행 단계)
+
+Vercel은 GitHub 저장소를 import하는 방식으로 연결하므로, 미커밋·미푸시 상태로는
+배포해도 최신 코드가 반영되지 않는다. 아래 체크리스트(A/B) 착수 전에 먼저 완료한다.
+
+- [ ] 미커밋 산출물 정리 및 커밋(Wave 단위 또는 Task 단위 — 커밋 그라뉼래러티는
+      별도 정리 필요, 아래 "커밋 대상 정리" 참조)
+- [ ] `.env.local` 미포함 확인 — `git status`에 `.env.local`/`.env`가 보이지 않아야
+      한다(`.gitignore`의 `.env*` 패턴, `!.env.example` 예외로 `.env.example`만 추적됨)
+- [ ] `git push`
+- [ ] GitHub Actions CI(`​.github/workflows/ci.yml`) 통과 확인
+
 ## Supabase SQL 적용 체크리스트
 
 이 프로젝트는 ORM 마이그레이션 도구를 쓰지 않으므로(`docs/ARCHITECTURE.md` 164줄,
@@ -122,6 +134,7 @@ select id, url from public.outbound_url_settings;
 ## Definition of Done
 
 - [ ] Expected Files에 명시된 파일만 생성/수정했다.
+- [ ] "0. GitHub 푸시" 전 항목을 확인했다.
 - [ ] "Supabase SQL 적용 체크리스트" 전 항목을 확인했다.
 - [ ] Functional AC 전 항목을 충족했다.
 - [ ] Visual AC 전 항목을 충족했다(Lorem ipsum/빈 Card/미완성 문구 없음 포함).
