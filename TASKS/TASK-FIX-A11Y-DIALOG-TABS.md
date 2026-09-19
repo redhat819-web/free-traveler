@@ -2,7 +2,7 @@
 
 - **Task ID:** `FIX-A11Y-DIALOG-TABS`
 - **Category:** FIX (GLOBAL-A11Y 재작업)
-- **Status:** IN_PROGRESS — 2026-09-19 착수
+- **Status:** DONE — 2026-09-19 (사용자 재점검 통과, `BlockButton.tsx`는 데이터 부재로 미확인·동일 패턴 갈음)
 - **기록일:** 2026-09-19 (`MANUAL-CHECK-A11Y` 수동 점검 실패 3건에서 발견)
 
 ## 배경
@@ -59,6 +59,10 @@ FIX Task로 분리한다.
 
 - `tsc --noEmit`, `eslint`, 관련 Vitest(해당 없으면 생략)
 - 자동화된 Playwright 검증 대상 아님 — 수정 후 `MANUAL-CHECK-A11Y` 재점검(사용자 수행)으로 최종 확인
+- `BlockButton.tsx` 차단 확인 모달: `/mates`에 실제 동행글이 0건이라 세션·데이터
+  부재로 사용자 재점검에서 미확인. `DestinationDrawer`/`SafetyPanel`/
+  `MateDetailPanel`(Mobile) 3곳에서 동일한 `useDialogA11y` 패턴이 재점검 통과했으므로
+  이 3곳 통과로 갈음한다(2026-09-19, 사용자 판단).
 
 ## Forbidden
 

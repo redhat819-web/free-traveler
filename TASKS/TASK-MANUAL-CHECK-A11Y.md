@@ -6,8 +6,27 @@
 - **Type:** test
 - **Priority:** P2
 - **Screen / Route / Page Entry:** N/A / N/A / N/A
+- **Status:** DONE — 2026-09-19 (사용자 수동 점검, 실패 3건 → `FIX-A11Y-DIALOG-TABS`로 수정 → 재점검 통과)
 
 ---
+
+## 점검 결과 (2026-09-19)
+
+1차 점검(키보드만으로 5개 핵심 흐름) 실패 3건 발견 → `TASKS/TASK-FIX-A11Y-DIALOG-TABS.md`로
+분리해 수정 → 재점검 통과.
+
+| 흐름 | 결과 |
+|---|---|
+| 탐색(홈 국내/해외 탭, `/travel-tools` 탭, `/account` 게스트/정책 탭) | 통과 — 화살표/Home/End + roving tabindex 정상 |
+| 필터(`/mates` 드롭다운) | 통과 |
+| 폼 제출(`/account` 로그인) | 통과 — 비밀번호 칸에서 Enter로 제출 |
+| Drawer 열고 닫기(홈 여행지 상세) | **1차 실패** → 포커스 트랩 없음, Esc 무반응 → 수정 후 재점검: Esc 닫기·포커스 복귀·포커스 트랩(경계뿐 아니라 전 구간 자체 관리 방식으로 재작성) 전부 통과 |
+| 탭 전환 | 통과(위 탐색 항목과 동일) |
+
+**미확인**: `BlockButton.tsx`(차단 확인 모달)는 `/mates`에 실제 동행글이 0건이라
+세션·데이터 부재로 점검 불가. `DestinationDrawer`/`SafetyPanel`/`MateDetailPanel`
+(Mobile)에서 동일한 `useDialogA11y` 패턴이 통과했으므로 이 3곳 통과로 갈음한다
+(사용자 판단, 2026-09-19).
 
 ## Context
 

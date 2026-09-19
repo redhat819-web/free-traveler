@@ -371,12 +371,13 @@
         "MANUAL-CHECK-A11Y",
         "MANUAL-CHECK-PERF-SEO"
       ],
-      "status": "in_progress",
+      "status": "completed",
       "checkpoint_required": false,
       "checkpoint_result": null,
       "tasks": [
         { "task_id": "E2E-PUBLIC-SMOKE", "status": "completed", "commit": null },
-        { "task_id": "MANUAL-CHECK-PERF-SEO", "status": "completed", "commit": null }
+        { "task_id": "MANUAL-CHECK-PERF-SEO", "status": "completed", "commit": null },
+        { "task_id": "MANUAL-CHECK-A11Y", "status": "completed", "commit": null }
       ]
     },
     {
