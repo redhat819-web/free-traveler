@@ -49,7 +49,8 @@
 
 ## Expected Files
 
-- (Expected Files 명시 없음 — Task List §3 표 원문 확인 필요)
+- Expected Files 없음 (MANUAL_CHECK 카테고리, 산출물은 사용자 점검 결과)
+  — `TASKS/00_TASK_LIST.md` §3 표(Seq 61)에 Expected Files 열 자체가 없음을 확인함(2026-09-19).
 
 > Expected Files 밖의 파일은 생성·수정하지 않는다.
 
