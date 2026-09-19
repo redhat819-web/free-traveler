@@ -41,9 +41,12 @@
       "task_ids": [
         "DATA-VALIDATION-SCRIPT"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": false,
-      "checkpoint_result": null
+      "checkpoint_result": null,
+      "tasks": [
+        { "task_id": "DATA-VALIDATION-SCRIPT", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W04",
@@ -51,9 +54,12 @@
       "task_ids": [
         "DB-SCHEMA-BASE"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": false,
-      "checkpoint_result": null
+      "checkpoint_result": null,
+      "tasks": [
+        { "task_id": "DB-SCHEMA-BASE", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W05",
@@ -62,9 +68,13 @@
         "DB-RLS-BASE",
         "DB-SEED-BASE"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": false,
-      "checkpoint_result": null
+      "checkpoint_result": null,
+      "tasks": [
+        { "task_id": "DB-RLS-BASE", "status": "completed", "commit": null },
+        { "task_id": "DB-SEED-BASE", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W06",
@@ -73,9 +83,13 @@
         "CMP-SCR005-AUTH",
         "DB-ACCESS"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": false,
-      "checkpoint_result": null
+      "checkpoint_result": null,
+      "tasks": [
+        { "task_id": "DB-ACCESS", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR005-AUTH", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W07",
@@ -89,9 +103,18 @@
         "CMP-SCR001-SEARCH-HERO",
         "CMP-SCR001-SHARE"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": false,
-      "checkpoint_result": null
+      "checkpoint_result": null,
+      "tasks": [
+        { "task_id": "CMP-SCR001-DESTINATION-DRAWER", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR001-DESTINATION-GRID", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR001-FAVORITES", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR001-RECENT-MATES", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR001-SAFETY-PANEL", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR001-SEARCH-HERO", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR001-SHARE", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W08",
@@ -99,9 +122,12 @@
       "task_ids": [
         "PAGE-SCR001"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": true,
-      "checkpoint_result": null
+      "checkpoint_result": "PASS",
+      "tasks": [
+        { "task_id": "PAGE-SCR001", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W09",
@@ -115,8 +141,17 @@
         "CMP-SCR002-STATS",
         "CMP-SCR002-TIMELINE"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": false,
+      "tasks": [
+        { "task_id": "CMP-SCR002-COUNTRY-CHIPS", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR002-GALLERY", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR002-MEMORABLE-CTA", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR002-PHILOSOPHY", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR002-PROFILE-HERO", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR002-STATS", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR002-TIMELINE", "status": "completed", "commit": null }
+      ],
       "checkpoint_result": null
     },
     {
@@ -125,9 +160,12 @@
       "task_ids": [
         "PAGE-SCR002"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": true,
-      "checkpoint_result": null
+      "checkpoint_result": "PASS",
+      "tasks": [
+        { "task_id": "PAGE-SCR002", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W11",
@@ -139,9 +177,16 @@
         "CMP-SCR003-MATE-COMPOSE",
         "CMP-SCR003-TIPS"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": false,
-      "checkpoint_result": null
+      "checkpoint_result": null,
+      "tasks": [
+        { "task_id": "CMP-SCR003-FLIGHT-FORM", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR003-HOTEL-FORM", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR003-INTRO", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR003-MATE-COMPOSE", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR003-TIPS", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W12",
@@ -149,9 +194,12 @@
       "task_ids": [
         "CMP-SCR003-TABS"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": false,
-      "checkpoint_result": null
+      "checkpoint_result": null,
+      "tasks": [
+        { "task_id": "CMP-SCR003-TABS", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W13",
@@ -159,9 +207,12 @@
       "task_ids": [
         "PAGE-SCR003"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": true,
-      "checkpoint_result": null
+      "checkpoint_result": "PASS",
+      "tasks": [
+        { "task_id": "PAGE-SCR003", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W14",
@@ -171,9 +222,14 @@
         "CMP-SCR004-FILTER",
         "CMP-SCR004-INTRO"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": false,
-      "checkpoint_result": null
+      "checkpoint_result": null,
+      "tasks": [
+        { "task_id": "CMP-SCR004-INTRO", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR004-FILTER", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR004-BLOCK", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W15",
@@ -181,9 +237,12 @@
       "task_ids": [
         "CMP-SCR004-LIST"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": false,
-      "checkpoint_result": null
+      "checkpoint_result": null,
+      "tasks": [
+        { "task_id": "CMP-SCR004-LIST", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W16",
@@ -191,9 +250,12 @@
       "task_ids": [
         "CMP-SCR004-DETAIL"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": false,
-      "checkpoint_result": null
+      "checkpoint_result": null,
+      "tasks": [
+        { "task_id": "CMP-SCR004-DETAIL", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W17",
@@ -202,9 +264,13 @@
         "CMP-SCR004-JOIN-REQUEST",
         "CMP-SCR004-REPORT"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": false,
-      "checkpoint_result": null
+      "checkpoint_result": null,
+      "tasks": [
+        { "task_id": "CMP-SCR004-JOIN-REQUEST", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR004-REPORT", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W18",
@@ -212,9 +278,12 @@
       "task_ids": [
         "PAGE-SCR004"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": true,
-      "checkpoint_result": null
+      "checkpoint_result": "PASS",
+      "tasks": [
+        { "task_id": "PAGE-SCR004", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W19",
@@ -225,9 +294,15 @@
         "CMP-SCR005-POLICY-PAGES",
         "CMP-SCR005-PROFILE"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": false,
-      "checkpoint_result": null
+      "checkpoint_result": null,
+      "tasks": [
+        { "task_id": "CMP-SCR005-ADMIN", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR005-MY-ACTIVITY", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR005-POLICY-PAGES", "status": "completed", "commit": null },
+        { "task_id": "CMP-SCR005-PROFILE", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W20",
@@ -235,9 +310,12 @@
       "task_ids": [
         "PAGE-SCR005"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": true,
-      "checkpoint_result": null
+      "checkpoint_result": "PASS",
+      "tasks": [
+        { "task_id": "PAGE-SCR005", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W21",
@@ -251,9 +329,18 @@
         "GLOBAL-SEO-META",
         "MANUAL-CHECK-CLIENT-STATE"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": false,
-      "checkpoint_result": null
+      "checkpoint_result": null,
+      "tasks": [
+        { "task_id": "GLOBAL-ERROR-PAGES", "status": "completed", "commit": null },
+        { "task_id": "GLOBAL-SEO-META", "status": "completed", "commit": null },
+        { "task_id": "GLOBAL-PERF", "status": "completed", "commit": null },
+        { "task_id": "GLOBAL-A11Y", "status": "completed", "commit": null },
+        { "task_id": "E2E-TRAVEL-TOOLS", "status": "completed", "commit": null },
+        { "task_id": "E2E-MATE-AUTH", "status": "completed", "commit": null },
+        { "task_id": "MANUAL-CHECK-CLIENT-STATE", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W22",
@@ -265,9 +352,16 @@
         "UNIT-MATE-STATE",
         "UNIT-TRAVEL-DATES"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": false,
-      "checkpoint_result": null
+      "checkpoint_result": null,
+      "tasks": [
+        { "task_id": "UNIT-TRAVEL-DATES", "status": "completed", "commit": null },
+        { "task_id": "UNIT-CONTACT-DETECTION", "status": "completed", "commit": null },
+        { "task_id": "UNIT-MATE-STATE", "status": "completed", "commit": null },
+        { "task_id": "TEST-RLS-BASIC", "status": "completed", "commit": null },
+        { "task_id": "MANUAL-CHECK-RESPONSIVE", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W23",
@@ -277,9 +371,12 @@
         "MANUAL-CHECK-A11Y",
         "MANUAL-CHECK-PERF-SEO"
       ],
-      "status": "pending",
+      "status": "in_progress",
       "checkpoint_required": false,
-      "checkpoint_result": null
+      "checkpoint_result": null,
+      "tasks": [
+        { "task_id": "E2E-PUBLIC-SMOKE", "status": "completed", "commit": null }
+      ]
     },
     {
       "wave_id": "W24",

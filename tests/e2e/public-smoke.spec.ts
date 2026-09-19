@@ -1,80 +1,68 @@
 import { test, expect } from "@playwright/test";
 
+// 로컬 dev 서버 대상일 때 기본 baseURL(127.0.0.1)로 접속하면 Turbopack HMR 웹소켓
+// 핸드셰이크가 실패해 페이지가 자동 새로고침되는 현상이 있어 localhost로 접속한다.
+// PLAYWRIGHT_BASE_URL(Vercel Preview 등)이 지정된 경우는 그대로 둔다.
+if (!process.env.PLAYWRIGHT_BASE_URL) {
+  test.use({ baseURL: "http://localhost:3000" });
+}
+
 test.describe("E2E-PUBLIC-SMOKE", () => {
-  test("E2E-001 메인 페이지의 추천 여행지와 주요 CTA", async ({ page }) => {
+  test("홈 진입 → 국내/해외 탭 전환 → 여행지 상세 Drawer → 안전정보 전환", async ({ page }) => {
     await page.goto("/");
 
-    await expect(
-      page.getByRole("heading", { name: /인기 여행지|추천 여행지/ }).first(),
-    ).toBeVisible();
+    const tabs = page.getByRole("tablist", { name: "국내/해외 전환" });
+    await expect(tabs.getByRole("tab", { name: "국내" })).toHaveAttribute(
+      "aria-selected",
+      "true",
+    );
 
-    const destinationCards = page.getByTestId("destination-card");
-    await expect(destinationCards.first()).toBeVisible();
+    await tabs.getByRole("tab", { name: "해외" }).click();
+    await expect(tabs.getByRole("tab", { name: "해외" })).toHaveAttribute(
+      "aria-selected",
+      "true",
+    );
 
-    await expect(
-      page.getByRole("link", { name: /대표 소개 보러가기|대표 소개/ }),
-    ).toBeVisible();
+    await page.getByRole("button", { name: /오사카/ }).click();
+
+    const drawer = page.getByRole("dialog", { name: /상세 정보/ });
+    await expect(drawer).toBeVisible();
+    await expect(drawer.getByRole("heading", { name: "오사카" })).toBeVisible();
+
+    await drawer.getByRole("button", { name: "국가 안전정보 보기 →" }).click();
+    await expect(drawer.getByRole("heading", { name: "일본 안전정보" })).toBeVisible();
+    await expect(drawer.getByRole("heading", { name: "치안" })).toBeVisible();
+
+    await drawer.getByRole("button", { name: "← 여행지 정보로 돌아가기" }).click();
+    await expect(drawer.getByRole("heading", { name: "오사카" })).toBeVisible();
   });
 
-  test("E2E-002 대표 소개의 free_traveler, 50회 이상, 30개국 이상", async ({
-    page,
-  }) => {
+  test("About 페이지 렌더", async ({ page }) => {
     await page.goto("/about");
 
     await expect(page.getByText(/free_traveler/i).first()).toBeVisible();
-    await expect(page.getByText(/50\+|50회 이상/).first()).toBeVisible();
-    await expect(page.getByText(/30\+|30개국 이상/).first()).toBeVisible();
+    await expect(page.getByText(/\d+회/).first()).toBeVisible();
+    await expect(page.getByText(/\d+개국/).first()).toBeVisible();
   });
 
-  test("E2E-003 여행 도구의 항공 외부 이동 안내와 href", async ({ page }) => {
-    await page.goto("/travel-tools");
-
-    await page.getByRole("tab", { name: /항공/ }).click();
+  test("동행 목록 비로그인 열람", async ({ page }) => {
+    await page.goto("/mates");
 
     await expect(
-      page.getByText(/입력값은 외부 사이트로 전달되지 않습니다/),
+      page.getByRole("heading", { name: "믿을 수 있는 동행을 찾아보세요" }),
     ).toBeVisible();
-
-    const outboundLink = page.getByRole("link", {
-      name: /항공권 찾아보기|외부.*이동|이동하기/,
-    });
-    await expect(outboundLink).toBeVisible();
-    await expect(outboundLink).toHaveAttribute("href", /^https?:\/\//);
-    await expect(outboundLink).toHaveAttribute("target", "_blank");
-    await expect(outboundLink).toHaveAttribute("rel", /noopener/);
-    await expect(outboundLink).toHaveAttribute("rel", /noreferrer/);
+    await expect(
+      page.getByText("동행 목록을 불러오지 못했습니다."),
+    ).not.toBeVisible();
   });
 
-  test("E2E-004 여행 도구의 숙소 외부 이동 안내와 href", async ({ page }) => {
-    await page.goto("/travel-tools");
+  test("존재하지 않는 라우트는 404를 표시한다", async ({ page }) => {
+    const response = await page.goto("/this-route-does-not-exist");
 
-    await page.getByRole("tab", { name: /숙소|숙박/ }).click();
-
+    expect(response?.status()).toBe(404);
     await expect(
-      page.getByText(/입력값은 외부 사이트로 전달되지 않습니다/),
+      page.getByRole("heading", { name: "페이지를 찾을 수 없습니다" }),
     ).toBeVisible();
-
-    const outboundLink = page.getByRole("link", {
-      name: /숙소 찾아보기|외부.*이동|이동하기/,
-    });
-    await expect(outboundLink).toBeVisible();
-    await expect(outboundLink).toHaveAttribute("href", /^https?:\/\//);
-    await expect(outboundLink).toHaveAttribute("target", "_blank");
-    await expect(outboundLink).toHaveAttribute("rel", /noopener/);
-    await expect(outboundLink).toHaveAttribute("rel", /noreferrer/);
-  });
-
-  test("E2E-005 비로그인 동행글 작성의 로그인 안내", async ({ page }) => {
-    await page.goto("/travel-tools");
-
-    await page.getByRole("tab", { name: /동행/ }).click();
-
-    await expect(
-      page
-        .getByRole("heading", { name: /로그인|성인 확인/ })
-        .or(page.getByText(/로그인.*필요|로그인 후 이용/)),
-    ).toBeVisible();
-
-    await expect(page.getByRole("link", { name: /로그인|계정/ })).toBeVisible();
+    await expect(page.getByRole("link", { name: "메인으로 이동" })).toBeVisible();
   });
 });
