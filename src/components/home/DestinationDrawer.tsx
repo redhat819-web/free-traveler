@@ -7,6 +7,7 @@
  */
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { destinations } from "@/data/destinations";
 import { countrySafety } from "@/data/safety";
 import { FavoriteButton } from "./FavoriteButton";
@@ -27,7 +28,11 @@ function closeDestinationDrawer() {
   url.searchParams.delete("destination");
   const next = url.search ? `${url.pathname}${url.search}` : url.pathname;
   window.history.pushState(null, "", next);
-  window.dispatchEvent(new CustomEvent<string | null>("destination-drawer:select", { detail: null }));
+  window.dispatchEvent(
+    new CustomEvent<string | null>("destination-drawer:select", {
+      detail: null,
+    }),
+  );
 }
 
 /**
@@ -65,24 +70,37 @@ export function DestinationDrawer() {
   const related = useMemo(() => {
     if (!destination) return [];
     return destinations
-      .filter((item) => item.id !== destination.id && item.scope === destination.scope)
-      .filter((item) => item.country === destination.country || item.region === destination.region)
+      .filter(
+        (item) =>
+          item.id !== destination.id && item.scope === destination.scope,
+      )
+      .filter(
+        (item) =>
+          item.country === destination.country ||
+          item.region === destination.region,
+      )
       .slice(0, 6);
   }, [destination]);
 
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const onClose = closeDestinationDrawer;
 
-  useDialogA11y(Boolean(destination), () => {
-    onClose();
-    setView("destination");
-  }, dialogRef);
+  useDialogA11y(
+    Boolean(destination),
+    () => {
+      onClose();
+      setView("destination");
+    },
+    dialogRef,
+  );
 
   if (!destination) return null;
 
-  const safety = countrySafety.find((entry) => entry.country === destination.country) ?? null;
+  const safety =
+    countrySafety.find((entry) => entry.country === destination.country) ??
+    null;
 
-  return (
+  return createPortal(
     <div
       ref={dialogRef}
       role="dialog"
@@ -100,7 +118,9 @@ export function DestinationDrawer() {
       >
         <div className="flex items-center justify-between border-b border-border-hairline p-lg">
           <h2 className="text-lg font-semibold text-text-primary">
-            {view === "destination" ? destination.city : `${destination.country} 안전정보`}
+            {view === "destination"
+              ? destination.city
+              : `${destination.country} 안전정보`}
           </h2>
           <button
             type="button"
@@ -146,16 +166,22 @@ export function DestinationDrawer() {
 
             <DetailBlock title="추천 일정">
               <p className="text-sm text-text-secondary">
-                <strong className="text-text-primary">1일 코스</strong> {destination.itinerary1Day}
+                <strong className="text-text-primary">1일 코스</strong>{" "}
+                {destination.itinerary1Day}
               </p>
               <p className="mt-xs text-sm text-text-secondary">
-                <strong className="text-text-primary">3일 코스</strong> {destination.itinerary3Day}
+                <strong className="text-text-primary">3일 코스</strong>{" "}
+                {destination.itinerary3Day}
               </p>
             </DetailBlock>
 
             <DetailBlock title="예산 · 교통">
-              <p className="text-sm text-text-secondary">{destination.budgetPerPersonKRW}</p>
-              <p className="mt-xs text-sm text-text-secondary">{destination.transport}</p>
+              <p className="text-sm text-text-secondary">
+                {destination.budgetPerPersonKRW}
+              </p>
+              <p className="mt-xs text-sm text-text-secondary">
+                {destination.transport}
+              </p>
             </DetailBlock>
 
             <DetailBlock title="음식">
@@ -167,10 +193,14 @@ export function DestinationDrawer() {
             </DetailBlock>
 
             <DetailBlock title="현지 에티켓">
-              <p className="text-sm text-text-secondary">{destination.etiquette}</p>
+              <p className="text-sm text-text-secondary">
+                {destination.etiquette}
+              </p>
             </DetailBlock>
 
-            <p className="text-xs text-text-muted">출처: {destination.source}</p>
+            <p className="text-xs text-text-muted">
+              출처: {destination.source}
+            </p>
 
             {safety && (
               <button
@@ -192,7 +222,9 @@ export function DestinationDrawer() {
                       onClick={() => openDestinationDrawer(item.id)}
                       className="rounded-sm border border-border-hairline p-sm text-left text-sm text-text-secondary hover:bg-bg-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
                     >
-                      <span className="font-semibold text-text-primary">{item.city}</span>
+                      <span className="font-semibold text-text-primary">
+                        {item.city}
+                      </span>
                       {" · "}
                       {item.country}
                     </button>
@@ -220,8 +252,8 @@ export function DestinationDrawer() {
               </button>
 
               <p className="rounded-sm bg-bg-soft p-sm text-xs text-text-secondary">
-                본 안전정보는 참고용 안내이며, 실제 여행 전 외교부 등 공식 채널에서 최신
-                정보를 다시 확인해야 합니다.
+                본 안전정보는 참고용 안내이며, 실제 여행 전 외교부 등 공식
+                채널에서 최신 정보를 다시 확인해야 합니다.
               </p>
 
               <DetailBlock title="치안">
@@ -246,12 +278,15 @@ export function DestinationDrawer() {
                 <p className="text-sm text-text-secondary">{safety.culture}</p>
               </DetailBlock>
               <DetailBlock title="긴급연락처">
-                <p className="text-sm text-text-secondary">{safety.emergencyContacts}</p>
+                <p className="text-sm text-text-secondary">
+                  {safety.emergencyContacts}
+                </p>
               </DetailBlock>
 
               <div className="flex flex-wrap items-center justify-between gap-sm border-t border-border-hairline pt-md text-xs text-text-muted">
                 <span>
-                  출처: {safety.source.name} · 확인일 {safety.source.lastVerified}
+                  출처: {safety.source.name} · 확인일{" "}
+                  {safety.source.lastVerified}
                 </span>
                 <a
                   href={safety.source.url}
@@ -266,11 +301,18 @@ export function DestinationDrawer() {
           )
         )}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
 
-function DetailBlock({ title, children }: { title: string; children: React.ReactNode }) {
+function DetailBlock({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <div>
       <h3 className="text-sm font-semibold text-text-primary">{title}</h3>
