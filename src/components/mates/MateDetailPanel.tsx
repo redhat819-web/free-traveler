@@ -6,6 +6,7 @@
  */
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { isMateClosed } from "@/lib/mate-state";
 import { useDialogA11y } from "@/hooks/useDialogA11y";
 import type { Mate } from "@/lib/db/types";
@@ -121,7 +122,7 @@ export function MateDetailPanel({
     </div>
   );
 
-  return (
+  const panel = (
     <>
       <div className="fixed inset-0 z-50 bg-black/40 lg:hidden" onClick={onClose} />
       <div
@@ -135,4 +136,9 @@ export function MateDetailPanel({
       </div>
     </>
   );
+
+  // Mobile 바텀시트(Modal)일 때는 #app-shell 밖(document.body)으로 포털링해야
+  // useDialogA11y가 배경에 거는 inert/aria-hidden이 이 패널 자신까지 가리지 않는다.
+  // Desktop 2단 레이아웃에서는 비Modal 인라인 패널이므로 그대로 렌더링한다.
+  return isMobileModal ? createPortal(panel, document.body) : panel;
 }
