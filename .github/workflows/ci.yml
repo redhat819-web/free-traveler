@@ -32,6 +32,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Build (also generates .next/types used by typecheck)
+        run: npm run build
+
       - name: Format check
         run: npm run format:check
 
@@ -49,9 +52,6 @@ jobs:
 
       - name: Screen contract check
         run: npm run screen:contract -- --mode=ci
-
-      - name: Build
-        run: npm run build
 
   public-smoke:
     name: public-smoke
