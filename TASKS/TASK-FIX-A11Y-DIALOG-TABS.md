@@ -41,8 +41,14 @@ FIX Task로 분리한다.
 - `src/components/mates/MateDetailPanel.tsx` (modify) — Mobile 바텀시트일 때만 `role="dialog"`+`useDialogA11y` 적용(Desktop 2단 레이아웃에서는 비Modal 유지)
 - `src/components/home/DestinationGrid.tsx` (modify) — 국내/해외 탭에 `useTabListKeyboard` 적용
 - `src/components/travel-tools/ToolTabs.tsx` (modify) — 탭에 `useTabListKeyboard` 적용 + `role="tabpanel"`/`aria-controls`/`aria-labelledby` 연결
+- `src/components/account/AuthPanel.tsx` (modify) — **재점검 중 동일 결함 추가 발견 — Expected Files 확장(2026-09-19)**. Guest 로그인/가입/재설정 탭에 `useTabListKeyboard` 적용
+- `src/components/account/PolicyPages.tsx` (modify) — **재점검 중 동일 결함 추가 발견 — Expected Files 확장(2026-09-19)**. 정책 문서 탭에 `useTabListKeyboard` 적용
 
 > Expected Files 밖의 파일은 생성·수정하지 않는다.
+> `src/components/account/*` 2개 파일은 최초 착수 시점(2026-09-19 오전)에는
+> 없었고, `MANUAL-CHECK-A11Y` 재점검 준비 중 `role="dialog"`/`role="tablist"`
+> 전수 grep으로 동일 결함이 추가로 발견되어 범위를 확장했다(사용자 승인,
+> "(a)로 갑니다" 지시).
 
 ## Functional AC
 
