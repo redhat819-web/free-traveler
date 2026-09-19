@@ -58,6 +58,11 @@
 ## Functional AC
 
 - Vercel 환경변수(외부 URL, Supabase 키) 설정 확인, TLS 1.2+ 기본 적용 확인, 배포 후 5개 Route 재확인, 월 인프라 비용 목표 대비 확인
+- **DB 3종 SQL(`schema.sql`/`rls_policies.sql`/`seed.sql`) 적용 및 검증 완료** — 아래
+  "Supabase SQL 적용 체크리스트" 전 항목 통과. 현재 Vercel 환경변수·TLS·Route AC만으로는
+  DB 상태(RLS 활성화 여부, 시드 존재 여부)를 보증하지 못한다 — 시드가 빠진 채 배포해도
+  5개 Route는 정상적으로 열리고 `/travel-tools` 외부 이동만 조용히 실패하므로, 이
+  Task의 AC로 DB 상태를 명시적으로 검증한다.
 
 ## Visual AC
 
@@ -70,20 +75,41 @@
 
 ## Supabase SQL 적용 체크리스트
 
-이 프로젝트는 ORM 마이그레이션 도구를 쓰지 않으므로(`docs/ARCHITECTURE.md`,
+이 프로젝트는 ORM 마이그레이션 도구를 쓰지 않으므로(`docs/ARCHITECTURE.md` 164줄,
 CLAUDE.md 규칙 17), `supabase/*.sql`을 실제 Supabase 프로젝트에 적용하는 것은
 `DB-SCHEMA-BASE`/`DB-RLS-BASE`/`DB-SEED-BASE`의 범위가 아니라(그 Task들은
-파일 작성까지만) 배포 시점에 사람이 직접 하는 수동 단계다. 이 Task 완료 전에
-아래를 Supabase SQL Editor에서 순서대로 확인·실행한다.
+파일 작성까지만) **배포 시점에 사람이 직접 하는 수동 단계**다. 이 절차가
+코드베이스 어디에도 기록되어 있지 않으면 새 환경 구성이나 재현 시 지식이
+사라지므로 여기에 고정한다. **실행 순서는 `schema.sql` → `rls_policies.sql` →
+`seed.sql`로 고정**한다(RLS 정책은 테이블이 있어야, 시드는 컬럼 구조가 있어야
+적용 가능).
 
-- [ ] `supabase/schema.sql` 적용 확인/실행
-- [ ] `supabase/rls_policies.sql` 적용 확인/실행
-- [ ] `supabase/seed.sql` 적용 확인/실행
-- [ ] 적용 여부 빠른 확인: `outbound_url_settings` 테이블에 `flight`/`hotel`
-      두 행이 존재하는지 조회(있으면 `seed.sql`까지 이미 적용된 것)
-- [ ] Supabase Dashboard → Authentication → URL Configuration의 Redirect
-      URLs에 `<프로덕션 도메인>/auth/callback`(및 필요 시 Preview 도메인)
-      등록 확인
+- [ ] `supabase/schema.sql` 적용 — Supabase SQL Editor에서 실행, 6개 테이블
+      (`member_profiles`, `mates`, `mate_applications`, `mate_blocks`,
+      `mate_reports`, `outbound_url_settings`) 생성 확인
+- [ ] RLS 활성화 확인 — 6개 테이블 전부 `rowsecurity = true`
+- [ ] `supabase/rls_policies.sql` 적용 — 정책 19개 확인
+- [ ] `supabase/seed.sql` 적용 — `outbound_url_settings`에 `flight`/`hotel`
+      2행 확인
+- [ ] Supabase Dashboard → Authentication → URL Configuration
+      - Site URL: Production Domain
+      - Redirect URLs: `<도메인>/auth/callback`
+      (이메일 인증·비밀번호 재설정이 이 경로를 사용함 — `src/app/auth/callback/route.ts`)
+
+### 적용 여부 확인 쿼리 (Supabase SQL Editor)
+
+```sql
+-- 테이블 + RLS
+select tablename, rowsecurity from pg_tables
+where schemaname = 'public' order by tablename;
+
+-- 정책 수
+select tablename, cmd, count(*) from pg_policies
+where schemaname = 'public' group by tablename, cmd;
+
+-- 시드
+select id, url from public.outbound_url_settings;
+```
 
 ## Test Cases
 
