@@ -26,9 +26,13 @@ export default defineConfig({
   webServer: isPreviewTarget
     ? undefined
     : {
-        command: "npm run dev",
+        // 프로덕션 빌드로 실행한다 — next dev는 라우트별 최초 요청 시 JIT
+        // 컴파일이 일어나, fullyParallel로 여러 라우트를 동시에 처음 두드리면
+        // 컴파일 경합으로 액션 타임아웃(기본 30s)을 넘기는 경우가 있었다
+        // (배포 환경과도 next start 쪽이 더 가깝다).
+        command: "npm run build && npm run start",
         url: baseURL,
         reuseExistingServer: !process.env.CI,
-        timeout: 120_000,
+        timeout: 180_000,
       },
 });
