@@ -69,7 +69,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
         {toasts.map((toast) => (
           <div
             key={toast.id}
-            className={`flex w-full max-w-sm items-center justify-between gap-md rounded-md border p-sm shadow-md ${VARIANT_CLASSNAME[toast.variant]}`}
+            className={`flex w-full max-w-[24rem] items-center justify-between gap-md rounded-md border p-sm shadow-md ${VARIANT_CLASSNAME[toast.variant]}`}
           >
             <span className="text-sm">{toast.message}</span>
             <button
