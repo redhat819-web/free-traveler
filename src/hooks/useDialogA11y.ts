@@ -48,22 +48,23 @@ export function useDialogA11y(
 
       if (event.key !== "Tab" || !dialog) return;
 
+      // 매 Tab/Shift+Tab을 직접 처리한다 — 경계(첫/마지막) 요소에서만 개입하고
+      // 중간 이동은 브라우저 기본 동작(및 배경 inert)에 맡기지 않는다. inert
+      // 적용이 지연되거나 우회되는 환경이 있어도 트랩이 항상 동작하게 하기 위함.
+      event.preventDefault();
+
       const current = getFocusable(dialog);
-      if (current.length === 0) {
-        event.preventDefault();
-        return;
+      if (current.length === 0) return;
+
+      const activeIndex = current.indexOf(document.activeElement as HTMLElement);
+      let nextIndex: number;
+      if (event.shiftKey) {
+        nextIndex = activeIndex <= 0 ? current.length - 1 : activeIndex - 1;
+      } else {
+        nextIndex = activeIndex === -1 || activeIndex === current.length - 1 ? 0 : activeIndex + 1;
       }
 
-      const first = current[0];
-      const last = current[current.length - 1];
-
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
+      current[nextIndex].focus();
     }
 
     document.addEventListener("keydown", handleKeyDown);
