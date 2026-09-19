@@ -386,7 +386,7 @@
       "task_ids": [
         "RELEASE-CHECK-VERCEL-SUPABASE"
       ],
-      "status": "pending",
+      "status": "in_progress",
       "checkpoint_required": true,
       "checkpoint_result": null
     }
