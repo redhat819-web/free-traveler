@@ -1,0 +1,103 @@
+"use client";
+
+/**
+ * SCR-004 목록+상세 분할(Desktop 좌40/우60) / Drawer(Mobile 하단 풀시트).
+ * 이메일·전화번호 등 연락처는 어떤 필드로도 표시하지 않는다(참가 요청 승인 후 별도 채널로만).
+ */
+
+import { isMateClosed } from "@/lib/mate-state";
+import type { Mate } from "@/lib/db/types";
+
+interface MateDetailPanelProps {
+  mate: Mate | null;
+  authorNickname?: string;
+  todayIso?: string;
+  onClose?: () => void;
+  children?: React.ReactNode;
+}
+
+export function MateDetailPanel({
+  mate,
+  authorNickname,
+  todayIso,
+  onClose,
+  children,
+}: MateDetailPanelProps) {
+  if (!mate) {
+    return (
+      <div className="hidden rounded-md border border-border-hairline bg-bg-soft p-lg text-center text-sm text-text-secondary lg:block">
+        왼쪽 목록에서 동행 모집글을 선택하면 상세 내용을 볼 수 있습니다.
+      </div>
+    );
+  }
+
+  const today = todayIso ?? new Date().toISOString().slice(0, 10);
+  const closed = isMateClosed(mate, today);
+
+  const content = (
+    <div className="max-h-[85vh] overflow-y-auto rounded-t-md bg-bg-canvas p-lg shadow-lg lg:max-h-none lg:rounded-md lg:border lg:border-border-hairline lg:shadow-none">
+      <div className="flex items-start justify-between gap-md">
+        <div>
+          <span
+            className={`inline-block rounded-pill px-sm py-xs text-xs font-semibold ${
+              closed
+                ? "bg-bg-strong text-text-secondary"
+                : "bg-accent-coral-soft text-accent-coral"
+            }`}
+          >
+            {closed ? "CLOSED" : "모집중"}
+          </span>
+          <h2 className="mt-xs text-lg font-semibold text-text-primary">{mate.title}</h2>
+          <p className="mt-xs text-sm text-text-secondary">
+            작성자: {authorNickname ?? "알 수 없음"}
+          </p>
+        </div>
+        {onClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="상세 닫기"
+            className="min-h-[44px] min-w-[44px] rounded-sm text-text-secondary hover:text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring lg:hidden"
+          >
+            ✕
+          </button>
+        )}
+      </div>
+
+      <dl className="mt-md grid grid-cols-2 gap-sm text-sm">
+        <div>
+          <dt className="text-text-secondary">국가 · 지역</dt>
+          <dd className="mt-xs font-semibold text-text-primary">
+            {mate.country} · {mate.region}
+          </dd>
+        </div>
+        <div>
+          <dt className="text-text-secondary">기간</dt>
+          <dd className="mt-xs font-semibold text-text-primary">
+            {mate.start_date} ~ {mate.end_date}
+          </dd>
+        </div>
+        <div>
+          <dt className="text-text-secondary">모집 인원</dt>
+          <dd className="mt-xs font-semibold text-text-primary">{mate.capacity}명</dd>
+        </div>
+      </dl>
+
+      <div className="mt-md">
+        <h3 className="text-sm font-semibold text-text-primary">소개</h3>
+        <p className="mt-xs whitespace-pre-wrap text-sm text-text-secondary">
+          {mate.description}
+        </p>
+      </div>
+
+      {children && <div className="mt-md">{children}</div>}
+    </div>
+  );
+
+  return (
+    <>
+      <div className="fixed inset-0 z-50 bg-black/40 lg:hidden" onClick={onClose} />
+      <div className="fixed inset-x-0 bottom-0 z-50 lg:static lg:z-auto">{content}</div>
+    </>
+  );
+}
