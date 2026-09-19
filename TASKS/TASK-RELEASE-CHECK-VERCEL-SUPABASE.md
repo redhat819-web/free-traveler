@@ -68,6 +68,23 @@
 
 - Airbnb 상표 요소·구매/예약/결제 UI·실시간 항공권/호텔 가격·광고·별점을 포함하지 않는다.
 
+## Supabase SQL 적용 체크리스트
+
+이 프로젝트는 ORM 마이그레이션 도구를 쓰지 않으므로(`docs/ARCHITECTURE.md`,
+CLAUDE.md 규칙 17), `supabase/*.sql`을 실제 Supabase 프로젝트에 적용하는 것은
+`DB-SCHEMA-BASE`/`DB-RLS-BASE`/`DB-SEED-BASE`의 범위가 아니라(그 Task들은
+파일 작성까지만) 배포 시점에 사람이 직접 하는 수동 단계다. 이 Task 완료 전에
+아래를 Supabase SQL Editor에서 순서대로 확인·실행한다.
+
+- [ ] `supabase/schema.sql` 적용 확인/실행
+- [ ] `supabase/rls_policies.sql` 적용 확인/실행
+- [ ] `supabase/seed.sql` 적용 확인/실행
+- [ ] 적용 여부 빠른 확인: `outbound_url_settings` 테이블에 `flight`/`hotel`
+      두 행이 존재하는지 조회(있으면 `seed.sql`까지 이미 적용된 것)
+- [ ] Supabase Dashboard → Authentication → URL Configuration의 Redirect
+      URLs에 `<프로덕션 도메인>/auth/callback`(및 필요 시 Preview 도메인)
+      등록 확인
+
 ## Test Cases
 
 - 이 Task 단독으로 실행되는 자동화 테스트는 없으며, 의존하는 Page Owner의 E2E Task로 통합 검증된다.
@@ -79,6 +96,7 @@
 ## Definition of Done
 
 - [ ] Expected Files에 명시된 파일만 생성/수정했다.
+- [ ] "Supabase SQL 적용 체크리스트" 전 항목을 확인했다.
 - [ ] Functional AC 전 항목을 충족했다.
 - [ ] Visual AC 전 항목을 충족했다(Lorem ipsum/빈 Card/미완성 문구 없음 포함).
 - [ ] Security/Privacy AC 전 항목을 충족했다.
