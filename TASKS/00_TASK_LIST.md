@@ -431,3 +431,24 @@
 | REQ-NF-034 | IMPLEMENT | RELEASE-CHECK-VERCEL-SUPABASE | (배포 후 수동 확인) |
 
 **확인 결과: REQ-FUNC-001~080(80건), REQ-NF-001~034(34건), 합계 114건 전부 위 표에 존재하며 누락된 Requirement ID는 없다.** IMPLEMENT 94건은 모두 Task(T)와 Verify(V)가 채워져 있고, EXCLUDED 20건은 Task/Verify 없이 §5 NON_IMPLEMENTATION 표에 근거·후속 방향이 기록되어 있다.
+
+---
+
+## 7. 후속 과제 (Backlog)
+
+이 섹션의 Task는 W02~W24 Wave 계획 확정 이후(2026-09-19) 리팩터링·수동 점검·CI
+정비 과정에서 발견되어 아직 Wave가 배정되지 않았다. Wave 배정은 별도로 결정한다.
+각 Task의 상세 내용은 `TASKS/TASK-<ID>.md`를 참조한다.
+
+| Seq | Task ID | 제목 | Category | Requirement Ref | Depends On | Functional AC | Priority |
+|---|---|---|---|---|---|---|---|
+| 66 | REFACTOR-EXTRACT-PURE-LOGIC | mate-state 순수 함수 인라인 중복 이동 (완료) | REFACTOR | (없음) | UNIT-MATE-STATE, CMP-SCR004-LIST, PAGE-SCR004, CMP-SCR004-DETAIL, CMP-SCR004-JOIN-REQUEST | [DONE] isMateClosed/hasActiveApplication 인라인 중복 4곳을 lib/mate-state.ts 사용으로 이동 | P2 |
+| 67 | FIX-A11Y-DIALOG-TABS | Drawer/Modal 포커스 트랩·Esc, Tab 키보드 내비게이션 결함 수정 | FIX | REQ-NF-023 | GLOBAL-A11Y | [DONE(부분)] Esc/포커스 복귀/포털링/탭 4곳 화살표 이동 완료, 포커스 트랩 순환은 A11Y-FOCUS-TRAP-CYCLE로 이월 | P1 |
+| 68 | A11Y-FOCUS-TRAP-CYCLE | Drawer 포커스 트랩 순환 실패 | FIX | REQ-NF-023 | FIX-A11Y-DIALOG-TABS | [NOT_STARTED] 3차 시도 미해결, 재현 환경 특정 필요, 라이브러리 교체 검토 | P1 |
+| 69 | A11Y-COLOR-CONTRAST | 색 대비 부족 | FIX | REQ-NF-023 | GLOBAL-A11Y | [NOT_STARTED] color.accent.coral 등 3개 토큰이 WCAG AA 미달, 토큰 값 변경은 승인 필요 | P2 |
+| 70 | PERF-REDUCE-JS-BUNDLE | 미사용 JS·TBT 개선 | PERF | REQ-NF-007 | GLOBAL-PERF | [NOT_STARTED] 미사용 JS 1.4MB, TBT 890ms, /travel-tools 최저점, bfcache 차단 2건 조사 | P2 |
+| 71 | REFACTOR-UNUSED-LIB-FUNCTIONS | lib 미연결 함수 정리 | REFACTOR | (없음) | UNIT-MATE-STATE | [NOT_STARTED] effectiveMateStatus 미연결, MyActivity.tsx hasActiveApplicants 추출 검토 | P3 |
+| 72 | BUG-MATE-CLOSED-INCONSISTENT | 화면별 마감 판정 불일치 | BUG | (없음) | REFACTOR-EXTRACT-PURE-LOGIC | [NOT_STARTED] MyActivity.tsx가 status만 확인해 isMateClosed와 다른 결과, 서버/RLS 쪽도 확인 필요 | P2 |
+| 73 | GAP-E2E-MATE-COMPOSE-LOGIN-PROMPT | 비로그인 동행 작성 안내 커버리지 공백 | E2E_TEST | (없음) | E2E-PUBLIC-SMOKE, E2E-TRAVEL-TOOLS | [NOT_STARTED] /travel-tools 동행 탭 비로그인 안내 시나리오가 travel-tools.spec.ts에 없음 | P3 |
+| 74 | SEC-APPLICATION-TRANSITION | 참가 요청 상태 전이 서버 강제 누락 | SEC | (없음) | DB-ACCESS, CMP-SCR004-JOIN-REQUEST | [NOT_STARTED] PENDING→ACCEPTED/REJECTED만 허용하는 서버 측 검증이 없음(현재 무조건 update) | P2 |
+| 75 | SPEC-ROLE-MODEL-ALIGN | 권한 모델 문서/AC 정합화 | SPEC_ALIGNMENT | (없음) | DB-SCHEMA-BASE, TEST-RLS-BASIC | [NOT_STARTED] TEST-RLS-BASIC AC(3-role)와 schema.sql 제약(2-role) 불일치, ARCHITECTURE.md는 2-role이 정본 | P3 |
