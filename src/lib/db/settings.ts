@@ -6,7 +6,9 @@ import type { OutboundUrlId, OutboundUrlSetting } from "./types";
 
 export async function listOutboundUrlSettings(): Promise<OutboundUrlSetting[]> {
   const supabase = await createClient();
-  const { data, error } = await supabase.from("outbound_url_settings").select("*");
+  const { data, error } = await supabase
+    .from("outbound_url_settings")
+    .select("*");
 
   if (error) throw error;
   return (data ?? []) as OutboundUrlSetting[];

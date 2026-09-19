@@ -15,7 +15,9 @@ export function VisitedCountryChips() {
   return (
     <section className="bg-bg-canvas px-gutter py-xl">
       <div className="mx-auto max-w-container-max">
-        <h2 className="text-2xl font-semibold text-text-primary">방문한 국가</h2>
+        <h2 className="text-2xl font-semibold text-text-primary">
+          방문한 국가
+        </h2>
         <p className="mt-xs text-sm text-text-secondary">
           지금까지 발자취를 남긴 국가를 권역별로 모아봤습니다.
         </p>
@@ -23,7 +25,9 @@ export function VisitedCountryChips() {
         <div className="mt-lg flex flex-col gap-md">
           {Array.from(grouped.entries()).map(([region, countries]) => (
             <div key={region}>
-              <h3 className="text-sm font-semibold text-text-muted">{region}</h3>
+              <h3 className="text-sm font-semibold text-text-muted">
+                {region}
+              </h3>
               <div className="mt-sm flex flex-wrap gap-sm">
                 {countries.map((country) => (
                   <span

@@ -15,12 +15,16 @@ export function TravelStats() {
               key={stat.label}
               className="flex flex-col items-center gap-xs rounded-md border border-border-hairline bg-bg-canvas p-lg"
             >
-              <p className="text-3xl font-bold text-accent-coral">{stat.value}</p>
+              <p className="text-3xl font-bold text-accent-coral">
+                {stat.value}
+              </p>
               <p className="text-sm text-text-secondary">{stat.label}</p>
             </div>
           ))}
         </div>
-        <p className="max-w-[28rem] text-sm text-text-muted">10년간 쌓아온 기록입니다.</p>
+        <p className="max-w-[28rem] text-sm text-text-muted">
+          10년간 쌓아온 기록입니다.
+        </p>
       </div>
     </section>
   );

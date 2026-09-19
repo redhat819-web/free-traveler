@@ -12,22 +12,30 @@ const TODAY = "2026-09-19";
 // 이 테스트의 통과가 앱 동작을 보증하지 않는다. TASKS/TASK-REFACTOR-UNUSED-LIB-FUNCTIONS.md 참조.
 describe("isMateClosed / effectiveMateStatus", () => {
   it("status가 closed면 종료일과 무관하게 마감으로 계산한다(수동 마감)", () => {
-    expect(isMateClosed({ status: "closed", end_date: "2026-12-31" }, TODAY)).toBe(true);
-    expect(effectiveMateStatus({ status: "closed", end_date: "2026-12-31" }, TODAY)).toBe(
-      "closed",
-    );
+    expect(
+      isMateClosed({ status: "closed", end_date: "2026-12-31" }, TODAY),
+    ).toBe(true);
+    expect(
+      effectiveMateStatus({ status: "closed", end_date: "2026-12-31" }, TODAY),
+    ).toBe("closed");
   });
 
   it("종료일이 조회 시점보다 지났으면 status가 open이어도 마감으로 계산한다", () => {
-    expect(isMateClosed({ status: "open", end_date: "2026-09-18" }, TODAY)).toBe(true);
+    expect(
+      isMateClosed({ status: "open", end_date: "2026-09-18" }, TODAY),
+    ).toBe(true);
   });
 
   it("종료일이 조회 당일이면 아직 모집중으로 계산한다(경계값)", () => {
-    expect(isMateClosed({ status: "open", end_date: TODAY }, TODAY)).toBe(false);
+    expect(isMateClosed({ status: "open", end_date: TODAY }, TODAY)).toBe(
+      false,
+    );
   });
 
   it("종료일이 미래이고 status가 open이면 모집중으로 계산한다", () => {
-    expect(effectiveMateStatus({ status: "open", end_date: "2026-09-20" }, TODAY)).toBe("open");
+    expect(
+      effectiveMateStatus({ status: "open", end_date: "2026-09-20" }, TODAY),
+    ).toBe("open");
   });
 });
 

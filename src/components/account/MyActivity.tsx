@@ -10,7 +10,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { createClient } from "@/lib/db/browser-client";
 import { closeMate, deleteMate, updateMate } from "@/lib/db/mates";
-import { listApplicationsForMate, updateApplicationStatus } from "@/lib/db/applications";
+import {
+  listApplicationsForMate,
+  updateApplicationStatus,
+} from "@/lib/db/applications";
 import { deleteBlock, listMyBlocks } from "@/lib/db/blocks";
 import { useToast } from "@/components/shared/Toast";
 import type { Mate, MateApplication, MateBlock } from "@/lib/db/types";
@@ -74,7 +77,9 @@ export function MyActivity({ userId }: MyActivityProps) {
 
   const hasActiveApplicants = (mateId: string) =>
     applications.some(
-      (app) => app.mate_id === mateId && (app.status === "pending" || app.status === "accepted"),
+      (app) =>
+        app.mate_id === mateId &&
+        (app.status === "pending" || app.status === "accepted"),
     );
 
   const startEdit = (mate: Mate) => {
@@ -132,10 +137,18 @@ export function MyActivity({ userId }: MyActivityProps) {
     }
   };
 
-  const handleDecision = async (applicationId: string, status: "accepted" | "rejected") => {
+  const handleDecision = async (
+    applicationId: string,
+    status: "accepted" | "rejected",
+  ) => {
     try {
       await updateApplicationStatus(applicationId, status);
-      showToast(status === "accepted" ? "참가 요청을 승인했습니다." : "참가 요청을 거절했습니다.", "success");
+      showToast(
+        status === "accepted"
+          ? "참가 요청을 승인했습니다."
+          : "참가 요청을 거절했습니다.",
+        "success",
+      );
       await loadAll();
     } catch {
       showToast("처리에 실패했습니다.", "danger");
@@ -156,7 +169,10 @@ export function MyActivity({ userId }: MyActivityProps) {
     return (
       <div className="flex flex-col gap-sm">
         {Array.from({ length: 3 }).map((_, index) => (
-          <div key={index} className="h-16 animate-pulse rounded-md bg-bg-strong" />
+          <div
+            key={index}
+            className="h-16 animate-pulse rounded-md bg-bg-strong"
+          />
         ))}
       </div>
     );
@@ -166,14 +182,20 @@ export function MyActivity({ userId }: MyActivityProps) {
     return (
       <div className="rounded-md border border-border-hairline bg-bg-soft p-md text-sm text-text-secondary">
         내 활동 정보를 불러오지 못했습니다.
-        <button type="button" onClick={loadAll} className="ml-sm rounded-sm font-semibold text-accent-coral focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring">
+        <button
+          type="button"
+          onClick={loadAll}
+          className="ml-sm rounded-sm font-semibold text-accent-coral focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
+        >
           다시 시도
         </button>
       </div>
     );
   }
 
-  const pendingApplications = applications.filter((app) => app.status === "pending");
+  const pendingApplications = applications.filter(
+    (app) => app.status === "pending",
+  );
 
   return (
     <div className="flex flex-col gap-lg">
@@ -185,8 +207,8 @@ export function MyActivity({ userId }: MyActivityProps) {
               아직 작성한 동행 글이 없습니다.
             </p>
             <p className="mt-xs text-sm text-text-secondary">
-              동행 조건(국가·지역·기간·인원)을 정리해 글을 작성하면 다른 여행자의 참가 요청을 받을
-              수 있습니다.
+              동행 조건(국가·지역·기간·인원)을 정리해 글을 작성하면 다른
+              여행자의 참가 요청을 받을 수 있습니다.
             </p>
             <Link
               href="/travel-tools"
@@ -237,13 +259,16 @@ export function MyActivity({ userId }: MyActivityProps) {
                 ) : (
                   <>
                     <div className="flex flex-wrap items-center justify-between gap-sm">
-                      <span className="font-semibold text-text-primary">{mate.title}</span>
+                      <span className="font-semibold text-text-primary">
+                        {mate.title}
+                      </span>
                       <span className="rounded-pill bg-bg-strong px-sm py-xs text-xs font-semibold text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring">
                         {mate.status === "closed" ? "CLOSED" : "모집중"}
                       </span>
                     </div>
                     <p className="mt-xs text-xs text-text-secondary">
-                      {mate.country} · {mate.region} · {mate.start_date}~{mate.end_date}
+                      {mate.country} · {mate.region} · {mate.start_date}~
+                      {mate.end_date}
                     </p>
                     <div className="mt-xs flex flex-wrap gap-sm">
                       <button
@@ -279,9 +304,13 @@ export function MyActivity({ userId }: MyActivityProps) {
       </section>
 
       <section>
-        <h2 className="text-lg font-semibold text-text-primary">참가 요청 관리</h2>
+        <h2 className="text-lg font-semibold text-text-primary">
+          참가 요청 관리
+        </h2>
         {pendingApplications.length === 0 ? (
-          <p className="mt-sm text-sm text-text-secondary">대기 중인 참가 요청이 없습니다.</p>
+          <p className="mt-sm text-sm text-text-secondary">
+            대기 중인 참가 요청이 없습니다.
+          </p>
         ) : (
           <ul className="mt-sm flex flex-col gap-sm">
             {pendingApplications.map((app) => (
@@ -289,8 +318,12 @@ export function MyActivity({ userId }: MyActivityProps) {
                 key={app.id}
                 className="rounded-md border border-border-hairline bg-bg-soft p-sm text-sm"
               >
-                <p className="font-semibold text-text-primary">{app.mateTitle}</p>
-                {app.message && <p className="mt-xs text-text-secondary">{app.message}</p>}
+                <p className="font-semibold text-text-primary">
+                  {app.mateTitle}
+                </p>
+                {app.message && (
+                  <p className="mt-xs text-text-secondary">{app.message}</p>
+                )}
                 <div className="mt-xs flex gap-sm">
                   <button
                     type="button"
@@ -316,7 +349,9 @@ export function MyActivity({ userId }: MyActivityProps) {
       <section>
         <h2 className="text-lg font-semibold text-text-primary">차단 목록</h2>
         {blocks.length === 0 ? (
-          <p className="mt-sm text-sm text-text-secondary">차단한 사용자가 없습니다.</p>
+          <p className="mt-sm text-sm text-text-secondary">
+            차단한 사용자가 없습니다.
+          </p>
         ) : (
           <ul className="mt-sm flex flex-col gap-sm">
             {blocks.map((block) => (
@@ -324,7 +359,9 @@ export function MyActivity({ userId }: MyActivityProps) {
                 key={block.id}
                 className="flex items-center justify-between rounded-md border border-border-hairline bg-bg-soft p-sm text-sm"
               >
-                <span className="text-text-secondary">차단됨: {block.blocked_id}</span>
+                <span className="text-text-secondary">
+                  차단됨: {block.blocked_id}
+                </span>
                 <button
                   type="button"
                   onClick={() => handleUnblock(block.id)}

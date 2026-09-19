@@ -23,7 +23,9 @@ export function ProfileHero() {
         <p className="max-w-2xl text-lg font-semibold text-text-primary">
           {representative.tagline}
         </p>
-        <p className="text-xs text-text-muted">사진 출처: Unsplash (무료 라이선스)</p>
+        <p className="text-xs text-text-muted">
+          사진 출처: Unsplash (무료 라이선스)
+        </p>
       </div>
     </section>
   );

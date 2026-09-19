@@ -8,7 +8,11 @@
 
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/db/browser-client";
-import { createMyProfile, getMyProfile, updateMyProfile } from "@/lib/db/profiles";
+import {
+  createMyProfile,
+  getMyProfile,
+  updateMyProfile,
+} from "@/lib/db/profiles";
 import { useToast } from "@/components/shared/Toast";
 import type { AgeGroup, Gender, MemberProfile } from "@/lib/db/types";
 
@@ -28,7 +32,14 @@ const GENDER_OPTIONS: { value: Gender; label: string }[] = [
   { value: "prefer_not_to_say", label: "선택 안 함" },
 ];
 
-const STYLE_OPTIONS = ["힐링", "액티비티", "맛집 탐방", "사진 촬영", "쇼핑", "배낭여행"];
+const STYLE_OPTIONS = [
+  "힐링",
+  "액티비티",
+  "맛집 탐방",
+  "사진 촬영",
+  "쇼핑",
+  "배낭여행",
+];
 
 interface ProfileFormProps {
   userId: string;
@@ -68,7 +79,9 @@ export function ProfileForm({ userId }: ProfileFormProps) {
 
   const toggleStyle = (style: string) => {
     setTravelStyle((current) =>
-      current.includes(style) ? current.filter((item) => item !== style) : [...current, style],
+      current.includes(style)
+        ? current.filter((item) => item !== style)
+        : [...current, style],
     );
   };
 

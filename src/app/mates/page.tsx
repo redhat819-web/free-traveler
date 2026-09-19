@@ -25,16 +25,32 @@ import { BlockButton } from "@/components/mates/BlockButton";
 import type { Mate } from "@/lib/db/types";
 
 const HOW_TO_JOIN_STEPS = [
-  { step: "1", title: "모집글 선택", description: "조건에 맞는 동행 모집글을 목록에서 선택합니다." },
-  { step: "2", title: "참가 요청", description: "비공개 메시지와 함께 참가 요청을 보냅니다." },
-  { step: "3", title: "승인 확인", description: "작성자의 승인/거절 결과를 확인합니다." },
+  {
+    step: "1",
+    title: "모집글 선택",
+    description: "조건에 맞는 동행 모집글을 목록에서 선택합니다.",
+  },
+  {
+    step: "2",
+    title: "참가 요청",
+    description: "비공개 메시지와 함께 참가 요청을 보냅니다.",
+  },
+  {
+    step: "3",
+    title: "승인 확인",
+    description: "작성자의 승인/거절 결과를 확인합니다.",
+  },
 ];
 
 function todayIso(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
-function countMatches(mates: Mate[], filters: MateFilterState, today: string): number {
+function countMatches(
+  mates: Mate[],
+  filters: MateFilterState,
+  today: string,
+): number {
   return mates.filter((mate) => {
     if (filters.country && mate.country !== filters.country) return false;
     if (filters.region && mate.region !== filters.region) return false;
@@ -53,7 +69,10 @@ function ListDetailSkeleton() {
     <div className="mx-auto grid max-w-container-max grid-cols-1 gap-md px-gutter py-lg lg:grid-cols-[40%_60%]">
       <div className="grid grid-cols-1 gap-sm sm:grid-cols-2">
         {Array.from({ length: 4 }).map((_, index) => (
-          <div key={index} className="h-32 animate-pulse rounded-md bg-bg-strong" />
+          <div
+            key={index}
+            className="h-32 animate-pulse rounded-md bg-bg-strong"
+          />
         ))}
       </div>
       <div className="hidden h-64 animate-pulse rounded-md bg-bg-strong lg:block" />
@@ -176,7 +195,10 @@ export default function MatesPage() {
                 {selectedMate && !userId && (
                   <div className="rounded-md border border-border-hairline bg-bg-soft p-md text-sm text-text-secondary">
                     참가 요청·신고·차단은 로그인 후 이용할 수 있습니다.{" "}
-                    <Link href="/account" className="font-semibold text-accent-coral">
+                    <Link
+                      href="/account"
+                      className="font-semibold text-accent-coral"
+                    >
                       로그인/가입하기
                     </Link>
                   </div>
@@ -209,16 +231,24 @@ export default function MatesPage() {
 
       <section className="bg-bg-soft px-gutter py-lg">
         <div className="mx-auto max-w-container-max">
-          <h2 className="text-lg font-semibold text-text-primary">참가 신청 방법</h2>
+          <h2 className="text-lg font-semibold text-text-primary">
+            참가 신청 방법
+          </h2>
           <ol className="mt-md grid grid-cols-1 gap-md sm:grid-cols-3">
             {HOW_TO_JOIN_STEPS.map((item) => (
               <li
                 key={item.step}
                 className="rounded-md border border-border-hairline bg-bg-canvas p-md text-left"
               >
-                <span className="text-xs font-semibold text-accent-coral">STEP {item.step}</span>
-                <h3 className="mt-xs text-sm font-semibold text-text-primary">{item.title}</h3>
-                <p className="mt-xs text-xs text-text-secondary">{item.description}</p>
+                <span className="text-xs font-semibold text-accent-coral">
+                  STEP {item.step}
+                </span>
+                <h3 className="mt-xs text-sm font-semibold text-text-primary">
+                  {item.title}
+                </h3>
+                <p className="mt-xs text-xs text-text-secondary">
+                  {item.description}
+                </p>
               </li>
             ))}
           </ol>
@@ -227,10 +257,13 @@ export default function MatesPage() {
 
       <section className="bg-bg-canvas px-gutter py-lg">
         <div className="mx-auto flex max-w-container-max flex-col items-center gap-sm rounded-md border border-border-hairline bg-bg-soft p-lg text-center">
-          <h2 className="text-lg font-semibold text-text-primary">안전하게 동행을 구해보세요</h2>
+          <h2 className="text-lg font-semibold text-text-primary">
+            안전하게 동행을 구해보세요
+          </h2>
           <p className="max-w-2xl text-sm text-text-secondary">
-            연락처는 참가 요청이 승인된 이후에만 별도 채널로 직접 나눠주세요. 부적절한 활동은
-            신고 버튼으로 즉시 알려주시고, 불편한 상대는 차단할 수 있습니다.
+            연락처는 참가 요청이 승인된 이후에만 별도 채널로 직접 나눠주세요.
+            부적절한 활동은 신고 버튼으로 즉시 알려주시고, 불편한 상대는 차단할
+            수 있습니다.
           </p>
           <Link
             href="/travel-tools"

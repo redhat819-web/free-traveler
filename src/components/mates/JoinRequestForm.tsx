@@ -30,7 +30,11 @@ interface JoinRequestFormProps {
   isAuthor: boolean;
 }
 
-export function JoinRequestForm({ mateId, currentUserId, isAuthor }: JoinRequestFormProps) {
+export function JoinRequestForm({
+  mateId,
+  currentUserId,
+  isAuthor,
+}: JoinRequestFormProps) {
   const [applications, setApplications] = useState<MateApplication[]>([]);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(true);
@@ -58,7 +62,9 @@ export function JoinRequestForm({ mateId, currentUserId, isAuthor }: JoinRequest
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mateId]);
 
-  const myApplication = applications.find((app) => app.requester_id === currentUserId);
+  const myApplication = applications.find(
+    (app) => app.requester_id === currentUserId,
+  );
   const hasActiveRequest =
     !!currentUserId && hasActiveApplication(applications, currentUserId);
 
@@ -79,10 +85,18 @@ export function JoinRequestForm({ mateId, currentUserId, isAuthor }: JoinRequest
     }
   };
 
-  const handleDecision = async (applicationId: string, status: MateApplicationStatus) => {
+  const handleDecision = async (
+    applicationId: string,
+    status: MateApplicationStatus,
+  ) => {
     try {
       await updateApplicationStatus(applicationId, status);
-      showToast(status === "accepted" ? "참가 요청을 승인했습니다." : "참가 요청을 거절했습니다.", "success");
+      showToast(
+        status === "accepted"
+          ? "참가 요청을 승인했습니다."
+          : "참가 요청을 거절했습니다.",
+        "success",
+      );
       await loadApplications();
     } catch {
       showToast("처리에 실패했습니다. 다시 시도해주세요.", "danger");
@@ -107,11 +121,15 @@ export function JoinRequestForm({ mateId, currentUserId, isAuthor }: JoinRequest
   if (isAuthor) {
     return (
       <div>
-        <h3 className="text-sm font-semibold text-text-primary">참가 요청 목록</h3>
+        <h3 className="text-sm font-semibold text-text-primary">
+          참가 요청 목록
+        </h3>
         {loading ? (
           <p className="mt-xs text-sm text-text-secondary">불러오는 중...</p>
         ) : applications.length === 0 ? (
-          <p className="mt-xs text-sm text-text-secondary">아직 들어온 참가 요청이 없습니다.</p>
+          <p className="mt-xs text-sm text-text-secondary">
+            아직 들어온 참가 요청이 없습니다.
+          </p>
         ) : (
           <ul className="mt-sm flex flex-col gap-sm">
             {applications.map((app) => (
@@ -122,7 +140,9 @@ export function JoinRequestForm({ mateId, currentUserId, isAuthor }: JoinRequest
                 <span className="inline-block rounded-pill bg-bg-strong px-sm py-xs text-xs font-semibold text-text-secondary">
                   {STATUS_LABEL[app.status]}
                 </span>
-                {app.message && <p className="mt-xs text-text-secondary">{app.message}</p>}
+                {app.message && (
+                  <p className="mt-xs text-text-secondary">{app.message}</p>
+                )}
                 {app.status === "pending" && (
                   <div className="mt-xs flex gap-sm">
                     <button

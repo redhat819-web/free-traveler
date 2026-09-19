@@ -8,11 +8,21 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import { destinations, type Destination, type DestinationScope } from "@/data/destinations";
+import {
+  destinations,
+  type Destination,
+  type DestinationScope,
+} from "@/data/destinations";
 import { FavoriteButton } from "./FavoriteButton";
 import { handleTabListKeyDown } from "@/hooks/useTabListKeyboard";
 
-const ALLOWED_QUERY_KEYS = ["scope", "country", "season", "theme", "q"] as const;
+const ALLOWED_QUERY_KEYS = [
+  "scope",
+  "country",
+  "season",
+  "theme",
+  "q",
+] as const;
 const SCOPE_TABS: DestinationScope[] = ["domestic", "overseas"];
 
 function readQueryFromUrl(): Record<string, string> {
@@ -37,7 +47,9 @@ function writeQueryToUrl(state: Record<string, string>) {
     if (value) params.set(key, value);
   }
   const query = params.toString();
-  const next = query ? `${window.location.pathname}?${query}` : window.location.pathname;
+  const next = query
+    ? `${window.location.pathname}?${query}`
+    : window.location.pathname;
   window.history.replaceState(null, "", next);
 }
 
@@ -49,8 +61,16 @@ export function openDestinationDrawer(destinationId: string) {
   if (typeof window === "undefined") return;
   const url = new URL(window.location.href);
   url.searchParams.set("destination", destinationId);
-  window.history.pushState(null, "", `${url.pathname}?${url.searchParams.toString()}`);
-  window.dispatchEvent(new CustomEvent<string>("destination-drawer:select", { detail: destinationId }));
+  window.history.pushState(
+    null,
+    "",
+    `${url.pathname}?${url.searchParams.toString()}`,
+  );
+  window.dispatchEvent(
+    new CustomEvent<string>("destination-drawer:select", {
+      detail: destinationId,
+    }),
+  );
 }
 
 export function DestinationGrid({
@@ -64,12 +84,17 @@ export function DestinationGrid({
     const initial = readQueryFromUrl().scope;
     return initial === "overseas" ? "overseas" : "domestic";
   });
-  const [country, setCountry] = useState(() => readQueryFromUrl().country ?? "");
+  const [country, setCountry] = useState(
+    () => readQueryFromUrl().country ?? "",
+  );
   const [season, setSeason] = useState(() => readQueryFromUrl().season ?? "");
   const [theme, setTheme] = useState(() => readQueryFromUrl().theme ?? "");
-  const [localKeyword, setLocalKeyword] = useState(() => readQueryFromUrl().q ?? "");
+  const [localKeyword, setLocalKeyword] = useState(
+    () => readQueryFromUrl().q ?? "",
+  );
 
-  const keyword = externalKeyword !== undefined ? externalKeyword : localKeyword;
+  const keyword =
+    externalKeyword !== undefined ? externalKeyword : localKeyword;
 
   useEffect(() => {
     writeQueryToUrl({ scope, country, season, theme, q: keyword });
@@ -127,7 +152,8 @@ export function DestinationGrid({
               {scope === "domestic" ? "국내 인기 여행지" : "해외 인기 여행지"}
             </h2>
             <p className="mt-xs text-sm text-text-secondary">
-              실제로 다녀온 여행지의 동선과 예산을 국가·계절·테마로 골라볼 수 있습니다.
+              실제로 다녀온 여행지의 동선과 예산을 국가·계절·테마로 골라볼 수
+              있습니다.
             </p>
           </div>
 
@@ -182,9 +208,24 @@ export function DestinationGrid({
         </div>
 
         <div className="mt-md flex flex-wrap gap-sm">
-          <FilterSelect label="국가" value={country} onChange={setCountry} options={countryOptions} />
-          <FilterSelect label="계절" value={season} onChange={setSeason} options={seasonOptions} />
-          <FilterSelect label="테마" value={theme} onChange={setTheme} options={themeOptions} />
+          <FilterSelect
+            label="국가"
+            value={country}
+            onChange={setCountry}
+            options={countryOptions}
+          />
+          <FilterSelect
+            label="계절"
+            value={season}
+            onChange={setSeason}
+            options={seasonOptions}
+          />
+          <FilterSelect
+            label="테마"
+            value={theme}
+            onChange={setTheme}
+            options={themeOptions}
+          />
         </div>
 
         {filtered.length === 0 ? (

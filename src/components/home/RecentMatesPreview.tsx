@@ -17,7 +17,9 @@ export async function RecentMatesPreview() {
   return (
     <section className="bg-bg-soft px-gutter py-xl">
       <div className="mx-auto max-w-container-max">
-        <h2 className="text-2xl font-semibold text-text-primary">최근 동행 이야기</h2>
+        <h2 className="text-2xl font-semibold text-text-primary">
+          최근 동행 이야기
+        </h2>
         <p className="mt-xs text-sm text-text-secondary">
           함께 여행할 동행을 찾고 있는 최신 모집글을 확인해보세요.
         </p>
@@ -33,19 +35,24 @@ export async function RecentMatesPreview() {
                 <span className="text-xs text-text-muted">
                   {mate.country} · {mate.region}
                 </span>
-                <h3 className="text-base font-semibold text-text-primary">{mate.title}</h3>
-                <span className="text-sm text-semantic-info">모집중 · 정원 {mate.capacity}명</span>
+                <h3 className="text-base font-semibold text-text-primary">
+                  {mate.title}
+                </h3>
+                <span className="text-sm text-semantic-info">
+                  모집중 · 정원 {mate.capacity}명
+                </span>
               </a>
             ))}
           </div>
         ) : (
           <div className="mt-lg rounded-md border border-border-hairline bg-bg-canvas p-lg text-center">
             <p className="text-sm text-text-secondary">
-              아직 모집중인 동행 이야기가 없습니다. 첫 동행 모집글을 작성해보세요.
+              아직 모집중인 동행 이야기가 없습니다. 첫 동행 모집글을
+              작성해보세요.
             </p>
             <p className="mt-xs text-xs text-text-muted">
-              여행 스타일이 맞는 동행을 찾고 싶다면, 국가·기간·인원을 정해 모집글을
-              올리면 됩니다.
+              여행 스타일이 맞는 동행을 찾고 싶다면, 국가·기간·인원을 정해
+              모집글을 올리면 됩니다.
             </p>
             <div className="mt-md flex flex-wrap justify-center gap-sm">
               <a

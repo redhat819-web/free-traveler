@@ -4,7 +4,9 @@ import { createClient } from "./server-client";
 import { optionalTrimmed } from "./validate";
 import type { MateApplication, MateApplicationStatus } from "./types";
 
-export async function listApplicationsForMate(mateId: string): Promise<MateApplication[]> {
+export async function listApplicationsForMate(
+  mateId: string,
+): Promise<MateApplication[]> {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("mate_applications")
@@ -16,7 +18,10 @@ export async function listApplicationsForMate(mateId: string): Promise<MateAppli
   return (data ?? []) as MateApplication[];
 }
 
-export async function createApplication(mateId: string, formData: FormData): Promise<void> {
+export async function createApplication(
+  mateId: string,
+  formData: FormData,
+): Promise<void> {
   const supabase = await createClient();
   const {
     data: { user },

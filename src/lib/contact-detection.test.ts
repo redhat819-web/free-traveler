@@ -47,7 +47,8 @@ describe("containsContactInfo", () => {
 
   it("탐지율 95% 이상, 오탐률 5% 이하를 만족한다", () => {
     const detectedCount = POSITIVE_SAMPLES.filter(containsContactInfo).length;
-    const falsePositiveCount = NEGATIVE_SAMPLES.filter(containsContactInfo).length;
+    const falsePositiveCount =
+      NEGATIVE_SAMPLES.filter(containsContactInfo).length;
 
     const detectionRate = detectedCount / POSITIVE_SAMPLES.length;
     const falsePositiveRate = falsePositiveCount / NEGATIVE_SAMPLES.length;

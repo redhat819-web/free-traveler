@@ -32,15 +32,21 @@ async function login(page: Page, email: string, password: string) {
   await form.getByRole("button", { name: "로그인" }).click();
 
   // 프로필이 아직 없는 계정이면 최소 프로필(닉네임/연령대/성인 확인)을 완성한다.
-  const completeProfileHeading = page.getByRole("heading", { name: "프로필 완성하기" });
-  if (await completeProfileHeading.isVisible({ timeout: 5000 }).catch(() => false)) {
+  const completeProfileHeading = page.getByRole("heading", {
+    name: "프로필 완성하기",
+  });
+  if (
+    await completeProfileHeading.isVisible({ timeout: 5000 }).catch(() => false)
+  ) {
     const profileForm = page.locator("form:visible");
     await profileForm.getByLabel("닉네임").fill(`e2e-${Date.now()}`);
     await profileForm.getByLabel("만 19세 이상 성인임을 확인합니다.").check();
     await profileForm.getByRole("button", { name: "프로필 완성하기" }).click();
   }
 
-  await expect(page.getByRole("button", { name: "로그아웃" })).toBeVisible({ timeout: 10000 });
+  await expect(page.getByRole("button", { name: "로그아웃" })).toBeVisible({
+    timeout: 10000,
+  });
 }
 
 test.describe("E2E-MATE-AUTH", () => {
@@ -64,19 +70,29 @@ test.describe("E2E-MATE-AUTH", () => {
     const composeForm = authorPage.locator("form:visible");
 
     const today = new Date();
-    const startDate = new Date(today.getTime() + 86400000).toISOString().slice(0, 10);
-    const endDate = new Date(today.getTime() + 3 * 86400000).toISOString().slice(0, 10);
+    const startDate = new Date(today.getTime() + 86400000)
+      .toISOString()
+      .slice(0, 10);
+    const endDate = new Date(today.getTime() + 3 * 86400000)
+      .toISOString()
+      .slice(0, 10);
 
     await composeForm.getByLabel("제목").fill(title);
     await composeForm.getByLabel("국가").fill("테스트국가");
     await composeForm.getByLabel("지역").fill("테스트지역");
     await composeForm.getByLabel("시작일").fill(startDate);
     await composeForm.getByLabel("종료일").fill(endDate);
-    await composeForm.getByLabel("소개").fill("E2E-MATE-AUTH 자동화 테스트용 모집글입니다.");
+    await composeForm
+      .getByLabel("소개")
+      .fill("E2E-MATE-AUTH 자동화 테스트용 모집글입니다.");
     await composeForm.getByRole("checkbox").check();
-    await composeForm.getByRole("button", { name: "동행 모집글 등록하기" }).click();
+    await composeForm
+      .getByRole("button", { name: "동행 모집글 등록하기" })
+      .click();
 
-    await expect(authorPage.getByText("모집글이 등록되었습니다.")).toBeVisible();
+    await expect(
+      authorPage.getByText("모집글이 등록되었습니다."),
+    ).toBeVisible();
 
     // 2) 참가자 로그인 → 방금 등록된 모집글에 참가 요청 + 신고 접수
     const participantContext = await browser.newContext();
@@ -84,17 +100,25 @@ test.describe("E2E-MATE-AUTH", () => {
     await login(participantPage, PARTICIPANT_EMAIL!, PARTICIPANT_PASSWORD!);
 
     await participantPage.goto("/mates");
-    await participantPage.getByRole("button", { name: new RegExp(title) }).click();
+    await participantPage
+      .getByRole("button", { name: new RegExp(title) })
+      .click();
 
-    const joinForm = participantPage.locator("form").filter({ hasText: "참가 요청 보내기" });
+    const joinForm = participantPage
+      .locator("form")
+      .filter({ hasText: "참가 요청 보내기" });
     await joinForm.getByLabel(/참가 요청 메시지/).fill("함께 하고 싶습니다!");
     await joinForm.getByRole("button", { name: "참가 요청 보내기" }).click();
-    await expect(participantPage.getByText("참가 요청을 보냈습니다.")).toBeVisible();
+    await expect(
+      participantPage.getByText("참가 요청을 보냈습니다."),
+    ).toBeVisible();
 
     await participantPage.getByRole("button", { name: "신고하기" }).click();
     await participantPage.getByLabel("스팸/광고").check();
     await participantPage.getByRole("button", { name: "신고 제출" }).click();
-    await expect(participantPage.getByText("신고가 접수되었습니다.")).toBeVisible();
+    await expect(
+      participantPage.getByText("신고가 접수되었습니다."),
+    ).toBeVisible();
     await expect(participantPage.getByText(/신고 번호:/)).toBeVisible();
 
     // 3) 작성자가 참가 요청을 승인
@@ -102,7 +126,9 @@ test.describe("E2E-MATE-AUTH", () => {
     await authorPage.getByRole("button", { name: new RegExp(title) }).click();
     await expect(authorPage.getByText("참가 요청 목록")).toBeVisible();
     await authorPage.getByRole("button", { name: "승인" }).first().click();
-    await expect(authorPage.getByText("참가 요청을 승인했습니다.")).toBeVisible();
+    await expect(
+      authorPage.getByText("참가 요청을 승인했습니다."),
+    ).toBeVisible();
 
     await authorContext.close();
     await participantContext.close();

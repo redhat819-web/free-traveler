@@ -8,7 +8,9 @@ if (!process.env.PLAYWRIGHT_BASE_URL) {
 }
 
 test.describe("E2E-PUBLIC-SMOKE", () => {
-  test("홈 진입 → 국내/해외 탭 전환 → 여행지 상세 Drawer → 안전정보 전환", async ({ page }) => {
+  test("홈 진입 → 국내/해외 탭 전환 → 여행지 상세 Drawer → 안전정보 전환", async ({
+    page,
+  }) => {
     await page.goto("/");
 
     const tabs = page.getByRole("tablist", { name: "국내/해외 전환" });
@@ -30,10 +32,14 @@ test.describe("E2E-PUBLIC-SMOKE", () => {
     await expect(drawer.getByRole("heading", { name: "오사카" })).toBeVisible();
 
     await drawer.getByRole("button", { name: "국가 안전정보 보기 →" }).click();
-    await expect(drawer.getByRole("heading", { name: "일본 안전정보" })).toBeVisible();
+    await expect(
+      drawer.getByRole("heading", { name: "일본 안전정보" }),
+    ).toBeVisible();
     await expect(drawer.getByRole("heading", { name: "치안" })).toBeVisible();
 
-    await drawer.getByRole("button", { name: "← 여행지 정보로 돌아가기" }).click();
+    await drawer
+      .getByRole("button", { name: "← 여행지 정보로 돌아가기" })
+      .click();
     await expect(drawer.getByRole("heading", { name: "오사카" })).toBeVisible();
   });
 
@@ -63,6 +69,8 @@ test.describe("E2E-PUBLIC-SMOKE", () => {
     await expect(
       page.getByRole("heading", { name: "페이지를 찾을 수 없습니다" }),
     ).toBeVisible();
-    await expect(page.getByRole("link", { name: "메인으로 이동" })).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: "메인으로 이동" }),
+    ).toBeVisible();
   });
 });

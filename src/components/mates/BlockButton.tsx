@@ -17,7 +17,11 @@ interface BlockButtonProps {
   onBlocked?: () => void;
 }
 
-export function BlockButton({ targetMemberId, targetLabel, onBlocked }: BlockButtonProps) {
+export function BlockButton({
+  targetMemberId,
+  targetLabel,
+  onBlocked,
+}: BlockButtonProps) {
   const [open, setOpen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const { showToast } = useToast();
@@ -59,11 +63,15 @@ export function BlockButton({ targetMemberId, targetLabel, onBlocked }: BlockBut
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-gutter"
           >
             <div className="w-full max-w-[24rem] rounded-md bg-bg-canvas p-lg shadow-lg">
-              <h2 id="block-confirm-title" className="text-lg font-semibold text-text-primary">
+              <h2
+                id="block-confirm-title"
+                className="text-lg font-semibold text-text-primary"
+              >
                 {targetLabel}님을 차단하시겠어요?
               </h2>
               <p className="mt-xs text-sm text-text-secondary">
-                차단하면 이 사용자의 동행 글·프로필·참가 요청이 서로에게 더 이상 보이지 않습니다.
+                차단하면 이 사용자의 동행 글·프로필·참가 요청이 서로에게 더 이상
+                보이지 않습니다.
               </p>
 
               <div className="mt-md flex justify-end gap-sm">

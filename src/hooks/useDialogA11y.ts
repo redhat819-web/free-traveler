@@ -8,7 +8,9 @@ const FOCUSABLE_SELECTOR =
 const APP_SHELL_ID = "app-shell";
 
 function getFocusable(container: HTMLElement): HTMLElement[] {
-  return Array.from(container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR));
+  return Array.from(
+    container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR),
+  );
 }
 
 /**
@@ -56,12 +58,17 @@ export function useDialogA11y(
       const current = getFocusable(dialog);
       if (current.length === 0) return;
 
-      const activeIndex = current.indexOf(document.activeElement as HTMLElement);
+      const activeIndex = current.indexOf(
+        document.activeElement as HTMLElement,
+      );
       let nextIndex: number;
       if (event.shiftKey) {
         nextIndex = activeIndex <= 0 ? current.length - 1 : activeIndex - 1;
       } else {
-        nextIndex = activeIndex === -1 || activeIndex === current.length - 1 ? 0 : activeIndex + 1;
+        nextIndex =
+          activeIndex === -1 || activeIndex === current.length - 1
+            ? 0
+            : activeIndex + 1;
       }
 
       current[nextIndex].focus();

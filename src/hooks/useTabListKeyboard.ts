@@ -18,7 +18,8 @@ export function handleTabListKeyDown(
   let nextIndex: number | null = null;
 
   if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % count;
-  else if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + count) % count;
+  else if (event.key === "ArrowLeft")
+    nextIndex = (currentIndex - 1 + count) % count;
   else if (event.key === "Home") nextIndex = 0;
   else if (event.key === "End") nextIndex = count - 1;
 

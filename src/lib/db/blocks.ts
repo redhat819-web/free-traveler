@@ -37,6 +37,9 @@ export async function createBlock(blockedId: string): Promise<void> {
 
 export async function deleteBlock(blockId: string): Promise<void> {
   const supabase = await createClient();
-  const { error } = await supabase.from("mate_blocks").delete().eq("id", blockId);
+  const { error } = await supabase
+    .from("mate_blocks")
+    .delete()
+    .eq("id", blockId);
   if (error) throw error;
 }

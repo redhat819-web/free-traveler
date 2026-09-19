@@ -89,7 +89,9 @@ export function ReportForm({ targetMateId, targetMemberId }: ReportFormProps) {
   if (reportId) {
     return (
       <div className="rounded-md border border-border-hairline bg-bg-soft p-md text-sm">
-        <p className="font-semibold text-text-primary">신고가 접수되었습니다.</p>
+        <p className="font-semibold text-text-primary">
+          신고가 접수되었습니다.
+        </p>
         <p className="mt-xs text-text-secondary">신고 번호: {reportId}</p>
         <button
           type="button"
@@ -108,9 +110,14 @@ export function ReportForm({ targetMateId, targetMemberId }: ReportFormProps) {
       className="flex flex-col gap-sm rounded-md border border-border-hairline bg-bg-soft p-md"
     >
       <fieldset className="flex flex-col gap-xs">
-        <legend className="text-sm font-semibold text-text-primary">신고 사유</legend>
+        <legend className="text-sm font-semibold text-text-primary">
+          신고 사유
+        </legend>
         {REASON_CODES.map((reason) => (
-          <label key={reason.value} className="flex items-center gap-xs text-sm text-text-secondary">
+          <label
+            key={reason.value}
+            className="flex items-center gap-xs text-sm text-text-secondary"
+          >
             <input
               type="radio"
               name="reason_code"

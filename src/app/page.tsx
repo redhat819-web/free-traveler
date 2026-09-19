@@ -46,9 +46,12 @@ export default function Home() {
 
       <section className="bg-bg-soft px-gutter py-xl">
         <div className="mx-auto max-w-container-max">
-          <h2 className="text-2xl font-semibold text-text-primary">여행 동기로 찾아보기</h2>
+          <h2 className="text-2xl font-semibold text-text-primary">
+            여행 동기로 찾아보기
+          </h2>
           <p className="mt-xs text-sm text-text-secondary">
-            어떤 이유로 떠나고 싶은지부터 정하면 여행지를 고르기가 훨씬 쉬워집니다.
+            어떤 이유로 떠나고 싶은지부터 정하면 여행지를 고르기가 훨씬
+            쉬워집니다.
           </p>
           <div className="mt-lg flex flex-wrap gap-sm">
             {THEME_CHIPS.map((theme) => (
@@ -70,12 +73,18 @@ export default function Home() {
 
       <section className="bg-bg-canvas px-gutter py-xl">
         <div className="mx-auto flex max-w-container-max flex-col items-center gap-md rounded-md border border-border-hairline bg-bg-soft p-xl text-center">
-          <h2 className="text-2xl font-semibold text-text-primary">{representative.name}</h2>
-          <p className="max-w-2xl text-base text-text-secondary">{representative.tagline}</p>
+          <h2 className="text-2xl font-semibold text-text-primary">
+            {representative.name}
+          </h2>
+          <p className="max-w-2xl text-base text-text-secondary">
+            {representative.tagline}
+          </p>
           <div className="flex gap-lg">
             {representative.stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="text-2xl font-semibold text-accent-coral">{stat.value}</p>
+                <p className="text-2xl font-semibold text-accent-coral">
+                  {stat.value}
+                </p>
                 <p className="text-xs text-text-muted">{stat.label}</p>
               </div>
             ))}

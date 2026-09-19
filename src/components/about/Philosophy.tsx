@@ -9,13 +9,17 @@ export function Philosophy() {
     <section className="bg-bg-canvas px-gutter py-xl">
       <div className="mx-auto grid max-w-container-max grid-cols-1 gap-lg lg:grid-cols-2">
         <div>
-          <h2 className="text-2xl font-semibold text-text-primary">이 서비스를 시작한 이유</h2>
+          <h2 className="text-2xl font-semibold text-text-primary">
+            이 서비스를 시작한 이유
+          </h2>
           <p className="mt-md text-base leading-relaxed text-text-secondary">
             {representative.introduction}
           </p>
         </div>
         <div>
-          <h2 className="text-2xl font-semibold text-text-primary">여행을 대하는 철학</h2>
+          <h2 className="text-2xl font-semibold text-text-primary">
+            여행을 대하는 철학
+          </h2>
           <p className="mt-md text-base leading-relaxed text-text-secondary">
             {representative.philosophy}
           </p>

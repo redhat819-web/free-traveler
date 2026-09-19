@@ -22,7 +22,11 @@ export async function createReport(formData: FormData): Promise<void> {
   } = await supabase.auth.getUser();
   if (!user) throw new Error("로그인이 필요합니다.");
 
-  const reasonCode = requireTrimmed(formData.get("reason_code"), "신고 사유", 50);
+  const reasonCode = requireTrimmed(
+    formData.get("reason_code"),
+    "신고 사유",
+    50,
+  );
   const description = optionalTrimmed(formData.get("description"), 1000);
   const targetMateId = optionalTrimmed(formData.get("target_mate_id"), 100);
   const targetMemberId = optionalTrimmed(formData.get("target_member_id"), 100);
@@ -47,7 +51,10 @@ export async function updateReportStatus(
   status: MateReportStatus,
 ): Promise<void> {
   const supabase = await createClient();
-  const resolvedAt = status === "resolved" || status === "dismissed" ? new Date().toISOString() : null;
+  const resolvedAt =
+    status === "resolved" || status === "dismissed"
+      ? new Date().toISOString()
+      : null;
 
   const { error } = await supabase
     .from("mate_reports")

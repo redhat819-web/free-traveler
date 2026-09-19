@@ -14,7 +14,9 @@ export function MemorableDestinations() {
   return (
     <section className="bg-bg-canvas px-gutter py-xl">
       <div className="mx-auto max-w-container-max">
-        <h2 className="text-2xl font-semibold text-text-primary">가장 기억에 남는 여행지</h2>
+        <h2 className="text-2xl font-semibold text-text-primary">
+          가장 기억에 남는 여행지
+        </h2>
         <p className="mt-xs text-sm text-text-secondary">
           수많은 여행 중에서도 유독 마음에 남은 네 곳을 꼽아봤습니다.
         </p>

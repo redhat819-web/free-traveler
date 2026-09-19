@@ -48,7 +48,11 @@ function validate(state: FormState): FormErrors {
   if (state.departureDate && state.departureDate < todayIso()) {
     errors.departureDate = "출발일은 오늘 이후여야 합니다.";
   }
-  if (state.departureDate && state.returnDate && state.returnDate < state.departureDate) {
+  if (
+    state.departureDate &&
+    state.returnDate &&
+    state.returnDate < state.departureDate
+  ) {
     errors.returnDate = "귀국일은 출발일 이후여야 합니다.";
   }
   return errors;
@@ -115,7 +119,9 @@ export function FlightForm() {
             ))}
           </select>
           {errors.country && (
-            <span className="text-xs text-semantic-danger" role="alert">{errors.country}</span>
+            <span className="text-xs text-semantic-danger" role="alert">
+              {errors.country}
+            </span>
           )}
         </label>
 
@@ -130,14 +136,20 @@ export function FlightForm() {
             }}
             className="rounded-sm border border-border-hairline bg-bg-soft px-sm py-xs text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring disabled:opacity-50"
           >
-            <option value="">{form.country ? "선택하세요" : "국가를 먼저 선택하세요"}</option>
+            <option value="">
+              {form.country ? "선택하세요" : "국가를 먼저 선택하세요"}
+            </option>
             {regions.map((region) => (
               <option key={region} value={region}>
                 {region}
               </option>
             ))}
           </select>
-          {errors.region && <span className="text-xs text-semantic-danger" role="alert">{errors.region}</span>}
+          {errors.region && (
+            <span className="text-xs text-semantic-danger" role="alert">
+              {errors.region}
+            </span>
+          )}
         </label>
 
         <label className="flex flex-col gap-xs text-sm text-text-secondary">
@@ -153,7 +165,9 @@ export function FlightForm() {
             className="rounded-sm border border-border-hairline bg-bg-soft px-sm py-xs text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
           />
           {errors.departureDate && (
-            <span className="text-xs text-semantic-danger" role="alert">{errors.departureDate}</span>
+            <span className="text-xs text-semantic-danger" role="alert">
+              {errors.departureDate}
+            </span>
           )}
         </label>
 
@@ -170,7 +184,9 @@ export function FlightForm() {
             className="rounded-sm border border-border-hairline bg-bg-soft px-sm py-xs text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
           />
           {errors.returnDate && (
-            <span className="text-xs text-semantic-danger" role="alert">{errors.returnDate}</span>
+            <span className="text-xs text-semantic-danger" role="alert">
+              {errors.returnDate}
+            </span>
           )}
         </label>
 
@@ -187,11 +203,16 @@ export function FlightForm() {
       {submitted && (
         <div className="grid grid-cols-1 gap-md rounded-md border border-border-hairline bg-bg-soft p-lg sm:grid-cols-2">
           <div>
-            <h3 className="text-sm font-semibold text-text-primary">입력 요약</h3>
+            <h3 className="text-sm font-semibold text-text-primary">
+              입력 요약
+            </h3>
             <dl className="mt-xs flex flex-col gap-xs text-sm text-text-secondary">
               <div>
                 <dt className="inline font-medium text-text-primary">여행지</dt>
-                <dd className="inline"> {form.country} · {form.region}</dd>
+                <dd className="inline">
+                  {" "}
+                  {form.country} · {form.region}
+                </dd>
               </div>
               <div>
                 <dt className="inline font-medium text-text-primary">기간</dt>

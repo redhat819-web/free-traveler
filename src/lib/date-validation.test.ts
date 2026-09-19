@@ -7,7 +7,10 @@ const TOMORROW = "2026-09-20";
 
 describe("validateFlightDates", () => {
   it("필수값 누락 시 에러를 반환한다", () => {
-    const errors = validateFlightDates({ departureDate: "", returnDate: "" }, TODAY);
+    const errors = validateFlightDates(
+      { departureDate: "", returnDate: "" },
+      TODAY,
+    );
     expect(errors.departureDate).toBeTruthy();
     expect(errors.returnDate).toBeTruthy();
   });
@@ -21,7 +24,10 @@ describe("validateFlightDates", () => {
   });
 
   it("출발일이 당일이면 통과한다(경계값)", () => {
-    const errors = validateFlightDates({ departureDate: TODAY, returnDate: TODAY }, TODAY);
+    const errors = validateFlightDates(
+      { departureDate: TODAY, returnDate: TODAY },
+      TODAY,
+    );
     expect(errors.departureDate).toBeUndefined();
   });
 
@@ -58,27 +64,42 @@ describe("validateHotelDates", () => {
   });
 
   it("과거 체크인 날짜는 에러를 반환한다", () => {
-    const errors = validateHotelDates({ checkIn: YESTERDAY, checkOut: TOMORROW }, TODAY);
+    const errors = validateHotelDates(
+      { checkIn: YESTERDAY, checkOut: TOMORROW },
+      TODAY,
+    );
     expect(errors.checkIn).toBe("체크인 날짜는 오늘 이후여야 합니다.");
   });
 
   it("체크인이 당일이면 통과한다(경계값)", () => {
-    const errors = validateHotelDates({ checkIn: TODAY, checkOut: TOMORROW }, TODAY);
+    const errors = validateHotelDates(
+      { checkIn: TODAY, checkOut: TOMORROW },
+      TODAY,
+    );
     expect(errors.checkIn).toBeUndefined();
   });
 
   it("체크아웃이 체크인보다 이전이면 에러(역전 날짜)를 반환한다", () => {
-    const errors = validateHotelDates({ checkIn: TOMORROW, checkOut: TODAY }, TODAY);
+    const errors = validateHotelDates(
+      { checkIn: TOMORROW, checkOut: TODAY },
+      TODAY,
+    );
     expect(errors.checkOut).toBe("체크아웃 날짜는 체크인 이후여야 합니다.");
   });
 
   it("체크아웃이 체크인과 같으면 에러를 반환한다(숙박일 0박 금지, 경계값)", () => {
-    const errors = validateHotelDates({ checkIn: TOMORROW, checkOut: TOMORROW }, TODAY);
+    const errors = validateHotelDates(
+      { checkIn: TOMORROW, checkOut: TOMORROW },
+      TODAY,
+    );
     expect(errors.checkOut).toBe("체크아웃 날짜는 체크인 이후여야 합니다.");
   });
 
   it("체크아웃이 체크인 다음날이면 통과한다", () => {
-    const errors = validateHotelDates({ checkIn: TOMORROW, checkOut: "2026-09-21" }, TODAY);
+    const errors = validateHotelDates(
+      { checkIn: TOMORROW, checkOut: "2026-09-21" },
+      TODAY,
+    );
     expect(errors).toEqual({});
   });
 });

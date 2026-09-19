@@ -61,7 +61,10 @@ export async function createMate(formData: FormData): Promise<void> {
   if (error) throw error;
 }
 
-export async function updateMate(mateId: string, formData: FormData): Promise<void> {
+export async function updateMate(
+  mateId: string,
+  formData: FormData,
+): Promise<void> {
   const supabase = await createClient();
 
   const title = requireTrimmed(formData.get("title"), "제목", 100);

@@ -11,7 +11,8 @@ import { handleTabListKeyDown } from "@/hooks/useTabListKeyboard";
 
 export function PolicyPages() {
   const [activeId, setActiveId] = useState(policies[0].id);
-  const active = policies.find((policy) => policy.id === activeId) ?? policies[0];
+  const active =
+    policies.find((policy) => policy.id === activeId) ?? policies[0];
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const activeIndex = policies.findIndex((policy) => policy.id === activeId);
 
@@ -58,7 +59,9 @@ export function PolicyPages() {
         className="mt-md rounded-md border border-border-hairline bg-bg-soft p-md"
       >
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-text-primary">{active.title}</h2>
+          <h2 className="text-lg font-semibold text-text-primary">
+            {active.title}
+          </h2>
           <span className="text-xs text-text-secondary">
             v{active.version} · {active.effectiveDate} 시행
           </span>
@@ -67,7 +70,9 @@ export function PolicyPages() {
         <div className="mt-sm flex flex-col gap-md">
           {active.sections.map((section) => (
             <div key={section.heading}>
-              <h3 className="text-sm font-semibold text-text-primary">{section.heading}</h3>
+              <h3 className="text-sm font-semibold text-text-primary">
+                {section.heading}
+              </h3>
               <ul className="mt-xs flex flex-col gap-xs">
                 {section.body.map((line) => (
                   <li key={line} className="text-sm text-text-secondary">

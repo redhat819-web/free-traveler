@@ -16,7 +16,10 @@ export function isMateClosed(mate: MateLike, todayIso: string): boolean {
   return mate.status === "closed" || mate.end_date < todayIso;
 }
 
-export function effectiveMateStatus(mate: MateLike, todayIso: string): MateStatus {
+export function effectiveMateStatus(
+  mate: MateLike,
+  todayIso: string,
+): MateStatus {
   return isMateClosed(mate, todayIso) ? "closed" : "open";
 }
 
@@ -37,7 +40,10 @@ export function hasActiveApplication(
   );
 }
 
-const VALID_TRANSITIONS: Record<MateApplicationStatus, MateApplicationStatus[]> = {
+const VALID_TRANSITIONS: Record<
+  MateApplicationStatus,
+  MateApplicationStatus[]
+> = {
   pending: ["accepted", "rejected"],
   accepted: [],
   rejected: [],

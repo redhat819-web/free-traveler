@@ -81,20 +81,27 @@ export default function AccountPage() {
     return () => unsubscribe?.();
   }, []);
 
-  const role: Role = !userId ? "guest" : profile?.role === "admin" ? "admin" : "member";
+  const role: Role = !userId
+    ? "guest"
+    : profile?.role === "admin"
+      ? "admin"
+      : "member";
 
   const ROLE_INTRO: Record<Role, { title: string; description: string }> = {
     guest: {
       title: "계정이 필요하신가요?",
-      description: "로그인하면 동행 모집글 작성, 참가 요청, 신고·차단 기능을 이용할 수 있습니다.",
+      description:
+        "로그인하면 동행 모집글 작성, 참가 요청, 신고·차단 기능을 이용할 수 있습니다.",
     },
     member: {
       title: `${profile?.nickname ?? "회원"}님, 환영합니다`,
-      description: "프로필과 내 활동을 관리하고, 안전 정책을 다시 확인할 수 있습니다.",
+      description:
+        "프로필과 내 활동을 관리하고, 안전 정책을 다시 확인할 수 있습니다.",
     },
     admin: {
       title: `${profile?.nickname ?? "관리자"}님, 관리자로 로그인했습니다`,
-      description: "신고 처리와 외부 URL 허용목록을 이곳에서 관리할 수 있습니다.",
+      description:
+        "신고 처리와 외부 URL 허용목록을 이곳에서 관리할 수 있습니다.",
     },
   };
 
@@ -106,7 +113,9 @@ export default function AccountPage() {
             {loading ? "계정" : ROLE_INTRO[role].title}
           </h1>
           {!loading && (
-            <p className="mt-xs text-sm text-text-secondary">{ROLE_INTRO[role].description}</p>
+            <p className="mt-xs text-sm text-text-secondary">
+              {ROLE_INTRO[role].description}
+            </p>
           )}
         </div>
       </section>
@@ -136,7 +145,9 @@ export default function AccountPage() {
             {userId && (
               <div className="grid grid-cols-1 gap-lg lg:grid-cols-2">
                 <div className="rounded-md border border-border-hairline bg-bg-soft p-lg">
-                  <h2 className="text-lg font-semibold text-text-primary">프로필</h2>
+                  <h2 className="text-lg font-semibold text-text-primary">
+                    프로필
+                  </h2>
                   <div className="mt-sm">
                     <ProfileForm userId={userId} />
                   </div>
@@ -150,7 +161,9 @@ export default function AccountPage() {
 
             {role === "admin" && (
               <div className="rounded-md border border-border-hairline bg-bg-soft p-lg">
-                <h2 className="text-lg font-semibold text-text-primary">관리자</h2>
+                <h2 className="text-lg font-semibold text-text-primary">
+                  관리자
+                </h2>
                 <div className="mt-sm">
                   <AdminPanel />
                 </div>

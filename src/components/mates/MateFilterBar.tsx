@@ -35,7 +35,14 @@ const GENDERS: { value: Gender; label: string }[] = [
   { value: "prefer_not_to_say", label: "선택 안 함" },
 ];
 
-const STYLES = ["힐링", "액티비티", "맛집 탐방", "사진 촬영", "쇼핑", "배낭여행"];
+const STYLES = [
+  "힐링",
+  "액티비티",
+  "맛집 탐방",
+  "사진 촬영",
+  "쇼핑",
+  "배낭여행",
+];
 
 export interface MateFilterState {
   country: string;
@@ -60,7 +67,9 @@ export const DEFAULT_MATE_FILTER: MateFilterState = {
 };
 
 function toggle<T>(list: T[], value: T): T[] {
-  return list.includes(value) ? list.filter((item) => item !== value) : [...list, value];
+  return list.includes(value)
+    ? list.filter((item) => item !== value)
+    : [...list, value];
 }
 
 interface MateFilterBarProps {
@@ -68,7 +77,10 @@ interface MateFilterBarProps {
   onFilterChange: (filters: MateFilterState) => void;
 }
 
-export function MateFilterBar({ resultCount, onFilterChange }: MateFilterBarProps) {
+export function MateFilterBar({
+  resultCount,
+  onFilterChange,
+}: MateFilterBarProps) {
   const [filters, setFilters] = useState<MateFilterState>(DEFAULT_MATE_FILTER);
 
   const update = (next: MateFilterState) => {
@@ -76,10 +88,15 @@ export function MateFilterBar({ resultCount, onFilterChange }: MateFilterBarProp
     onFilterChange(next);
   };
 
-  const regions = filters.country ? (COUNTRY_REGIONS[filters.country] ?? []) : [];
+  const regions = filters.country
+    ? (COUNTRY_REGIONS[filters.country] ?? [])
+    : [];
 
   return (
-    <section className="bg-bg-canvas px-gutter py-md" aria-label="동행 검색 필터">
+    <section
+      className="bg-bg-canvas px-gutter py-md"
+      aria-label="동행 검색 필터"
+    >
       <div className="mx-auto max-w-container-max">
         <div className="grid grid-cols-1 gap-sm sm:grid-cols-2 lg:grid-cols-4">
           <label className="flex flex-col gap-xs text-sm text-text-secondary">
@@ -87,7 +104,9 @@ export function MateFilterBar({ resultCount, onFilterChange }: MateFilterBarProp
             <select
               className="min-h-[44px] rounded-sm border border-border-hairline bg-bg-canvas px-sm text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
               value={filters.country}
-              onChange={(e) => update({ ...filters, country: e.target.value, region: "" })}
+              onChange={(e) =>
+                update({ ...filters, country: e.target.value, region: "" })
+              }
             >
               <option value="">전체</option>
               {Object.keys(COUNTRY_REGIONS)
@@ -123,7 +142,9 @@ export function MateFilterBar({ resultCount, onFilterChange }: MateFilterBarProp
               type="date"
               className="min-h-[44px] rounded-sm border border-border-hairline bg-bg-canvas px-sm text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
               value={filters.startDate}
-              onChange={(e) => update({ ...filters, startDate: e.target.value })}
+              onChange={(e) =>
+                update({ ...filters, startDate: e.target.value })
+              }
             />
           </label>
 
@@ -139,7 +160,9 @@ export function MateFilterBar({ resultCount, onFilterChange }: MateFilterBarProp
         </div>
 
         <div className="mt-sm flex flex-col gap-xs">
-          <span className="text-xs font-semibold text-text-secondary">연령대</span>
+          <span className="text-xs font-semibold text-text-secondary">
+            연령대
+          </span>
           <div className="flex flex-wrap gap-xs">
             {AGE_GROUPS.map((item) => (
               <button
@@ -151,7 +174,12 @@ export function MateFilterBar({ resultCount, onFilterChange }: MateFilterBarProp
                     ? "bg-accent-coral-soft text-text-primary"
                     : "bg-bg-strong text-text-secondary"
                 }`}
-                onClick={() => update({ ...filters, ageGroups: toggle(filters.ageGroups, item.value) })}
+                onClick={() =>
+                  update({
+                    ...filters,
+                    ageGroups: toggle(filters.ageGroups, item.value),
+                  })
+                }
               >
                 {item.label}
               </button>
@@ -160,7 +188,9 @@ export function MateFilterBar({ resultCount, onFilterChange }: MateFilterBarProp
         </div>
 
         <div className="mt-sm flex flex-col gap-xs">
-          <span className="text-xs font-semibold text-text-secondary">성별</span>
+          <span className="text-xs font-semibold text-text-secondary">
+            성별
+          </span>
           <div className="flex flex-wrap gap-xs">
             {GENDERS.map((item) => (
               <button
@@ -172,7 +202,12 @@ export function MateFilterBar({ resultCount, onFilterChange }: MateFilterBarProp
                     ? "bg-accent-coral-soft text-text-primary"
                     : "bg-bg-strong text-text-secondary"
                 }`}
-                onClick={() => update({ ...filters, genders: toggle(filters.genders, item.value) })}
+                onClick={() =>
+                  update({
+                    ...filters,
+                    genders: toggle(filters.genders, item.value),
+                  })
+                }
               >
                 {item.label}
               </button>
@@ -181,7 +216,9 @@ export function MateFilterBar({ resultCount, onFilterChange }: MateFilterBarProp
         </div>
 
         <div className="mt-sm flex flex-col gap-xs">
-          <span className="text-xs font-semibold text-text-secondary">여행 스타일</span>
+          <span className="text-xs font-semibold text-text-secondary">
+            여행 스타일
+          </span>
           <div className="flex flex-wrap gap-xs">
             {STYLES.map((style) => (
               <button
@@ -193,7 +230,9 @@ export function MateFilterBar({ resultCount, onFilterChange }: MateFilterBarProp
                     ? "bg-accent-coral-soft text-text-primary"
                     : "bg-bg-strong text-text-secondary"
                 }`}
-                onClick={() => update({ ...filters, styles: toggle(filters.styles, style) })}
+                onClick={() =>
+                  update({ ...filters, styles: toggle(filters.styles, style) })
+                }
               >
                 {style}
               </button>
@@ -202,7 +241,9 @@ export function MateFilterBar({ resultCount, onFilterChange }: MateFilterBarProp
         </div>
 
         <div className="mt-sm flex flex-col gap-xs">
-          <span className="text-xs font-semibold text-text-secondary">모집 상태</span>
+          <span className="text-xs font-semibold text-text-secondary">
+            모집 상태
+          </span>
           <div className="flex flex-wrap gap-xs">
             {(
               [
@@ -228,7 +269,10 @@ export function MateFilterBar({ resultCount, onFilterChange }: MateFilterBarProp
           </div>
         </div>
 
-        <p className="mt-sm text-sm font-semibold text-text-primary" role="status">
+        <p
+          className="mt-sm text-sm font-semibold text-text-primary"
+          role="status"
+        >
           조건에 맞는 모집글 {resultCount}건
         </p>
       </div>

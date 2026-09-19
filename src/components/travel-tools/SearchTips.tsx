@@ -15,7 +15,8 @@ const TIPS = [
   },
   {
     title: "왕복/편도를 각각 검색해보세요",
-    description: "항공편은 왕복 대신 편도 두 번을 조합하면 더 저렴할 때가 있습니다.",
+    description:
+      "항공편은 왕복 대신 편도 두 번을 조합하면 더 저렴할 때가 있습니다.",
   },
 ];
 
@@ -24,8 +25,8 @@ export function SearchTips() {
     <section className="bg-bg-canvas px-gutter py-lg">
       <div className="mx-auto max-w-container-max">
         <p className="rounded-md border border-border-hairline bg-bg-soft p-md text-sm text-text-secondary">
-          입력한 국가·지역·날짜는 서버나 외부 사이트로 전달되지 않으며, 이 화면을 벗어나면
-          사라집니다.
+          입력한 국가·지역·날짜는 서버나 외부 사이트로 전달되지 않으며, 이
+          화면을 벗어나면 사라집니다.
         </p>
 
         <div className="mt-md grid grid-cols-1 gap-md sm:grid-cols-3">
@@ -34,8 +35,12 @@ export function SearchTips() {
               key={tip.title}
               className="rounded-md border border-border-hairline bg-bg-soft p-md"
             >
-              <h3 className="text-sm font-semibold text-text-primary">{tip.title}</h3>
-              <p className="mt-xs text-xs text-text-secondary">{tip.description}</p>
+              <h3 className="text-sm font-semibold text-text-primary">
+                {tip.title}
+              </h3>
+              <p className="mt-xs text-xs text-text-secondary">
+                {tip.description}
+              </p>
             </div>
           ))}
         </div>

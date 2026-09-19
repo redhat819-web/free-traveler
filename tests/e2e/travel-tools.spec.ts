@@ -29,7 +29,9 @@ test.describe("E2E-TRAVEL-TOOLS", () => {
     await expect(regionSelect).toHaveValue("오사카");
   });
 
-  test("항공 조건 입력 → 검증 오류 → 요약 → 외부 이동 버튼 속성 확인", async ({ page }) => {
+  test("항공 조건 입력 → 검증 오류 → 요약 → 외부 이동 버튼 속성 확인", async ({
+    page,
+  }) => {
     await page.goto("/travel-tools");
     await page.getByRole("tab", { name: "항공편" }).click();
 
@@ -40,8 +42,12 @@ test.describe("E2E-TRAVEL-TOOLS", () => {
     await flightForm.locator("select").nth(0).selectOption("일본");
     await flightForm.locator("select").nth(1).selectOption("오사카");
     const today = new Date();
-    const departure = new Date(today.getTime() + 86400000).toISOString().slice(0, 10);
-    const returnDate = new Date(today.getTime() + 2 * 86400000).toISOString().slice(0, 10);
+    const departure = new Date(today.getTime() + 86400000)
+      .toISOString()
+      .slice(0, 10);
+    const returnDate = new Date(today.getTime() + 2 * 86400000)
+      .toISOString()
+      .slice(0, 10);
     await flightForm.getByLabel("출발일").fill(departure);
     await flightForm.getByLabel("귀국일").fill(returnDate);
     await flightForm.getByRole("button", { name: "조건 요약 보기" }).click();
@@ -55,7 +61,9 @@ test.describe("E2E-TRAVEL-TOOLS", () => {
     await expect(outboundLink).toHaveAttribute("rel", /noreferrer/);
   });
 
-  test("숙소 조건 입력 → 검증 오류 → 요약 → 외부 이동 버튼 속성 확인", async ({ page }) => {
+  test("숙소 조건 입력 → 검증 오류 → 요약 → 외부 이동 버튼 속성 확인", async ({
+    page,
+  }) => {
     await page.goto("/travel-tools");
     await page.getByRole("tab", { name: "숙소" }).click();
 
@@ -66,8 +74,12 @@ test.describe("E2E-TRAVEL-TOOLS", () => {
     await hotelForm.locator("select").nth(0).selectOption("일본");
     await hotelForm.locator("select").nth(1).selectOption("오사카");
     const today = new Date();
-    const checkIn = new Date(today.getTime() + 86400000).toISOString().slice(0, 10);
-    const checkOut = new Date(today.getTime() + 2 * 86400000).toISOString().slice(0, 10);
+    const checkIn = new Date(today.getTime() + 86400000)
+      .toISOString()
+      .slice(0, 10);
+    const checkOut = new Date(today.getTime() + 2 * 86400000)
+      .toISOString()
+      .slice(0, 10);
     await hotelForm.getByLabel("체크인").fill(checkIn);
     await hotelForm.getByLabel("체크아웃").fill(checkOut);
     await hotelForm.getByRole("button", { name: "조건 요약 보기" }).click();

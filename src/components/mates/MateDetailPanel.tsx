@@ -16,7 +16,9 @@ const DESKTOP_MEDIA_QUERY = "(min-width: 1024px)";
 /** Desktop(2단 레이아웃)에서는 이 패널이 Modal이 아니므로, Mobile 바텀시트일 때만 Dialog 취급한다. */
 function useIsMobileViewport(): boolean {
   const [isDesktop, setIsDesktop] = useState(() =>
-    typeof window === "undefined" ? true : window.matchMedia(DESKTOP_MEDIA_QUERY).matches,
+    typeof window === "undefined"
+      ? true
+      : window.matchMedia(DESKTOP_MEDIA_QUERY).matches,
   );
 
   useEffect(() => {
@@ -75,7 +77,9 @@ export function MateDetailPanel({
           >
             {closed ? "CLOSED" : "모집중"}
           </span>
-          <h2 className="mt-xs text-lg font-semibold text-text-primary">{mate.title}</h2>
+          <h2 className="mt-xs text-lg font-semibold text-text-primary">
+            {mate.title}
+          </h2>
           <p className="mt-xs text-sm text-text-secondary">
             작성자: {authorNickname ?? "알 수 없음"}
           </p>
@@ -107,7 +111,9 @@ export function MateDetailPanel({
         </div>
         <div>
           <dt className="text-text-secondary">모집 인원</dt>
-          <dd className="mt-xs font-semibold text-text-primary">{mate.capacity}명</dd>
+          <dd className="mt-xs font-semibold text-text-primary">
+            {mate.capacity}명
+          </dd>
         </div>
       </dl>
 
@@ -124,7 +130,10 @@ export function MateDetailPanel({
 
   const panel = (
     <>
-      <div className="fixed inset-0 z-50 bg-black/40 lg:hidden" onClick={onClose} />
+      <div
+        className="fixed inset-0 z-50 bg-black/40 lg:hidden"
+        onClick={onClose}
+      />
       <div
         ref={dialogRef}
         role={isMobileModal ? "dialog" : undefined}

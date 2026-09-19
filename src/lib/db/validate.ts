@@ -16,7 +16,9 @@ export function requireTrimmed(
     throw new ValidationError(`${field}은(는) 필수입니다.`);
   }
   if (text.length > maxLength) {
-    throw new ValidationError(`${field}은(는) ${maxLength}자를 넘을 수 없습니다.`);
+    throw new ValidationError(
+      `${field}은(는) ${maxLength}자를 넘을 수 없습니다.`,
+    );
   }
   return sanitizeText(text);
 }
@@ -37,7 +39,10 @@ function sanitizeText(text: string): string {
   return text.replace(/[<>]/g, "");
 }
 
-export function requireHttpsUrl(value: FormDataEntryValue | null, field: string): string {
+export function requireHttpsUrl(
+  value: FormDataEntryValue | null,
+  field: string,
+): string {
   const text = typeof value === "string" ? value.trim() : "";
   if (!text.startsWith("https://")) {
     throw new ValidationError(`${field}은(는) https:// URL이어야 합니다.`);

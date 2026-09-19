@@ -28,7 +28,14 @@ function todayIso(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
-const TRAVEL_STYLES = ["동행 위주", "자유여행", "맛집 탐방", "액티비티", "사진 촬영", "힐링"];
+const TRAVEL_STYLES = [
+  "동행 위주",
+  "자유여행",
+  "맛집 탐방",
+  "액티비티",
+  "사진 촬영",
+  "힐링",
+];
 
 interface FormState {
   title: string;
@@ -132,11 +139,17 @@ export function MateComposeForm() {
         if (form.startDate && form.endDate && form.endDate < form.startDate) {
           nextErrors.endDate = "종료일은 시작일 이후여야 합니다.";
         }
-        if (Number(form.capacity) < 2) nextErrors.capacity = "모집 인원은 2명 이상이어야 합니다.";
-        if (!form.description.trim()) nextErrors.description = "소개를 입력하세요.";
-        if (!form.agreed) nextErrors.agreed = "안전수칙에 동의해야 작성할 수 있습니다.";
+        if (Number(form.capacity) < 2)
+          nextErrors.capacity = "모집 인원은 2명 이상이어야 합니다.";
+        if (!form.description.trim())
+          nextErrors.description = "소개를 입력하세요.";
+        if (!form.agreed)
+          nextErrors.agreed = "안전수칙에 동의해야 작성할 수 있습니다.";
 
-        if (containsContactInfo(form.title) || containsContactInfo(form.description)) {
+        if (
+          containsContactInfo(form.title) ||
+          containsContactInfo(form.description)
+        ) {
           nextErrors.description =
             "전화번호·이메일·메신저 ID로 보이는 내용은 등록할 수 없습니다. 연락 방법은 참가 승인 후 안전하게 나눌 수 있습니다.";
         }
@@ -164,7 +177,9 @@ export function MateComposeForm() {
           showToast("동행 모집글이 등록되었습니다.", "success");
         } catch (error) {
           showToast(
-            error instanceof Error ? error.message : "모집글 등록에 실패했습니다.",
+            error instanceof Error
+              ? error.message
+              : "모집글 등록에 실패했습니다.",
             "danger",
           );
         } finally {
@@ -187,7 +202,11 @@ export function MateComposeForm() {
           onChange={(event) => setForm({ ...form, title: event.target.value })}
           className="rounded-sm border border-border-hairline bg-bg-soft px-sm py-xs text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
         />
-        {errors.title && <span className="text-xs text-semantic-danger" role="alert">{errors.title}</span>}
+        {errors.title && (
+          <span className="text-xs text-semantic-danger" role="alert">
+            {errors.title}
+          </span>
+        )}
       </label>
 
       <div className="grid grid-cols-1 gap-md sm:grid-cols-2">
@@ -197,11 +216,15 @@ export function MateComposeForm() {
             type="text"
             value={form.country}
             maxLength={50}
-            onChange={(event) => setForm({ ...form, country: event.target.value })}
+            onChange={(event) =>
+              setForm({ ...form, country: event.target.value })
+            }
             className="rounded-sm border border-border-hairline bg-bg-soft px-sm py-xs text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
           />
           {errors.country && (
-            <span className="text-xs text-semantic-danger" role="alert">{errors.country}</span>
+            <span className="text-xs text-semantic-danger" role="alert">
+              {errors.country}
+            </span>
           )}
         </label>
 
@@ -211,10 +234,16 @@ export function MateComposeForm() {
             type="text"
             value={form.region}
             maxLength={50}
-            onChange={(event) => setForm({ ...form, region: event.target.value })}
+            onChange={(event) =>
+              setForm({ ...form, region: event.target.value })
+            }
             className="rounded-sm border border-border-hairline bg-bg-soft px-sm py-xs text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
           />
-          {errors.region && <span className="text-xs text-semantic-danger" role="alert">{errors.region}</span>}
+          {errors.region && (
+            <span className="text-xs text-semantic-danger" role="alert">
+              {errors.region}
+            </span>
+          )}
         </label>
 
         <label className="flex flex-col gap-xs text-sm text-text-secondary">
@@ -223,11 +252,15 @@ export function MateComposeForm() {
             type="date"
             value={form.startDate}
             min={todayIso()}
-            onChange={(event) => setForm({ ...form, startDate: event.target.value })}
+            onChange={(event) =>
+              setForm({ ...form, startDate: event.target.value })
+            }
             className="rounded-sm border border-border-hairline bg-bg-soft px-sm py-xs text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
           />
           {errors.startDate && (
-            <span className="text-xs text-semantic-danger" role="alert">{errors.startDate}</span>
+            <span className="text-xs text-semantic-danger" role="alert">
+              {errors.startDate}
+            </span>
           )}
         </label>
 
@@ -237,11 +270,15 @@ export function MateComposeForm() {
             type="date"
             value={form.endDate}
             min={form.startDate || todayIso()}
-            onChange={(event) => setForm({ ...form, endDate: event.target.value })}
+            onChange={(event) =>
+              setForm({ ...form, endDate: event.target.value })
+            }
             className="rounded-sm border border-border-hairline bg-bg-soft px-sm py-xs text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
           />
           {errors.endDate && (
-            <span className="text-xs text-semantic-danger" role="alert">{errors.endDate}</span>
+            <span className="text-xs text-semantic-danger" role="alert">
+              {errors.endDate}
+            </span>
           )}
         </label>
 
@@ -252,11 +289,15 @@ export function MateComposeForm() {
             min={2}
             max={20}
             value={form.capacity}
-            onChange={(event) => setForm({ ...form, capacity: event.target.value })}
+            onChange={(event) =>
+              setForm({ ...form, capacity: event.target.value })
+            }
             className="rounded-sm border border-border-hairline bg-bg-soft px-sm py-xs text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
           />
           {errors.capacity && (
-            <span className="text-xs text-semantic-danger" role="alert">{errors.capacity}</span>
+            <span className="text-xs text-semantic-danger" role="alert">
+              {errors.capacity}
+            </span>
           )}
         </label>
       </div>
@@ -288,11 +329,15 @@ export function MateComposeForm() {
           value={form.description}
           maxLength={1000}
           rows={4}
-          onChange={(event) => setForm({ ...form, description: event.target.value })}
+          onChange={(event) =>
+            setForm({ ...form, description: event.target.value })
+          }
           className="rounded-sm border border-border-hairline bg-bg-soft px-sm py-xs text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
         />
         {errors.description && (
-          <span className="text-xs text-semantic-danger" role="alert">{errors.description}</span>
+          <span className="text-xs text-semantic-danger" role="alert">
+            {errors.description}
+          </span>
         )}
       </label>
 
@@ -300,15 +345,21 @@ export function MateComposeForm() {
         <input
           type="checkbox"
           checked={form.agreed}
-          onChange={(event) => setForm({ ...form, agreed: event.target.checked })}
+          onChange={(event) =>
+            setForm({ ...form, agreed: event.target.checked })
+          }
           className="mt-xs"
         />
         <span>
-          전화번호·SNS 등 개인 연락처를 게시글에 직접 남기지 않으며, 동행 시 안전수칙을
-          준수하는 데 동의합니다.
+          전화번호·SNS 등 개인 연락처를 게시글에 직접 남기지 않으며, 동행 시
+          안전수칙을 준수하는 데 동의합니다.
         </span>
       </label>
-      {errors.agreed && <span className="text-xs text-semantic-danger" role="alert">{errors.agreed}</span>}
+      {errors.agreed && (
+        <span className="text-xs text-semantic-danger" role="alert">
+          {errors.agreed}
+        </span>
+      )}
 
       <button
         type="submit"

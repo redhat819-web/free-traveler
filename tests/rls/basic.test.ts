@@ -22,117 +22,128 @@ function anonClient() {
   return createClient(SUPABASE_URL!, SUPABASE_ANON_KEY!);
 }
 
-describe.skipIf(!hasSupabaseEnv)("TEST-RLS-BASIC (anon = 비로그인 타인)", () => {
-  it("member_profiles: 비로그인 조회는 빈 결과를 반환한다(타인 프로필 비공개)", async () => {
-    const supabase = anonClient();
-    const { data, error } = await supabase.from("member_profiles").select("*");
-    expect(error).toBeNull();
-    expect(data).toEqual([]);
-  });
-
-  it("member_profiles: 비로그인 insert는 거부된다", async () => {
-    const supabase = anonClient();
-    const { error } = await supabase
-      .from("member_profiles")
-      .insert({ id: "00000000-0000-0000-0000-000000000000", nickname: "x", age_group: "20s" });
-    expect(error).not.toBeNull();
-  });
-
-  it("mates: 비로그인 조회는 허용된다(공개 목록)", async () => {
-    const supabase = anonClient();
-    const { data, error } = await supabase.from("mates").select("*").limit(1);
-    expect(error).toBeNull();
-    expect(Array.isArray(data)).toBe(true);
-  });
-
-  it("mates: 비로그인 insert는 거부된다(작성자만 작성 가능)", async () => {
-    const supabase = anonClient();
-    const { error } = await supabase.from("mates").insert({
-      author_id: "00000000-0000-0000-0000-000000000000",
-      title: "rls-test",
-      country: "x",
-      region: "x",
-      start_date: "2026-01-01",
-      end_date: "2026-01-02",
-      capacity: 2,
-      description: "x",
+describe.skipIf(!hasSupabaseEnv)(
+  "TEST-RLS-BASIC (anon = 비로그인 타인)",
+  () => {
+    it("member_profiles: 비로그인 조회는 빈 결과를 반환한다(타인 프로필 비공개)", async () => {
+      const supabase = anonClient();
+      const { data, error } = await supabase
+        .from("member_profiles")
+        .select("*");
+      expect(error).toBeNull();
+      expect(data).toEqual([]);
     });
-    expect(error).not.toBeNull();
-  });
 
-  it("mate_applications: 비로그인 조회는 빈 결과를 반환한다(본인/작성자 외 비공개)", async () => {
-    const supabase = anonClient();
-    const { data, error } = await supabase.from("mate_applications").select("*");
-    expect(error).toBeNull();
-    expect(data).toEqual([]);
-  });
-
-  it("mate_applications: 비로그인 insert는 거부된다(신청자 본인만 생성 가능)", async () => {
-    const supabase = anonClient();
-    const { error } = await supabase.from("mate_applications").insert({
-      mate_id: "00000000-0000-0000-0000-000000000000",
-      requester_id: "00000000-0000-0000-0000-000000000000",
+    it("member_profiles: 비로그인 insert는 거부된다", async () => {
+      const supabase = anonClient();
+      const { error } = await supabase.from("member_profiles").insert({
+        id: "00000000-0000-0000-0000-000000000000",
+        nickname: "x",
+        age_group: "20s",
+      });
+      expect(error).not.toBeNull();
     });
-    expect(error).not.toBeNull();
-  });
 
-  it("mate_blocks: 비로그인 조회는 빈 결과를 반환한다(본인 차단 목록만 공개)", async () => {
-    const supabase = anonClient();
-    const { data, error } = await supabase.from("mate_blocks").select("*");
-    expect(error).toBeNull();
-    expect(data).toEqual([]);
-  });
+    it("mates: 비로그인 조회는 허용된다(공개 목록)", async () => {
+      const supabase = anonClient();
+      const { data, error } = await supabase.from("mates").select("*").limit(1);
+      expect(error).toBeNull();
+      expect(Array.isArray(data)).toBe(true);
+    });
 
-  it("mate_reports: 비로그인 조회는 빈 결과를 반환한다(신고자/Admin만 공개)", async () => {
-    const supabase = anonClient();
-    const { data, error } = await supabase.from("mate_reports").select("*");
-    expect(error).toBeNull();
-    expect(data).toEqual([]);
-  });
+    it("mates: 비로그인 insert는 거부된다(작성자만 작성 가능)", async () => {
+      const supabase = anonClient();
+      const { error } = await supabase.from("mates").insert({
+        author_id: "00000000-0000-0000-0000-000000000000",
+        title: "rls-test",
+        country: "x",
+        region: "x",
+        start_date: "2026-01-01",
+        end_date: "2026-01-02",
+        capacity: 2,
+        description: "x",
+      });
+      expect(error).not.toBeNull();
+    });
 
-  it("mate_reports: 비로그인 상태 변경은 거부된다(Admin만 변경 가능)", async () => {
-    const supabase = anonClient();
-    const { error } = await supabase
-      .from("mate_reports")
-      .update({ status: "resolved" })
-      .eq("id", "00000000-0000-0000-0000-000000000000");
-    // RLS 정책 위반 시 Supabase는 매칭 행이 없는 것처럼 처리하거나(0건 반영) 명시적 에러를
-    // 반환할 수 있다 — 두 경우 모두 "상태 변경이 실제로 반영되지 않음"을 의미하므로,
-    // 에러가 없다면 반영 건수가 0건이어야 한다.
-    if (!error) {
-      const { data: check } = await supabase
+    it("mate_applications: 비로그인 조회는 빈 결과를 반환한다(본인/작성자 외 비공개)", async () => {
+      const supabase = anonClient();
+      const { data, error } = await supabase
+        .from("mate_applications")
+        .select("*");
+      expect(error).toBeNull();
+      expect(data).toEqual([]);
+    });
+
+    it("mate_applications: 비로그인 insert는 거부된다(신청자 본인만 생성 가능)", async () => {
+      const supabase = anonClient();
+      const { error } = await supabase.from("mate_applications").insert({
+        mate_id: "00000000-0000-0000-0000-000000000000",
+        requester_id: "00000000-0000-0000-0000-000000000000",
+      });
+      expect(error).not.toBeNull();
+    });
+
+    it("mate_blocks: 비로그인 조회는 빈 결과를 반환한다(본인 차단 목록만 공개)", async () => {
+      const supabase = anonClient();
+      const { data, error } = await supabase.from("mate_blocks").select("*");
+      expect(error).toBeNull();
+      expect(data).toEqual([]);
+    });
+
+    it("mate_reports: 비로그인 조회는 빈 결과를 반환한다(신고자/Admin만 공개)", async () => {
+      const supabase = anonClient();
+      const { data, error } = await supabase.from("mate_reports").select("*");
+      expect(error).toBeNull();
+      expect(data).toEqual([]);
+    });
+
+    it("mate_reports: 비로그인 상태 변경은 거부된다(Admin만 변경 가능)", async () => {
+      const supabase = anonClient();
+      const { error } = await supabase
         .from("mate_reports")
-        .select("status")
+        .update({ status: "resolved" })
         .eq("id", "00000000-0000-0000-0000-000000000000");
-      expect(check).toEqual([]);
-    } else {
-      expect(error).not.toBeNull();
-    }
-  });
+      // RLS 정책 위반 시 Supabase는 매칭 행이 없는 것처럼 처리하거나(0건 반영) 명시적 에러를
+      // 반환할 수 있다 — 두 경우 모두 "상태 변경이 실제로 반영되지 않음"을 의미하므로,
+      // 에러가 없다면 반영 건수가 0건이어야 한다.
+      if (!error) {
+        const { data: check } = await supabase
+          .from("mate_reports")
+          .select("status")
+          .eq("id", "00000000-0000-0000-0000-000000000000");
+        expect(check).toEqual([]);
+      } else {
+        expect(error).not.toBeNull();
+      }
+    });
 
-  it("outbound_url_settings: 비로그인 조회는 허용된다(공개 URL)", async () => {
-    const supabase = anonClient();
-    const { error } = await supabase.from("outbound_url_settings").select("*");
-    expect(error).toBeNull();
-  });
-
-  it("outbound_url_settings: 비로그인 수정은 거부된다(Admin만 수정 가능)", async () => {
-    const supabase = anonClient();
-    const { error } = await supabase
-      .from("outbound_url_settings")
-      .update({ url: "https://malicious.example.com" })
-      .eq("id", "flight");
-    if (!error) {
-      const { data: check } = await supabase
+    it("outbound_url_settings: 비로그인 조회는 허용된다(공개 URL)", async () => {
+      const supabase = anonClient();
+      const { error } = await supabase
         .from("outbound_url_settings")
-        .select("url")
+        .select("*");
+      expect(error).toBeNull();
+    });
+
+    it("outbound_url_settings: 비로그인 수정은 거부된다(Admin만 수정 가능)", async () => {
+      const supabase = anonClient();
+      const { error } = await supabase
+        .from("outbound_url_settings")
+        .update({ url: "https://malicious.example.com" })
         .eq("id", "flight");
-      expect(check?.[0]?.url).not.toBe("https://malicious.example.com");
-    } else {
-      expect(error).not.toBeNull();
-    }
-  });
-});
+      if (!error) {
+        const { data: check } = await supabase
+          .from("outbound_url_settings")
+          .select("url")
+          .eq("id", "flight");
+        expect(check?.[0]?.url).not.toBe("https://malicious.example.com");
+      } else {
+        expect(error).not.toBeNull();
+      }
+    });
+  },
+);
 
 describe.skipIf(!hasSupabaseEnv || !hasAuthEnv)(
   "TEST-RLS-BASIC (로그인 사용자 = 본인)",

@@ -215,8 +215,8 @@ export function AuthPanel() {
       )}
 
       <p className="mt-lg text-sm text-text-muted">
-        로그인하면 동행 모집글 작성·참가 요청·차단·신고 기능을 이용할 수 있습니다. 미인증
-        이메일 계정은 동행 글쓰기 권한이 없습니다.
+        로그인하면 동행 모집글 작성·참가 요청·차단·신고 기능을 이용할 수
+        있습니다. 미인증 이메일 계정은 동행 글쓰기 권한이 없습니다.
       </p>
     </div>
   );
@@ -236,7 +236,9 @@ function AuthCard({
   return (
     <div
       className={`rounded-md border p-lg ${
-        active ? "border-accent-coral bg-bg-canvas" : "hidden border-border-hairline bg-bg-soft"
+        active
+          ? "border-accent-coral bg-bg-canvas"
+          : "hidden border-border-hairline bg-bg-soft"
       }`}
     >
       <h3 className="text-base font-semibold text-text-primary">{title}</h3>
@@ -253,7 +255,12 @@ interface FormProps {
   showToast: (message: string, variant?: "success" | "danger" | "info") => void;
 }
 
-function LoginForm({ submitting, setSubmitting, setFormError, showToast }: FormProps) {
+function LoginForm({
+  submitting,
+  setSubmitting,
+  setFormError,
+  showToast,
+}: FormProps) {
   return (
     <form
       className="flex flex-col gap-sm"
@@ -271,20 +278,33 @@ function LoginForm({ submitting, setSubmitting, setFormError, showToast }: FormP
           if (error) throw error;
           showToast("로그인되었습니다.", "success");
         } catch (error) {
-          setFormError(error instanceof Error ? error.message : "로그인에 실패했습니다.");
+          setFormError(
+            error instanceof Error ? error.message : "로그인에 실패했습니다.",
+          );
         } finally {
           setSubmitting(false);
         }
       }}
     >
       <FieldInput name="email" type="email" label="이메일" required />
-      <FieldInput name="password" type="password" label="비밀번호" required minLength={8} />
+      <FieldInput
+        name="password"
+        type="password"
+        label="비밀번호"
+        required
+        minLength={8}
+      />
       <SubmitButton submitting={submitting} label="로그인" />
     </form>
   );
 }
 
-function SignupForm({ submitting, setSubmitting, setFormError, showToast }: FormProps) {
+function SignupForm({
+  submitting,
+  setSubmitting,
+  setFormError,
+  showToast,
+}: FormProps) {
   return (
     <form
       className="flex flex-col gap-sm"
@@ -303,23 +323,39 @@ function SignupForm({ submitting, setSubmitting, setFormError, showToast }: Form
             },
           });
           if (error) throw error;
-          showToast("확인 메일을 보냈습니다. 메일함을 확인해주세요.", "success");
+          showToast(
+            "확인 메일을 보냈습니다. 메일함을 확인해주세요.",
+            "success",
+          );
           event.currentTarget.reset();
         } catch (error) {
-          setFormError(error instanceof Error ? error.message : "가입에 실패했습니다.");
+          setFormError(
+            error instanceof Error ? error.message : "가입에 실패했습니다.",
+          );
         } finally {
           setSubmitting(false);
         }
       }}
     >
       <FieldInput name="email" type="email" label="이메일" required />
-      <FieldInput name="password" type="password" label="비밀번호" required minLength={8} />
+      <FieldInput
+        name="password"
+        type="password"
+        label="비밀번호"
+        required
+        minLength={8}
+      />
       <SubmitButton submitting={submitting} label="가입하기" />
     </form>
   );
 }
 
-function ResetForm({ submitting, setSubmitting, setFormError, showToast }: FormProps) {
+function ResetForm({
+  submitting,
+  setSubmitting,
+  setFormError,
+  showToast,
+}: FormProps) {
   return (
     <form
       className="flex flex-col gap-sm"
@@ -332,13 +368,19 @@ function ResetForm({ submitting, setSubmitting, setFormError, showToast }: FormP
           const supabase = createClient();
           const { error } = await supabase.auth.resetPasswordForEmail(
             String(formData.get("email") ?? ""),
-            { redirectTo: `${window.location.origin}/auth/callback?next=/account` },
+            {
+              redirectTo: `${window.location.origin}/auth/callback?next=/account`,
+            },
           );
           if (error) throw error;
           showToast("재설정 링크를 이메일로 보냈습니다.", "success");
           event.currentTarget.reset();
         } catch (error) {
-          setFormError(error instanceof Error ? error.message : "재설정 요청에 실패했습니다.");
+          setFormError(
+            error instanceof Error
+              ? error.message
+              : "재설정 요청에 실패했습니다.",
+          );
         } finally {
           setSubmitting(false);
         }
@@ -367,10 +409,12 @@ function MemberEntry({
   if (!profile) {
     return (
       <div className="max-w-[28rem] rounded-md border border-border-hairline bg-bg-soft p-lg">
-        <h3 className="text-base font-semibold text-text-primary">프로필 완성하기</h3>
+        <h3 className="text-base font-semibold text-text-primary">
+          프로필 완성하기
+        </h3>
         <p className="mt-xs text-sm text-text-secondary">
-          동행 기능을 사용하려면 닉네임과 연령대를 등록하고 성인 여부를 확인해야 합니다.
-          정확한 생년월일은 저장하지 않습니다.
+          동행 기능을 사용하려면 닉네임과 연령대를 등록하고 성인 여부를 확인해야
+          합니다. 정확한 생년월일은 저장하지 않습니다.
         </p>
         <form
           className="mt-md flex flex-col gap-sm"
@@ -398,13 +442,23 @@ function MemberEntry({
               showToast("프로필이 등록되었습니다.", "success");
               await onProfileCreated();
             } catch (error) {
-              setFormError(error instanceof Error ? error.message : "프로필 등록에 실패했습니다.");
+              setFormError(
+                error instanceof Error
+                  ? error.message
+                  : "프로필 등록에 실패했습니다.",
+              );
             } finally {
               setSubmitting(false);
             }
           }}
         >
-          <FieldInput name="nickname" type="text" label="닉네임" required maxLength={30} />
+          <FieldInput
+            name="nickname"
+            type="text"
+            label="닉네임"
+            required
+            maxLength={30}
+          />
           <label className="flex flex-col gap-xs text-sm text-text-secondary">
             연령대
             <select
@@ -421,8 +475,8 @@ function MemberEntry({
             </select>
           </label>
           <label className="flex items-start gap-sm text-sm text-text-secondary">
-            <input type="checkbox" name="is_adult" className="mt-xs" />
-            만 19세 이상 성인임을 확인합니다.
+            <input type="checkbox" name="is_adult" className="mt-xs" />만 19세
+            이상 성인임을 확인합니다.
           </label>
           {formError && (
             <p className="text-sm text-semantic-danger" role="alert">
@@ -437,7 +491,9 @@ function MemberEntry({
 
   return (
     <div className="max-w-[28rem] rounded-md border border-border-hairline bg-bg-soft p-lg">
-      <h3 className="text-base font-semibold text-text-primary">{profile.nickname}님</h3>
+      <h3 className="text-base font-semibold text-text-primary">
+        {profile.nickname}님
+      </h3>
       <p className="mt-xs text-sm text-text-secondary">
         성인 확인: {profile.is_adult ? "완료" : "미완료"}
       </p>
@@ -492,7 +548,11 @@ function MemberEntry({
 
               showToast("탈퇴 처리되었습니다.", "info");
             } catch (error) {
-              setFormError(error instanceof Error ? error.message : "탈퇴 처리에 실패했습니다.");
+              setFormError(
+                error instanceof Error
+                  ? error.message
+                  : "탈퇴 처리에 실패했습니다.",
+              );
             } finally {
               setSubmitting(false);
             }
@@ -535,7 +595,13 @@ function FieldInput({
   );
 }
 
-function SubmitButton({ submitting, label }: { submitting: boolean; label: string }) {
+function SubmitButton({
+  submitting,
+  label,
+}: {
+  submitting: boolean;
+  label: string;
+}) {
   return (
     <button
       type="submit"

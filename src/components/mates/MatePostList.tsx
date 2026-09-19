@@ -25,7 +25,11 @@ function overlaps(mate: Mate, filters: MateFilterState): boolean {
   return true;
 }
 
-function applyFilters(mates: Mate[], filters: MateFilterState, todayIso: string): Mate[] {
+function applyFilters(
+  mates: Mate[],
+  filters: MateFilterState,
+  todayIso: string,
+): Mate[] {
   return mates.filter((mate) => {
     if (filters.country && mate.country !== filters.country) return false;
     if (filters.region && mate.region !== filters.region) return false;
@@ -39,7 +43,12 @@ function applyFilters(mates: Mate[], filters: MateFilterState, todayIso: string)
   });
 }
 
-export function MatePostList({ mates, filters, onSelect, selectedId }: MatePostListProps) {
+export function MatePostList({
+  mates,
+  filters,
+  onSelect,
+  selectedId,
+}: MatePostListProps) {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const todayIso = useMemo(() => new Date().toISOString().slice(0, 10), []);
 
@@ -57,12 +66,12 @@ export function MatePostList({ mates, filters, onSelect, selectedId }: MatePostL
             조건에 맞는 모집글이 아직 없습니다.
           </p>
           <p className="mt-xs text-sm text-text-secondary">
-            검색 조건을 초기화하거나 나중에 다시 확인해보세요. 새 동행 글을 직접 작성할 수도
-            있습니다.
+            검색 조건을 초기화하거나 나중에 다시 확인해보세요. 새 동행 글을 직접
+            작성할 수도 있습니다.
           </p>
           <p className="mt-xs text-xs text-text-secondary">
-            참가 요청 방법: 1) 관심 있는 모집글을 선택 → 2) 참가 요청 메시지 작성 → 3) 작성자의
-            승인/거절 확인
+            참가 요청 방법: 1) 관심 있는 모집글을 선택 → 2) 참가 요청 메시지
+            작성 → 3) 작성자의 승인/거절 확인
           </p>
         </div>
       </section>
@@ -96,7 +105,9 @@ export function MatePostList({ mates, filters, onSelect, selectedId }: MatePostL
                   >
                     {closed ? "CLOSED" : "모집중"}
                   </span>
-                  <h3 className="mt-xs text-sm font-semibold text-text-primary">{mate.title}</h3>
+                  <h3 className="mt-xs text-sm font-semibold text-text-primary">
+                    {mate.title}
+                  </h3>
                   <p className="mt-xs text-xs text-text-secondary">
                     {mate.country} · {mate.region}
                   </p>
