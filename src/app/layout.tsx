@@ -2,15 +2,27 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ToastProvider } from "@/components/shared/Toast";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
 export const metadata: Metadata = {
-  title: "free_traveler",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "free_traveler",
+    template: "%s | free_traveler",
+  },
   description: "무료 여행 정보 서비스 free_traveler",
+  openGraph: {
+    siteName: "free_traveler",
+    type: "website",
+    locale: "ko_KR",
+  },
 };
 
 const NAV_ITEMS = [
@@ -151,11 +163,19 @@ function Footer() {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ko" className={`${geistMono.variable} h-full antialiased`}>
+    <html
+      lang="ko"
+      className={`${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
       <body className="flex min-h-full flex-col bg-bg-canvas text-text-primary">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <ToastProvider>
+          <div id="app-shell" className="flex min-h-full flex-col">
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+        </ToastProvider>
       </body>
     </html>
   );
