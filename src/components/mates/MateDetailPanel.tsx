@@ -5,8 +5,29 @@
  * 이메일·전화번호 등 연락처는 어떤 필드로도 표시하지 않는다(참가 요청 승인 후 별도 채널로만).
  */
 
+import { useEffect, useRef, useState } from "react";
 import { isMateClosed } from "@/lib/mate-state";
+import { useDialogA11y } from "@/hooks/useDialogA11y";
 import type { Mate } from "@/lib/db/types";
+
+const DESKTOP_MEDIA_QUERY = "(min-width: 1024px)";
+
+/** Desktop(2단 레이아웃)에서는 이 패널이 Modal이 아니므로, Mobile 바텀시트일 때만 Dialog 취급한다. */
+function useIsMobileViewport(): boolean {
+  const [isDesktop, setIsDesktop] = useState(() =>
+    typeof window === "undefined" ? true : window.matchMedia(DESKTOP_MEDIA_QUERY).matches,
+  );
+
+  useEffect(() => {
+    const mql = window.matchMedia(DESKTOP_MEDIA_QUERY);
+    const handleChange = () => setIsDesktop(mql.matches);
+    handleChange();
+    mql.addEventListener("change", handleChange);
+    return () => mql.removeEventListener("change", handleChange);
+  }, []);
+
+  return !isDesktop;
+}
 
 interface MateDetailPanelProps {
   mate: Mate | null;
@@ -23,6 +44,12 @@ export function MateDetailPanel({
   onClose,
   children,
 }: MateDetailPanelProps) {
+  const isMobile = useIsMobileViewport();
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const isMobileModal = isMobile && Boolean(mate);
+
+  useDialogA11y(isMobileModal, () => onClose?.(), dialogRef);
+
   if (!mate) {
     return (
       <div className="hidden rounded-md border border-border-hairline bg-bg-soft p-lg text-center text-sm text-text-secondary lg:block">
@@ -97,7 +124,15 @@ export function MateDetailPanel({
   return (
     <>
       <div className="fixed inset-0 z-50 bg-black/40 lg:hidden" onClick={onClose} />
-      <div className="fixed inset-x-0 bottom-0 z-50 lg:static lg:z-auto">{content}</div>
+      <div
+        ref={dialogRef}
+        role={isMobileModal ? "dialog" : undefined}
+        aria-modal={isMobileModal ? "true" : undefined}
+        aria-label={isMobileModal ? `${mate.title} 상세 정보` : undefined}
+        className="fixed inset-x-0 bottom-0 z-50 lg:static lg:z-auto"
+      >
+        {content}
+      </div>
     </>
   );
 }
