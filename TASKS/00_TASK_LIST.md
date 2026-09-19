@@ -452,3 +452,4 @@
 | 73 | GAP-E2E-MATE-COMPOSE-LOGIN-PROMPT | 비로그인 동행 작성 안내 커버리지 공백 | E2E_TEST | (없음) | E2E-PUBLIC-SMOKE, E2E-TRAVEL-TOOLS | [NOT_STARTED] /travel-tools 동행 탭 비로그인 안내 시나리오가 travel-tools.spec.ts에 없음 | P3 |
 | 74 | SEC-APPLICATION-TRANSITION | 참가 요청 상태 전이 서버 강제 누락 | SEC | (없음) | DB-ACCESS, CMP-SCR004-JOIN-REQUEST | [NOT_STARTED] PENDING→ACCEPTED/REJECTED만 허용하는 서버 측 검증이 없음(현재 무조건 update) | P2 |
 | 75 | SPEC-ROLE-MODEL-ALIGN | 권한 모델 문서/AC 정합화 | SPEC_ALIGNMENT | (없음) | DB-SCHEMA-BASE, TEST-RLS-BASIC | [NOT_STARTED] TEST-RLS-BASIC AC(3-role)와 schema.sql 제약(2-role) 불일치, ARCHITECTURE.md는 2-role이 정본 | P3 |
+| 76 | GAP-ACCOUNT-MY-SENT-APPLICATIONS | 내가 보낸 참가 요청이 /account에 표시되지 않음 | GAP | (없음) | CMP-SCR005-MY-ACTIVITY | [NOT_STARTED] MyActivity.tsx는 author_id 기준으로만 조회, 참가자가 보낸 신청을 모아보는 화면 없음, 범위 여부 확인 필요 | P3 |
